@@ -9,7 +9,7 @@ module.exports = app => {
     app.use("/essay", app.routes.essay);
 
     app.get("/", (req, res, next) => {
-        res.render("userdashboard");
+        res.render("register");
         //return loginController.handleRoute(req, res, next);
         //
     });

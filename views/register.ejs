@@ -139,7 +139,7 @@
                                     <input type="text" class="uk-input" name="representativeName">
                                     <input type="text" class="uk-input" name="representativeName">
                                     <br />
-                                    <button class="uk-button uk-button-primary">CONTINUAR</button>
+                                    <button class="uk-button uk-button-primary continue">CONTINUAR</button>
                                 </form>
                             </div>
                             <div class="child-container ">
@@ -149,7 +149,7 @@
                                     <p class="label">Teléfono de contacto del representante</p>
                                     <input type="email" class="uk-input" name="teamRepresentativeNumber" placeholder="10 digitos">
                                     <br />
-                                    <button class="uk-button uk-button-primary">CONTINUAR</button>
+                                    <button class="uk-button uk-button-primary continue">CONTINUAR</button>
                                 </form>
                                 
                             </div>
@@ -170,7 +170,7 @@
                                         </select>
                                     </div>
                                     <br />
-                                    <button class="uk-button uk-button-primary">CONTINUAR</button>
+                                    <button class="uk-button uk-button-primary continue">CONTINUAR</button>
                                 </form>
                             </div>
                             <div class="child-container">
@@ -180,7 +180,7 @@
                                     <p>Tu video debe durar máximo 1 min.</p>
                                     <p>Formatos aceptables <b>mov</b> y <b>mp4</b></p>
                                     <br />
-                                    <button class="uk-button uk-button-primary">CONTINUAR</button>
+                                    <button class="uk-button uk-button-primary continue">CONTINUAR</button>
                                 </form>
                             </div>
                             <div class="child-container">
@@ -194,9 +194,8 @@
                                         <label for="coding">Acepto los términos y condiciones</label>
                                     </div>
                                     <br />
-                                    <button class="uk-button uk-button-primary">CONFIRMAR REGISTRO</button>
+                                    <button class="uk-button uk-button-primary continue">CONFIRMAR REGISTRO</button>
                                 </form>
-                                
                             </div>
                             <div class="child-container ">
                                 <form>
@@ -289,5 +288,15 @@
     <script type="text/javascript" src="/js/main.js"></script>
     <!-- <script type="text/javascript" src="/js/slideshow.js"></script> -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/js/components/slideshow.js"></script>
+
+    <script type="text/javascript">
+        $(".child-container .continue").click(function(e){
+            e.preventDefault();
+            return false;
+            var self = $(this);
+            self.parent().parent().removeClass("active");
+            self.parent().parent().next().addClass("active");
+        })
+    </script>
 </body>
 </html>

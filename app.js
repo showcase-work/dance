@@ -23,10 +23,6 @@ if (process.env.NODE_ENV !== "test") {
     app.listen(appPort, () => {
         logger.info(`Server started on port ${appPort}`);
     });
-
-    require('dns').lookup(require('os').hostname(), function (err, add, fam) {
-      console.log('addr: '+add);
-    })
 }
 
 
