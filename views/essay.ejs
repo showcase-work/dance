@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Caltia | Essay Writing Competition</title>
+    <link rel="stylesheet" type="text/css" href="/uikit/css/uikit.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/muikit.css">
+</head>
+<body>
+    <div class="main">
+        <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+            <div class="uk-navbar-left">
+                <a class="uk-navbar-item uk-logo"><img src="/images/logo.png"/></a>
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href=""></a></li>
+                    <li class="uk-parent"><a href=""></a></li>
+                    <li><a href=""></a></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="#login" uk-toggle>Welcome <%=user.name%>,</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container essay">
+            <form id="essay-form">
+                <div class="essay-write-section">
+                <textarea class="uk-input"></textarea>
+                <button class="uk-button uk-button-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+        
+        
+        
+    </div>
+
+    <!-- This is the modal -->
+    <div id="login" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <h2 class="uk-modal-title">INCIAR SESION</h2>
+            <form id="loginForm" action="/student/login" method="POST" class="">
+                <div class="uk-fieldset uk-grid-small">                            
+                    
+                    <div class="uk-margin">
+                        <input class="uk-input" type="email" placeholder="Email" name="email" required>
+                    </div>
+                    
+                    <div class="uk-margin">
+                        <input class="uk-input" type="password" placeholder="Password" name="password" required>
+                    </div>
+                
+                </div>
+                <p class="uk-text-center">
+                    <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                    <button class="uk-button uk-button-primary" type="submit">Login</button>
+                </p>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/uikit/js/uikit.min.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+</body>
+</html>

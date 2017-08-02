@@ -1,0 +1,91 @@
+*+.uk-margin, .uk-margin{
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+.uk-input, .uk-select, .uk-textarea{
+    font-size: 14px;
+}
+
+.uk-button{
+
+}
+
+.uk-checkbox:checked, .uk-checkbox:indeterminate, .uk-radio:checked, .uk-checkbox:checked:focus, .uk-checkbox:indeterminate:focus, .uk-radio:checked:focus, .uk-checkbox:focus, .uk-radio:focus{
+    background-color: white;
+}
+
+
+.uk-navbar-right{
+    display: inline-block;
+    float:right;
+    vertical-align: middle;
+
+}
+
+.uk-navbar-left{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.uk-navbar-nav>li.uk-active>a{
+    background-color: transparent;
+}
+
+.uk-tab>li.uk-active>a{
+    background-color: #A83636;
+    color:white;
+    font-size: 18px;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-weight: bolder;
+}
+
+.uk-tab>li>a{
+    color:black;
+    font-size: 18px;
+    font-weight: bolder;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.uk-tab>li:nth-child(n+2)>a{
+    margin-left: 0px;
+}
+
+.uk-tab>li.uk-open:not(.uk-active)>a, .uk-tab>li:not(.uk-active)>a:focus, .uk-tab>li:not(.uk-active)>a:hover{
+    padding-bottom: 20px;
+}
+
+.uk-tab>li.uk-open>a, .uk-tab>li>a:focus, .uk-tab>li>a:hover{
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+}
+/*
+.uk-tab>li.uk-open>a, .uk-tab>li>a:focus, .uk-tab>li>a:hover{
+    background-color: transparent;
+    border:none;
+}*/
+
+
+.uk-tab>li>a{
+    border-bottom:2px solid #A83636;
+}
+
+.uk-tab>li.uk-open:not(.uk-active)>a, .uk-tab>li:not(.uk-active)>a:focus, .uk-tab>li:not(.uk-active)>a:hover{
+    border-bottom:2px solid #A83636;
+}
+
+textarea, input, button { outline: none; }
+
+.uk-button-primary:focus, .uk-button-primary:hover{
+    background-color: #1e702f;
+}
+
+
+.uk-button{
+    border-radius: 20px;
+    padding:5px 50px;
+}

@@ -1,0 +1,309 @@
+.main{
+    width:100%;
+}
+
+.uk-logo img{
+    width:200px;
+}
+
+.login-section{
+    padding:10px;
+    margin:10px;
+    width:350px;
+}
+nav{
+    padding:20px;
+}
+
+html, h1, h2, h3, h4, h5, p{
+    font-family: 'Montserrat', sans-serif;
+}
+
+*{
+    box-sizing: border-box;
+}
+.container{
+    padding:4%;
+}
+
+.login-section .header img{
+    width:20%;
+    float:right;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.login-section .header .heading{
+    margin:0px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    width:80%;
+    padding-top: 4px;
+}
+
+.login-section .header h1{
+    margin:0px;
+}
+
+.login-section .header{    
+    width:100%;
+    background-color: white;
+    margin-bottom: 15px;
+}
+
+.clearboth{
+    clear: both;
+}
+.overlay-inside-content p{
+    font-size: 22px;
+    color: #cacaca;
+    padding-top: 20px;
+}
+
+.sliding-containers .child-container{
+    display: none;
+    width:100%;
+}
+
+.sliding-containers .child-container.active{
+    display: inline-block;
+}
+
+.registration-container{
+    text-align: center;
+}
+
+.registration-container ul.main-points li{
+    display: inline-block;
+    width:33%;
+    padding:20px;
+    min-width: 300px;
+}
+
+.registration-container ul.main-points li h1{
+    display: inline-block;
+    vertical-align: middle;
+    margin:0px;
+    font-size: 40px;
+    line-height: 1.0em;
+    padding-right:10px;
+}
+
+.registration-container ul.main-points li p{
+    display: inline-block;
+    vertical-align: top;
+    margin:0px;
+    text-align: left;
+}
+
+.registration-container ul.main-points li div{
+    display: flex;
+}
+
+.registration-container .registration-heading{
+    padding-bottom: 20px;
+}
+
+.tabs-container{
+    display: inline-block;
+    max-width: 700px;
+    width:100%;
+}
+
+.sliding-containers p.label{
+    font-size: 17px;
+}
+
+.sliding-containers input{
+    padding:10px;
+    max-width:400px;
+    width:100%;
+    border: 2px solid #299841;
+    border-radius: 20px;
+    display: block;
+    text-align: center;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.sliding-containers select{
+    max-width:400px;
+    width:100%;
+    height:40px;
+    border:0px;
+    outline:none;
+    text-align: center;
+    background-color: transparent;
+    text-indent: 5px;
+}
+
+.select-container{
+    max-width:400px;
+    width:100%;
+    border: 2px solid #299841;
+    border-radius: 20px;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 15px;
+    background-color: white;
+}
+
+li.main-registring-container{
+    padding-top: 40px;
+}
+
+.uk-button-primary{
+    background-color: #299841;
+    border-color: #299841;
+}
+
+.dotnav{
+    text-align: center;
+}
+
+.dotnav ul{
+    margin:0px;
+    padding:0px;
+    padding-top: 30px;
+}
+
+.dotnav ul li{
+    display: inline-block;
+    width:10px;
+    height:10px;
+    background-color: #BFBFBF;
+    border-radius: 100%;
+    margin:2px;
+}
+
+.dotnav ul li.active{
+    background-color: #299841;
+}
+
+.sliding-containers .uk-button-primary{
+    margin-top: 20px;
+}    
+
+.checkbox-container{
+    text-align:left;
+    max-width: 400px;
+    display: inline-block;
+}
+
+.main-login-container{
+    padding-top: 40px;
+}
+
+
+.main-video-header button{
+    background-color: #a83636;
+    color:white;
+    float: right;
+}
+
+.main-user-dashboard{
+    text-align: center;
+}
+
+.main-video-container{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+.main-user-dashboard .team-details{
+    width:100%;
+}
+
+.main-user-dashboard .team-details .team-name-city p:last-child{
+    float:right;
+}
+
+.main-user-dashboard .team-details .team-name-city{
+    text-align: left;
+    border-bottom: 2px solid #a83636;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bolder;
+    font-size: 16px;
+}
+
+.main-user-dashboard .team-details .team-name-city p{
+    display: inline-block;
+    vertical-align: top;
+    margin:0px;
+}
+
+.main-user-dashboard .team-details .team-members ul li{
+    display: inline-block;
+    vertical-align: top;
+    width:33.33%;
+    padding:10px;
+    font-weight: bolder;
+}
+
+.main-user-dashboard .team-details .team-members ul{
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+.main-user-dashboard .team-details .team-members{
+    border-bottom: 2px solid #a83636;
+}
+
+.main-user-dashboard .team-details .status-of-participation{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.main-user-dashboard .team-details .status-of-participation table{
+    width:100%;
+    font-weight: bolder;
+    font-size: 17px;
+}
+
+.main-user-dashboard .team-details .status-of-participation table tr td:first-child{
+    text-align: left;
+}
+
+.main-user-dashboard .team-details .status-of-participation table tr td:last-child{
+    text-align: right;
+}
+
+.main-user-dashboard .team-details .status-of-participation table tr td{
+    padding-top:5px;
+    padding-bottom:5px;
+}
+
+.main-user-dashboard .team-details .status-of-participation .uk-button{
+    border-radius: 0px;
+    color:white;
+    font-weight: bolder;
+}
+
+.main-user-dashboard .team-details .status-of-participation .uk-button.evaluation{
+    background-color: #d6bd41;
+}
+
+.main-user-dashboard .team-details .status-of-participation .uk-button.reject{
+    background-color: #dd092f;
+}
+
+.main-user-dashboard .team-details .status-of-participation .uk-button.success{
+    background-color: #029645;
+}
+
+.main-user-dashboard{
+    width:100%;
+    max-width:700px;
+    display: inline-block;
+}
+
+.main.user-dashboard-main .container{
+    text-align: center;
+}

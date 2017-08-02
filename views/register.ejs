@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Beat | Dancing Competition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/css/uikit.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/css/components/slideshow.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/css/components/slidenav.min.css">
+     
+
+
+    <!-- <link rel="stylesheet" type="text/css" href="/css/uikit.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/slideshow.css">
+    <link rel="stylesheet" type="text/css" href="/css/slidenav.css"> -->
+
+
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/muikit.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+</head>
+<body>
+    <div class="main">
+        <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+            <div class="uk-navbar-left">
+                <a class="uk-navbar-item uk-logo"><img src="/images/logo.png"/></a>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="#login" uk-toggle><button class="uk-button uk-button-primary">INICIAR SESION</button></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="banner-slider">
+            <div class="uk-slidenav-position" data-uk-slideshow="{kenburns:true, autoplay:true}">
+                <ul class="uk-slideshow uk-overlay-active uk-slideshow-fullscreen" data-uk-slideshow>
+                    <li>
+                        <img src="/images/dance1.jpg" width="800" height="400">
+                        <div class="uk-overlay-panel uk-overlay-background uk-overlay-fade overlay-inside-content uk-flex uk-flex-center uk-flex-middle uk-text-center">
+                            <div class="overlay-inside-content">
+                                <h1 style="font-size:82px;">Dance Competition</h1>
+                                <p>If you stumble, make it a part of your dance</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="/images/dance2.jpg" width="800" height="400">
+                        <div class="uk-overlay-panel uk-overlay-background uk-overlay-fade overlay-inside-content uk-flex uk-flex-center uk-flex-middle uk-text-center">
+                            <div class="overlay-inside-content">
+                                <h1 style="font-size:55px;">Dance</h1>
+                                <p>Dancing with the feel is one thing but dancing with the heart is Another</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="/images/dance3.jpg" width="800" height="400">
+                        <div class="uk-overlay-panel uk-overlay-background uk-overlay-fade overlay-inside-content uk-flex uk-flex-center uk-flex-middle uk-text-center">
+                            <div class="overlay-inside-content">
+                                <h1 style="font-size: 60px; line-height: 1.02;">Tarantism</h1>
+                                <p>The uncontrollable urge to dance</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="/images/dance4.jpg" width="800" height="400">
+                        <div class="uk-overlay-panel uk-overlay-background uk-overlay-fade overlay-inside-content uk-flex uk-flex-center uk-flex-middle uk-text-center">
+                            <div class="overlay-inside-content">
+                                <h1 style="font-size: 60px; line-height: 1.02;">Dance</h1>
+                                <p>What seems soo hard now will someday be your warm up</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous"></a>
+                <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next"></a>
+                <!-- <ul class="uk-dotnav uk-dotnav-contrast uk-position-bottom uk-flex-center">
+                    <li data-uk-slideshow-item="0"><a href=""></a></li>
+                    <li data-uk-slideshow-item="1"><a href=""></a></li>
+                    <li data-uk-slideshow-item="2"><a href=""></a></li>
+                </ul> -->
+            </div>
+        </div>
+        <div class="container">
+            <div class="registration-container ">
+                <h1 class="registration-heading">¡DANCE CHALLENGE!</h1>
+                <ul class="main-points">
+                    <li>
+                        <div>
+                            <h1>1</h1>
+                            <p>Junta a tus amigos (máximo 5 personas)</p>
+                        </div>
+                    </li><li>
+                        <div>
+                            <h1>2</h1>
+                            <p>Grábense bailando a su estilo la canción  “Mais que nada”</p>
+                        </div>
+                    </li><li>
+                        <div>
+                            <h1>3</h1>
+                            <p>Completen el formulario, suban su video, acepten  los términos, condiciones y aviso de privacidad.</p>
+                        </div>
+                    </li><li>
+                        <div>
+                            <h1>4</h1>
+                            <p>Recibe tu confirmación de  participación y preparate para  conseguir la mayor cantidad de votos</p>
+                        </div>
+                    </li><li>
+                        <div>
+                            <h1>5</h1>
+                            <p>Los videos más votados ganaran pases para los mejores festivales de música</p> 
+                        </div>
+                    </li>
+                </ul>
+                <div class="tabs-container">
+                    <ul class="uk-tab uk-tab-grid"  data-uk-tab="{connect:'#my-id'}">
+                        <li class="uk-active uk-width-1-2"><a href="">REGISTRA A TU EQUIPO</a></li>
+                        <li class="uk-width-1-2"><a href="">INGRESA A TU PERFIL</a></li>
+                    </ul>
+                </div>
+                
+
+                <ul id="my-id" class="uk-switcher uk-margin">
+                    <li class="main-registring-container">
+                        <div class="sliding-containers">
+                            <div class="child-container active">
+                                <form>
+                                    <p class="label">Nombre del equipo</p>
+                                    <input type="text" class="uk-input" name="teamName">
+                                    <br />
+                                    <button class="uk-button uk-button-primary">CONTINUAR</button>
+                                </form>
+                            </div>
+                            <div class="child-container">
+                                <form>
+                                    <p class="label">Representante del equipo</p>
+                                    <input type="" class="uk-input" name="representativeName">
+                                    <p class="label">Integrantes del equipo</p>
+                                    <input type="text" class="uk-input" name="representativeName">
+                                    <input type="text" class="uk-input" name="representativeName">
+                                    <input type="text" class="uk-input" name="representativeName">
+                                    <input type="text" class="uk-input" name="representativeName">
+                                    <br />
+                                    <button class="uk-button uk-button-primary">CONTINUAR</button>
+                                </form>
+                            </div>
+                            <div class="child-container ">
+                                <form>
+                                    <p class="label">Correo electrónico del representante</p>
+                                    <input type="email" class="uk-input" name="teamRepresentativeEmail">
+                                    <p class="label">Teléfono de contacto del representante</p>
+                                    <input type="email" class="uk-input" name="teamRepresentativeNumber" placeholder="10 digitos">
+                                    <br />
+                                    <button class="uk-button uk-button-primary">CONTINUAR</button>
+                                </form>
+                                
+                            </div>
+                            <div class="child-container">
+                                <form>
+                                    <p class="label">Estado</p>
+                                    <div class="select-container">
+                                        <select type="" class="uk-input" name="state">
+                                            <option value="Mexico City">Mexico City</option>
+                                            <option value="Puebla">Puebla</option>
+                                        </select>
+                                    </div>
+                                    <p class="label">Ciudad</p>
+                                    <div class="select-container">
+                                        <select type="" class="uk-input" name="city">
+                                            <option value="Mexico City">Mexico City</option>
+                                            <option value="Puebla">Puebla</option>
+                                        </select>
+                                    </div>
+                                    <br />
+                                    <button class="uk-button uk-button-primary">CONTINUAR</button>
+                                </form>
+                            </div>
+                            <div class="child-container">
+                                <form>
+                                    <p class="label">Carga tu video</p>
+                                    <input type="" class="uk-input" name="video" placeholder="Busar archivo">
+                                    <p>Tu video debe durar máximo 1 min.</p>
+                                    <p>Formatos aceptables <b>mov</b> y <b>mp4</b></p>
+                                    <br />
+                                    <button class="uk-button uk-button-primary">CONTINUAR</button>
+                                </form>
+                            </div>
+                            <div class="child-container">
+                                <form>
+                                    <p class="label">Estas por completar tu formulario de registro.</p>
+                                    <div class="checkbox-container">
+                                        <input type="checkbox" id="privacyPermission" name="privacyPermission" value="privacyPermission" style="width:initial;" class="uk-checkbox">
+                                        <label for="coding">Acepto el aviso de privacidad</label>
+                                        </br>
+                                        <input type="checkbox" id="termsAndConditions" name="termsAndConditions" value="termsAndConditions" style="width:initial;" class="uk-checkbox">
+                                        <label for="coding">Acepto los términos y condiciones</label>
+                                    </div>
+                                    <br />
+                                    <button class="uk-button uk-button-primary">CONFIRMAR REGISTRO</button>
+                                </form>
+                                
+                            </div>
+                            <div class="child-container ">
+                                <form>
+                                    <p class="label">En los próximos 20 min. <br />recibirás un correo electrónico <br />con la confirmación de tu registro.</p>
+                                    <p class="label">En el correo electrónico<br /> de confirmación encontrarás<br /> las instrucciones de<br /> las siguientes etapas<br /> de tu participación.</p>
+                                    <p class="label">¡ Muchas gracias por<br /> tu participación !</p>
+                                </form>
+                            </div>
+                            <div class="dotnav">
+                                <ul>
+                                    <li class="active"></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="main-login-container">
+                        <div class="sliding-containers">
+                            <div class="child-container ">
+                                <form>
+                                    <p class="label">Usuario</p>
+                                    <input type="text" class="uk-input" name="username">
+                                    <p class="label">Contraseña</p>
+                                    <input type="text" class="uk-input" name="password">
+                                    <br />
+                                    <button class="uk-button uk-button-primary">CONTINUAR</button>
+                                </form>
+                            </div>
+                            <div class="child-container active">
+                                <h1>BIENVENIDO</h1>
+                                <div class="main-video-header">
+                                    <div class="likes"></div>
+                                    <button class="uk-button uk-button-primary">Cerrar Sesion</button>
+                                    <div class="clearboth"></div>
+                                </div>
+                                <div class="main-video-container">
+                                    video
+                                </div>
+                                <div class="team-details">
+                                    <div class="team-name-city">
+                                        <p>NOMBRE DEL EQUIPO</p>
+                                        <p>CIUDAD/ESTADO</p>
+                                    </div>
+                                    <div class="team-members">
+                                        <ul>
+                                            <li>INTEGRANTE1</li>
+                                            <li>INTEGRANTE2</li>
+                                            <li>INTEGRANTE3</li>
+                                            <li>INTEGRANTE4</li>
+                                            <li>INTEGRANTE5</li>
+                                        </ul>
+                                    </div>
+                                    <div class="status-of-participation">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <p>STATUS DE PARTICIPATION:</p>
+                                                </td>
+                                                <td>
+                                                    <button class="uk-button uk-button-primary">Todos Bien</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>COMENTARIO DE COMITE</td>
+                                                <td>Lo sentimos but you cant be qualified for this competition.</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/js/uikit.min.js"></script>
+    <script type="text/javascript" src="/bower_components/jquery-validation/dist/jquery.validate.min.js"></script> 
+    <!-- <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/uikit.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.validate.js"></script> -->
+    <script type="text/javascript" src="/js/main.js"></script>
+    <!-- <script type="text/javascript" src="/js/slideshow.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/js/components/slideshow.js"></script>
+</body>
+</html>
