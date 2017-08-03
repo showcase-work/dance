@@ -122,15 +122,15 @@
                     <li class="main-registring-container">
                         <div class="sliding-containers">
                             <div class="child-container active">
-                                <form>
+                                <form action="javascript:void(0);">
                                     <p class="label">Nombre del equipo</p>
                                     <input type="text" class="uk-input" name="teamName">
                                     <br />
-                                    <button class="uk-button uk-button-primary">CONTINUAR</button>
+                                    <button class="uk-button uk-button-primary continue">CONTINUAR</button>
                                 </form>
                             </div>
                             <div class="child-container">
-                                <form>
+                                <form action="javascript:void(0);">
                                     <p class="label">Representante del equipo</p>
                                     <input type="" class="uk-input" name="representativeName">
                                     <p class="label">Integrantes del equipo</p>
@@ -143,7 +143,7 @@
                                 </form>
                             </div>
                             <div class="child-container ">
-                                <form>
+                                <form action="javascript:void(0);">
                                     <p class="label">Correo electrónico del representante</p>
                                     <input type="email" class="uk-input" name="teamRepresentativeEmail">
                                     <p class="label">Teléfono de contacto del representante</p>
@@ -154,7 +154,7 @@
                                 
                             </div>
                             <div class="child-container">
-                                <form>
+                                <form action="javascript:void(0);">
                                     <p class="label">Estado</p>
                                     <div class="select-container">
                                         <select type="" class="uk-input" name="state">
@@ -174,7 +174,7 @@
                                 </form>
                             </div>
                             <div class="child-container">
-                                <form>
+                                <form action="javascript:void(0);">
                                     <p class="label">Carga tu video</p>
                                     <input type="" class="uk-input" name="video" placeholder="Busar archivo">
                                     <p>Tu video debe durar máximo 1 min.</p>
@@ -184,7 +184,7 @@
                                 </form>
                             </div>
                             <div class="child-container">
-                                <form>
+                                <form action="javascript:void(0);">
                                     <p class="label">Estas por completar tu formulario de registro.</p>
                                     <div class="checkbox-container">
                                         <input type="checkbox" id="privacyPermission" name="privacyPermission" value="privacyPermission" style="width:initial;" class="uk-checkbox">
@@ -198,7 +198,7 @@
                                 </form>
                             </div>
                             <div class="child-container ">
-                                <form>
+                                <form action="javascript:void(0);">
                                     <p class="label">En los próximos 20 min. <br />recibirás un correo electrónico <br />con la confirmación de tu registro.</p>
                                     <p class="label">En el correo electrónico<br /> de confirmación encontrarás<br /> las instrucciones de<br /> las siguientes etapas<br /> de tu participación.</p>
                                     <p class="label">¡ Muchas gracias por<br /> tu participación !</p>
@@ -206,69 +206,27 @@
                             </div>
                             <div class="dotnav">
                                 <ul>
-                                    <li class="active"></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
+                                    <li class="active dot1"></li>
+                                    <li class="dot2"></li>
+                                    <li class="dot3"></li>
+                                    <li class="dot4"></li>
+                                    <li class="dot5"></li>
+                                    <li class="dot6"></li>
                                 </ul>
                             </div>
                         </div>
                     </li>
                     <li class="main-login-container">
                         <div class="sliding-containers">
-                            <div class="child-container ">
+                            <div class="child-container active">
                                 <form>
-                                    <p class="label">Usuario</p>
+                                     <p class="label">Usuario</p>
                                     <input type="text" class="uk-input" name="username">
                                     <p class="label">Contraseña</p>
                                     <input type="text" class="uk-input" name="password">
                                     <br />
-                                    <button class="uk-button uk-button-primary">CONTINUAR</button>
+                                    <a href="/userdashboard"><button class="uk-button uk-button-primary" type="button" >CONTINUAR</button></a>
                                 </form>
-                            </div>
-                            <div class="child-container active">
-                                <h1>BIENVENIDO</h1>
-                                <div class="main-video-header">
-                                    <div class="likes"></div>
-                                    <button class="uk-button uk-button-primary">Cerrar Sesion</button>
-                                    <div class="clearboth"></div>
-                                </div>
-                                <div class="main-video-container">
-                                    video
-                                </div>
-                                <div class="team-details">
-                                    <div class="team-name-city">
-                                        <p>NOMBRE DEL EQUIPO</p>
-                                        <p>CIUDAD/ESTADO</p>
-                                    </div>
-                                    <div class="team-members">
-                                        <ul>
-                                            <li>INTEGRANTE1</li>
-                                            <li>INTEGRANTE2</li>
-                                            <li>INTEGRANTE3</li>
-                                            <li>INTEGRANTE4</li>
-                                            <li>INTEGRANTE5</li>
-                                        </ul>
-                                    </div>
-                                    <div class="status-of-participation">
-                                        <table>
-                                            <tr>
-                                                <td>
-                                                    <p>STATUS DE PARTICIPATION:</p>
-                                                </td>
-                                                <td>
-                                                    <button class="uk-button uk-button-primary">Todos Bien</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>COMENTARIO DE COMITE</td>
-                                                <td>Lo sentimos but you cant be qualified for this competition.</td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </li>
@@ -290,13 +248,30 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/js/components/slideshow.js"></script>
 
     <script type="text/javascript">
-        $(".child-container .continue").click(function(e){
-            e.preventDefault();
-            return false;
-            var self = $(this);
-            self.parent().parent().removeClass("active");
-            self.parent().parent().next().addClass("active");
+        $(document).ready(function(){
+
+            $("form").submit(function(e){
+                e.preventDefault();
+                return false;
+            })
+            var x = 1;
+            $(".child-container .continue").click(function(e){
+                x++;
+                if(x<7){
+                    $(".dot"+x).addClass("active");
+                }
+                console.log("ajdkf");
+                e.preventDefault();
+                var self = $(this);
+                self.parent().parent().removeClass("active");
+                self.parent().parent().next().addClass("active");
+                return false;
+                console.log("working in here");
+            })
+
+
         })
+        
     </script>
 </body>
 </html>

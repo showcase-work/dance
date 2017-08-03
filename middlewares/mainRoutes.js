@@ -14,6 +14,10 @@ module.exports = app => {
         //
     });
 
+    app.get("/userdashboard", (req,res,next) => {
+        res.render("userdashboard");
+    })
+
 
 
 };
