@@ -1,9 +1,19 @@
 "use strict";
 
 let router = require("express").Router();
+let multer = require("multer");
+let storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now()+file.originalname);
+  }
+})
+let upload = multer({ storage: storage });
 
 module.exports = app => {
-    let studentController = app.controllers.studentController;
+    let teamController = app.controllers.teamController;
     let passport = app.auth.passport;
     /*let tokenService = app.services.tokenService;
     
@@ -61,8 +71,12 @@ module.exports = app => {
         res.render("login");
     });*/
 
-    router.route("/register").post((req,res,next)=>{
-        studentController.checkAndRegisterStudent(req,res,next);
+    router.route("/register").post(upload.single('video'),(req,res,next)=>{
+        console.log("Route:Team");
+        console.log("working in register")
+        console.log(req.file);
+        console.log(req.body);
+        teamController.checkAndRegisterTeam(req,res,next);
     })
 
     router.route("/login").post(passport.authenticate(

@@ -7,21 +7,21 @@ let sequelize = require('sequelize');
 
 module.exports = app => {
 
-    let Student = app.models.student.Student;
+    let Team = app.models.team.Team;
 
     app.use(passport.initialize());
     app.use(passport.session());
 
-    passport.serializeUser(function(student, done) {
+    passport.serializeUser(function(team, done) {
             console.log("working in serilize");
             done(null, student);
         });
 
-    passport.deserializeUser(function(student, done) {
+    passport.deserializeUser(function(team, done) {
         console.log("working in deserilize1");
-        Student.findById(student.id).then(student=>{
+        Team.findById(team.id).then(team=>{
             console.log("working in deserilize2");
-            done(null, student);
+            done(null, team);
         }).catch(err=>{
             done(err, null);
         }) 
@@ -37,13 +37,13 @@ module.exports = app => {
 
       process.nextTick(function() {
 
-                Student.find({ where: {email: email} }).then(function(student) {
+                Team.find({ where: {email: email} }).then(function(team) {
 
-                    if (student) {
-                        var test = student.validPassword(password);
+                    if (team) {
+                        var test = team.validPassword(password);
                         if(test){
-                            student.password = undefined;
-                            return done(null, student);
+                            team.password = undefined;
+                            return done(null, team);
                         }
                         return done(null, false);
                     } 

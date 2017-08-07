@@ -20,65 +20,6 @@
 </head>
 <body>
     <div class="main">
-        <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
-            <div class="uk-navbar-left">
-                <a class="uk-navbar-item uk-logo"><img src="/images/logo.png"/></a>
-            </div>
-            <div class="uk-navbar-right">
-                <ul class="uk-navbar-nav">
-                    <li class="uk-active"><a href="#login" uk-toggle><button class="uk-button uk-button-primary">INICIAR SESION</button></a></li>
-                </ul>
-            </div>
-        </nav>
-        <div class="banner-slider">
-            <div class="uk-slidenav-position" data-uk-slideshow="{kenburns:true, autoplay:true}">
-                <ul class="uk-slideshow uk-overlay-active uk-slideshow-fullscreen" data-uk-slideshow>
-                    <li>
-                        <img src="/images/dance1.jpg" width="800" height="400">
-                        <div class="uk-overlay-panel uk-overlay-background uk-overlay-fade overlay-inside-content uk-flex uk-flex-center uk-flex-middle uk-text-center">
-                            <div class="overlay-inside-content">
-                                <h1 style="font-size:82px;">Dance Competition</h1>
-                                <p>If you stumble, make it a part of your dance</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="/images/dance2.jpg" width="800" height="400">
-                        <div class="uk-overlay-panel uk-overlay-background uk-overlay-fade overlay-inside-content uk-flex uk-flex-center uk-flex-middle uk-text-center">
-                            <div class="overlay-inside-content">
-                                <h1 style="font-size:55px;">Dance</h1>
-                                <p>Dancing with the feel is one thing but dancing with the heart is Another</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="/images/dance3.jpg" width="800" height="400">
-                        <div class="uk-overlay-panel uk-overlay-background uk-overlay-fade overlay-inside-content uk-flex uk-flex-center uk-flex-middle uk-text-center">
-                            <div class="overlay-inside-content">
-                                <h1 style="font-size: 60px; line-height: 1.02;">Tarantism</h1>
-                                <p>The uncontrollable urge to dance</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="/images/dance4.jpg" width="800" height="400">
-                        <div class="uk-overlay-panel uk-overlay-background uk-overlay-fade overlay-inside-content uk-flex uk-flex-center uk-flex-middle uk-text-center">
-                            <div class="overlay-inside-content">
-                                <h1 style="font-size: 60px; line-height: 1.02;">Dance</h1>
-                                <p>What seems soo hard now will someday be your warm up</p>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous"></a>
-                <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next"></a>
-                <!-- <ul class="uk-dotnav uk-dotnav-contrast uk-position-bottom uk-flex-center">
-                    <li data-uk-slideshow-item="0"><a href=""></a></li>
-                    <li data-uk-slideshow-item="1"><a href=""></a></li>
-                    <li data-uk-slideshow-item="2"><a href=""></a></li>
-                </ul> -->
-            </div>
-        </div>
         <div class="container">
             <div class="registration-container ">
                 <h1 class="registration-heading">¡DANCE CHALLENGE!</h1>
@@ -120,101 +61,88 @@
 
                 <ul id="my-id" class="uk-switcher uk-margin">
                     <li class="main-registring-container">
-                        <div class="sliding-containers">
-                            <div class="child-container active">
-                                <form action="javascript:void(0);">
-                                    <p class="label">Nombre del equipo</p>
-                                    <input type="text" class="uk-input" name="teamName">
-                                    <br />
-                                    <button class="uk-button uk-button-primary continue">CONTINUAR</button>
-                                </form>
+                        <form id="registerTeam" method="post" action="/team/register" enctype="multipart/form-data">
+                            <div class="sliding-containers">
+                                <div class="child-container active">
+                                        <p class="label">Nombre del equipo</p>
+                                        <input type="text" class="uk-input required" name="teamName">
+                                        <br />
+                                        <button class="uk-button uk-button-primary continue" type="button">CONTINUAR</button>
+                                </div>
+                                <div class="child-container">
+                                        <p class="label">Representante del equipo</p>
+                                        <input type="" class="uk-input required" name="representativeName">
+                                        <p class="label">Integrantes del equipo</p>
+                                        <input type="text" class="uk-input" name="teamMemberName">
+                                        <input type="text" class="uk-input" name="teamMemberName">
+                                        <input type="text" class="uk-input" name="teamMemberName">
+                                        <input type="text" class="uk-input" name="teamMemberName">
+                                        <br />
+                                        <button class="uk-button uk-button-primary continue" type="button">CONTINUAR</button>
+                                </div>
+                                <div class="child-container ">
+                                        <p class="label">Correo electrónico del representante</p>
+                                        <input type="email" class="uk-input required" name="teamRepresentativeEmail">
+                                        <p class="label">Teléfono de contacto del representante</p>
+                                        <input type="email" class="uk-input required" name="teamRepresentativeNumber" placeholder="10 digitos">
+                                        <br />
+                                        <button class="uk-button uk-button-primary continue" type="button">CONTINUAR</button>                                
+                                </div>
+                                <div class="child-container">
+                                        <p class="label">Estado</p>
+                                        <div class="select-container">
+                                            <select type="" class="uk-input" name="state">
+                                                <option value="Mexico City">Mexico City</option>
+                                                <option value="Puebla">Puebla</option>
+                                            </select>
+                                        </div>
+                                        <p class="label">Ciudad</p>
+                                        <div class="select-container">
+                                            <select type="" class="uk-input" name="city">
+                                                <option value="Mexico City">Mexico City</option>
+                                                <option value="Puebla">Puebla</option>
+                                            </select>
+                                        </div>
+                                        <br />
+                                        <button class="uk-button uk-button-primary continue" type="button">CONTINUAR</button>
+                                </div>
+                                <div class="child-container">
+                                        <p class="label">Carga tu video</p>
+                                        <input type="file" class="uk-input required" name="video" placeholder="Busar archivo" id="video">
+                                        <p>Tu video debe durar máximo 1 min.</p>
+                                        <p>Formatos aceptables <b>mov</b> y <b>mp4</b></p>
+                                        <br />
+                                        <button class="uk-button uk-button-primary videoUploadButton" type="button">CONTINUAR</button>
+                                </div>
+                                <div class="child-container">
+                                        <p class="label">Estas por completar tu formulario de registro.</p>
+                                        <div class="checkbox-container">
+                                            <input type="checkbox" id="privacyPermission" name="privacyPermission" value="privacyPermission" style="width:initial;" class="uk-checkbox checkbox-required">
+                                            <label for="coding">Acepto el aviso de privacidad</label>
+                                            </br>
+                                            <input type="checkbox" id="termsAndConditions" name="termsAndConditions" value="termsAndConditions" style="width:initial;" class="uk-checkbox checkbox-required">
+                                            <label for="coding">Acepto los términos y condiciones</label>
+                                        </div>
+                                        <br />
+                                        <button class="uk-button uk-button-primary submitRegistrationForm" type="button">CONFIRMAR REGISTRO</button>
+                                </div>
+                                <div class="child-container ">
+                                        <p class="label">En los próximos 20 min. <br />recibirás un correo electrónico <br />con la confirmación de tu registro.</p>
+                                        <p class="label">En el correo electrónico<br /> de confirmación encontrarás<br /> las instrucciones de<br /> las siguientes etapas<br /> de tu participación.</p>
+                                        <p class="label">¡ Muchas gracias por<br /> tu participación !</p>
+                                </div>
+                                <div class="dotnav">
+                                    <ul>
+                                        <li class="active dot1"></li>
+                                        <li class="dot2"></li>
+                                        <li class="dot3"></li>
+                                        <li class="dot4"></li>
+                                        <li class="dot5"></li>
+                                        <li class="dot6"></li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="child-container">
-                                <form action="javascript:void(0);">
-                                    <p class="label">Representante del equipo</p>
-                                    <input type="" class="uk-input" name="representativeName">
-                                    <p class="label">Integrantes del equipo</p>
-                                    <input type="text" class="uk-input" name="representativeName">
-                                    <input type="text" class="uk-input" name="representativeName">
-                                    <input type="text" class="uk-input" name="representativeName">
-                                    <input type="text" class="uk-input" name="representativeName">
-                                    <br />
-                                    <button class="uk-button uk-button-primary continue">CONTINUAR</button>
-                                </form>
-                            </div>
-                            <div class="child-container ">
-                                <form action="javascript:void(0);">
-                                    <p class="label">Correo electrónico del representante</p>
-                                    <input type="email" class="uk-input" name="teamRepresentativeEmail">
-                                    <p class="label">Teléfono de contacto del representante</p>
-                                    <input type="email" class="uk-input" name="teamRepresentativeNumber" placeholder="10 digitos">
-                                    <br />
-                                    <button class="uk-button uk-button-primary continue">CONTINUAR</button>
-                                </form>
-                                
-                            </div>
-                            <div class="child-container">
-                                <form action="javascript:void(0);">
-                                    <p class="label">Estado</p>
-                                    <div class="select-container">
-                                        <select type="" class="uk-input" name="state">
-                                            <option value="Mexico City">Mexico City</option>
-                                            <option value="Puebla">Puebla</option>
-                                        </select>
-                                    </div>
-                                    <p class="label">Ciudad</p>
-                                    <div class="select-container">
-                                        <select type="" class="uk-input" name="city">
-                                            <option value="Mexico City">Mexico City</option>
-                                            <option value="Puebla">Puebla</option>
-                                        </select>
-                                    </div>
-                                    <br />
-                                    <button class="uk-button uk-button-primary continue">CONTINUAR</button>
-                                </form>
-                            </div>
-                            <div class="child-container">
-                                <form action="javascript:void(0);">
-                                    <p class="label">Carga tu video</p>
-                                    <input type="" class="uk-input" name="video" placeholder="Busar archivo">
-                                    <p>Tu video debe durar máximo 1 min.</p>
-                                    <p>Formatos aceptables <b>mov</b> y <b>mp4</b></p>
-                                    <br />
-                                    <button class="uk-button uk-button-primary continue">CONTINUAR</button>
-                                </form>
-                            </div>
-                            <div class="child-container">
-                                <form action="javascript:void(0);">
-                                    <p class="label">Estas por completar tu formulario de registro.</p>
-                                    <div class="checkbox-container">
-                                        <input type="checkbox" id="privacyPermission" name="privacyPermission" value="privacyPermission" style="width:initial;" class="uk-checkbox">
-                                        <label for="coding">Acepto el aviso de privacidad</label>
-                                        </br>
-                                        <input type="checkbox" id="termsAndConditions" name="termsAndConditions" value="termsAndConditions" style="width:initial;" class="uk-checkbox">
-                                        <label for="coding">Acepto los términos y condiciones</label>
-                                    </div>
-                                    <br />
-                                    <button class="uk-button uk-button-primary continue">CONFIRMAR REGISTRO</button>
-                                </form>
-                            </div>
-                            <div class="child-container ">
-                                <form action="javascript:void(0);">
-                                    <p class="label">En los próximos 20 min. <br />recibirás un correo electrónico <br />con la confirmación de tu registro.</p>
-                                    <p class="label">En el correo electrónico<br /> de confirmación encontrarás<br /> las instrucciones de<br /> las siguientes etapas<br /> de tu participación.</p>
-                                    <p class="label">¡ Muchas gracias por<br /> tu participación !</p>
-                                </form>
-                            </div>
-                            <div class="dotnav">
-                                <ul>
-                                    <li class="active dot1"></li>
-                                    <li class="dot2"></li>
-                                    <li class="dot3"></li>
-                                    <li class="dot4"></li>
-                                    <li class="dot5"></li>
-                                    <li class="dot6"></li>
-                                </ul>
-                            </div>
-                        </div>
+                        </form>
                     </li>
                     <li class="main-login-container">
                         <div class="sliding-containers">
@@ -249,29 +177,88 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
+            /*$("#registerTeam").submit(function(e){
+                console.log("working");
+                var self = $(this);
+                console.log(self.serialize());
+                $.ajax({
+                    url:"/team/register",
+                    method:"POST",
+                    data:self.serialize(),
+                    success:function(data){
 
-            $("form").submit(function(e){
+                    },
+                    error:function(err){
+
+                    }
+                })
                 e.preventDefault();
                 return false;
+            })*/
+            $(".submitRegistrationForm").click(function(){
+                var error = false;
+                $(".checkbox-required").each(function(){
+                    var self = $(this);
+                    if(self.is(":checked")){
+
+                    }
+                    else
+                    {
+                        if(!self.next().next().hasClass("validation")){
+                            self.next().after("<div class='validation' style='color:red;margin-bottom: 20px;'>This field is required to be checked</div>");
+                        }
+                        error=true;
+                    }
+                })
+
+                if(!error){
+                    $('#registerTeam').submit();
+                }
+               
             })
             var x = 1;
             $(".child-container .continue").click(function(e){
-                x++;
-                if(x<7){
-                    $(".dot"+x).addClass("active");
-                }
-                console.log("ajdkf");
-                e.preventDefault();
+                var error = false;
                 var self = $(this);
-                self.parent().parent().removeClass("active");
-                self.parent().parent().next().addClass("active");
-                return false;
-                console.log("working in here");
+                self.parent().find('.required').each(function(){
+                    var self = $(this);
+                    if(self.val().trim() == ""){
+                        if(!self.next().hasClass("validation")){
+                            self.after("<div class='validation' style='color:red;margin-bottom: 20px;'>This field is required</div>");
+                        }
+                        error = true;
+                    }
+                });
+                if(!error)                
+                {
+                    x++;
+                    if(x<7){
+                        $(".dot"+x).addClass("active");
+                    }
+                    self.parent().removeClass("active");
+                    self.parent().next().addClass("active");
+                }
             })
 
 
+            $(".videoUploadButton").click(function(){
+                var self = $(this);
+                var video = $("#video");
+                if( document.getElementById("video").files.length != 0 ){
+                    self.parent().removeClass("active");
+                    self.parent().next().addClass("active");
+                }
+                else
+                {
+                    if(!video.next().hasClass("validation")){
+                        video.after("<div class='validation' style='color:red;margin-bottom: 20px;'>Please upload a video</div>");
+                    }
+                }
+            })
+
+            
         })
-        
+
     </script>
 </body>
 </html>

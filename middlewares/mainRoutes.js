@@ -5,8 +5,9 @@ module.exports = app => {
 
 
     app.use("/login", app.routes.login);
-    app.use("/student", app.routes.student);
+    app.use("/team", app.routes.team);
     app.use("/essay", app.routes.essay);
+    app.use("/main", app.routes.main);
 
     app.get("/", (req, res, next) => {
         res.render("register");
