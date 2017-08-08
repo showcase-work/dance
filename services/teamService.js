@@ -25,6 +25,7 @@ module.exports = app => {
             Team.getAllTeams().then(data=>{
                 return resolve(data);
             }).catch(err=>{
+                console.log(err);
                 return reject(err);
             })
         })

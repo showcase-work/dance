@@ -307,3 +307,97 @@ li.main-registring-container{
 .main.user-dashboard-main .container{
     text-align: center;
 }
+
+.container .videos-container{
+    display: inline-block;
+    width:33.33%;
+    text-align: left;
+}
+
+
+.container .videos-container .team-details{
+    text-align: left;
+    display: inline-block;
+    padding:0px;
+    margin:0px;
+}
+
+.container .videos-container .below-video{
+    background-color: #E2E4E4;
+}
+
+.container .videos-container .team-details li{
+    display: block;
+    padding:0px;
+    margin:0px;
+    font-size: 12px;
+}
+
+.container .videos-container .inner-container{
+    padding:20px;
+    border-radius: 15px;
+}
+
+.container .videos-container .inner-container .below-video{
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding:10px;
+}
+
+.container .videos-container .inner-container video{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.container .videos-container .inner-container .video{
+    position: relative;
+}
+
+.container .videos-container .inner-container .video .like{
+    position: absolute;
+    left:10px;
+    top:10px;
+    color:white;
+}
+
+.container .videos-container .inner-container .below-video .voting-button{
+    padding:10px;
+    border-radius: 20px;
+    background-color: #3B5998;
+    color:white;
+    float:right;
+    border:none;
+}
+
+.container .videos-container .inner-container .below-video .voting-button i{
+    padding-right: 5px;
+    font-size: 13px;
+}
+
+.container .filters-container{
+    text-align: left;
+}
+
+.container .filters-container input{
+    border-color: #8C8C8C;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.container .filters-container .float.right{
+    float:right;
+
+}
+
+.container .filters-container button{
+    padding:10px;
+    border-radius: 3px;
+    border:none;
+    color:white;
+    font-size: 15px;
+}
+
+.container .filters-container {
+    padding-left: 20px;
+    padding-right: 20px;
+}

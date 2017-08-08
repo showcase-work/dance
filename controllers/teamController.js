@@ -15,8 +15,11 @@ module.exports = app =>{
 
     function getTeamsPage(req,res,next){
         teamService.getAllTeams().then(data=>{
-            res.render("teams",{team:data});
+            console.log("working in here");
+            res.render("teams",{teams:data});
         }).catch(err=>{
+            console.log("error coming");
+            console.log(err);
             next(err);
         })
     }
