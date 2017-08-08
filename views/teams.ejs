@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Beat | Dancing Competition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/css/uikit.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/css/components/slideshow.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/css/components/slidenav.min.css">
+     
+
+
+    <!-- <link rel="stylesheet" type="text/css" href="/css/uikit.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/slideshow.css">
+    <link rel="stylesheet" type="text/css" href="/css/slidenav.css"> -->
+
+
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/muikit.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+
+</head>
+<body>
+    <div class="main user-dashboard-main">
+        <div class="container">
+            <div class="main-user-dashboard">
+                <h1>!BIENVENIDO <%=user.teamName%>!</h1>
+                <div class="main-video-header">
+                    <div class="likes"></div>
+                    <button class="uk-button uk-button-danger">Cerrar Sesion</button>
+                    <div class="clearboth"></div>
+                </div>
+                <div class="main-video-container">
+                    <video height="415" controls>
+                      <source src="/uploads/<%=user.videoLink%>" type="video/mp4">
+                      <source src="/uploads/<%=user.videoLink%>" type="video/webm">
+                      <source src="/uploads/<%=user.videoLink%>" type="video/ogg">
+                      Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="team-details">
+                    <div class="team-name-city">
+                        <p><%=user.teamName%></p>
+                        <p><%=user.city%>/<%=user.state%></p>
+                    </div>
+                    <div class="team-members">
+                        <ul>
+                            <% var members = JSON.parse(user.teamMembers);
+                                members.forEach(function(member){ %>
+                                <li><%=member%></li>
+                            <%
+                                })
+                            %>
+                        </ul>
+                    </div>
+                    <div class="status-of-participation">
+                        <table>
+                            <tr>
+                                <td>
+                                    <p>STATUS DE PARTICIPATION:</p>
+                                </td>
+                                <td>
+                                    <button class="uk-button evaluation"><%=user.status%></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>COMENTARIO DE COMITE:</td>
+                                <td>Lo sentimos but you cant be qualified for this competition.</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>  
+                
+        </div>        
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/js/uikit.min.js"></script>
+    <!-- <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/uikit.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.validate.js"></script> -->
+    <script type="text/javascript" src="/js/main.js"></script>
+    <!-- <script type="text/javascript" src="/js/slideshow.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/js/components/slideshow.js"></script>
+</body>
+</html>

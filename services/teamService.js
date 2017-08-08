@@ -20,7 +20,19 @@ module.exports = app => {
         
     }
 
+    function getAllTeams(){
+        return new Promise((resolve,reject)=>{
+            Team.getAllTeams().then(data=>{
+                return resolve(data);
+            }).catch(err=>{
+                return reject(err);
+            })
+        })
+        
+    }
+
     return{
-        checkAndRegisterTeam
+        checkAndRegisterTeam,
+        getAllTeams
     }
 }

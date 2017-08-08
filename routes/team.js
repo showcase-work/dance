@@ -88,6 +88,10 @@ module.exports = app => {
         )
     )
 
+    router.route("/").get((req,res,next)=>{
+        teamController.getTeamsPage(req,res,next);
+    })
+
     return router;
 };
 

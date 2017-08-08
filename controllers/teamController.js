@@ -13,7 +13,16 @@ module.exports = app =>{
         })
     }
 
+    function getTeamsPage(req,res,next){
+        teamService.getAllTeams().then(data=>{
+            res.render("teams",{team:data});
+        }).catch(err=>{
+            next(err);
+        })
+    }
+
     return {
-        checkAndRegisterTeam
+        checkAndRegisterTeam,
+        getTeamsPage
     }
 }
