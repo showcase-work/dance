@@ -29,11 +29,33 @@ module.exports = app => {
                 return reject(err);
             })
         })
+    }
+
+    function checkTeamName(name){
+        return new Promise((resolve,reject)=>{
+            Team.checkTeamName(name).then(data=>{
+                return resolve(data);
+            }).catch(err=>{
+                return reject(err);
+            })
+        })
+    }
+
+    function deleteAllTeams(){
+        return new Promise((resolve,reject)=>{
+            Team.deleteAllTeams().then(data=>{
+                return resolve(data);
+            }).catch(err=>{
+                return reject(err);
+            })
+        })
         
     }
 
     return{
         checkAndRegisterTeam,
-        getAllTeams
+        getAllTeams,
+        checkTeamName,
+        deleteAllTeams
     }
 }

@@ -119,7 +119,7 @@ html, h1, h2, h3, h4, h5, p{
     padding:10px;
     max-width:400px;
     width:100%;
-    border: 2px solid #299841;
+    border: 2px solid #8C8C8C;
     border-radius: 20px;
     display: block;
     text-align: center;
@@ -141,7 +141,7 @@ html, h1, h2, h3, h4, h5, p{
 .select-container{
     max-width:400px;
     width:100%;
-    border: 2px solid #299841;
+    border: 2px solid #8C8C8C;
     border-radius: 20px;
     display: inline-block;
     text-align: center;
@@ -400,4 +400,17 @@ li.main-registring-container{
 .container .filters-container {
     padding-left: 20px;
     padding-right: 20px;
+}
+
+.validation-check{
+    width: 0px;
+    margin-left: 5px;
+    margin-right: -5px;
+}
+
+.red{
+    color:red;
+}
+.green{
+    color:#399931;
 }

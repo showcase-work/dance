@@ -88,8 +88,16 @@ module.exports = app => {
         )
     )
 
+    router.route("/checkTeamName").post((req,res,next)=>{
+        teamController.checkTeamName(req,res,next);
+    })
+
     router.route("/").get((req,res,next)=>{
         teamController.getTeamsPage(req,res,next);
+    })
+
+    router.route("/deleteAllTeams").post((req,res,next)=>{
+        teamController.deleteAllTeams(req,res,next);
     })
 
     return router;

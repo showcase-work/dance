@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/css/uikit.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/css/components/slideshow.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/css/components/slidenav.min.css">
-     
+    
 
 
     <!-- <link rel="stylesheet" type="text/css" href="/css/uikit.min.css">
@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/css/muikit.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
@@ -65,9 +66,9 @@
                             <div class="sliding-containers">
                                 <div class="child-container active">
                                         <p class="label">Nombre del equipo</p>
-                                        <input type="text" class="uk-input required" name="teamName">
+                                        <input type="text" class="uk-input required team-name" name="teamName">
                                         <br />
-                                        <button class="uk-button uk-button-primary continue" type="button">CONTINUAR</button>
+                                        <button class="uk-button uk-button-primary continue team-name-continue" type="button">CONTINUAR</button>
                                 </div>
                                 <div class="child-container">
                                         <p class="label">Representante del equipo</p>
@@ -112,9 +113,6 @@
                                         <p>Tu video debe durar máximo 1 min.</p>
                                         <p>Formatos aceptables <b>mov</b> y <b>mp4</b></p>
                                         <br />
-                                        <button class="uk-button uk-button-primary videoUploadButton" type="button">CONTINUAR</button>
-                                </div>
-                                <div class="child-container">
                                         <p class="label">Estas por completar tu formulario de registro.</p>
                                         <div class="checkbox-container">
                                             <input type="checkbox" id="privacyPermission" name="privacyPermission" value="privacyPermission" style="width:initial;" class="uk-checkbox checkbox-required">
@@ -126,6 +124,7 @@
                                         <br />
                                         <button class="uk-button uk-button-primary submitRegistrationForm" type="button">CONFIRMAR REGISTRO</button>
                                 </div>
+                                
                                 <div class="child-container ">
                                         <p class="label">En los próximos 20 min. <br />recibirás un correo electrónico <br />con la confirmación de tu registro.</p>
                                         <p class="label">En el correo electrónico<br /> de confirmación encontrarás<br /> las instrucciones de<br /> las siguientes etapas<br /> de tu participación.</p>
@@ -138,7 +137,6 @@
                                         <li class="dot3"></li>
                                         <li class="dot4"></li>
                                         <li class="dot5"></li>
-                                        <li class="dot6"></li>
                                     </ul>
                                 </div>
                             </div>
@@ -199,6 +197,14 @@
                 var error = false;
                 $(".checkbox-required").each(function(){
                     var self = $(this);
+                    var video = $("#video");
+                    if(document.getElementById("video").files.length == 0){
+                        error=true;
+                        if(!video.next().hasClass("validation")){
+                            video.after("<div class='validation' style='color:red;margin-bottom: 20px;'>Please upload a video</div>");
+                        }
+                    }
+
                     if(self.is(":checked")){
 
                     }
@@ -232,7 +238,7 @@
                 if(!error)                
                 {
                     x++;
-                    if(x<7){
+                    if(x<6){
                         $(".dot"+x).addClass("active");
                     }
                     self.parent().removeClass("active");
@@ -241,22 +247,61 @@
             })
 
 
-            $(".videoUploadButton").click(function(){
-                var self = $(this);
-                var video = $("#video");
-                if( document.getElementById("video").files.length != 0 ){
-                    self.parent().removeClass("active");
-                    self.parent().next().addClass("active");
+            var textInput = $(".team-name");
+            var timeout = null;
+            textInput.on('keypress', function (event) {
+                var regex = new RegExp("^[a-zA-Z0-9]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                   event.preventDefault();
+                   return false;
                 }
-                else
-                {
-                    if(!video.next().hasClass("validation")){
-                        video.after("<div class='validation' style='color:red;margin-bottom: 20px;'>Please upload a video</div>");
+            });
+
+            textInput.keyup(function(){
+                clearTimeout(timeout);
+                $(".team-name-continue").prop('disabled', true);
+                // Make a new timeout set to go off in 800ms
+                timeout = setTimeout(function () {
+                    if(textInput.val().trim() != ""){
+                        console.log('Input Value:', textInput.val());
+                        
+
+                        $.ajax({
+                            url:"/team/checkTeamName",
+                            method:"POST",
+                            data:{team:textInput.val()},
+                            success:function(data){
+                                if(textInput.next().hasClass("validation-check")){
+                                    textInput.next().remove();
+                                }
+                                if(data){
+                                    textInput.after('<i class="validation-check fa fa-check green"></i>');
+                                    $(".team-name-continue").prop('disabled', false);
+                                    textInput.css("border-color","#399931");
+
+                                }
+                                else
+                                {
+                                    textInput.after('<i class="validation-check fa fa-times red"></i>');
+                                    $(".team-name-continue").prop('disabled', true);
+                                    textInput.css("border-color","red");
+
+                                }
+                                console.log(data);
+                            },
+                            error:function(err){
+                                console.log(err)
+                            }
+                        })
                     }
-                }
+                    
+                }, 500);
             })
 
             
+
+
         })
 
     </script>

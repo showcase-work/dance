@@ -137,6 +137,19 @@ module.exports = app => {
             })
     }
 
+    function checkTeamName(name){
+        return Team.findAll({
+            where:{teamName:name}
+        })
+    }
+
+    function deleteAllTeams(){
+        return Team.destroy({
+            where: {},
+            truncate: true
+        })
+    }
+
     return {
         Team,
         getTeam,
@@ -144,6 +157,8 @@ module.exports = app => {
         getAllTeams,
         deleteTeam,
         createNewRegistration,
-        findByTeamId
+        findByTeamId,
+        checkTeamName,
+        deleteAllTeams
     };
 };

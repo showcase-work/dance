@@ -89,3 +89,8 @@ textarea, input, button { outline: none; }
     border-radius: 20px;
     padding:5px 50px;
 }
+
+.uk-button:disabled{
+    background-color: #868686 !important;
+    color:#c8c8c8 !important;
+}
