@@ -317,6 +317,9 @@
                                 data:{team:textInput.val()},
                                 success:function(data){
                                     if(data){
+                                        if(textInput.next().hasClass("validation-check")){
+                                            textInput.next().remove();
+                                        };
                                         textInput.after('<i class="validation-check fa fa-check green"></i>');
                                         $(".team-name-continue").prop('disabled', false);
                                         textInput.css("border-color","#399931");
@@ -325,6 +328,9 @@
                                     }
                                     else
                                     {
+                                        if(textInput.next().hasClass("validation-check")){
+                                            textInput.next().remove();
+                                        };
                                         textInput.after('<i class="validation-check fa fa-times red"></i>');
                                         $(".team-name-continue").prop('disabled', true); 
                                         textInput.css("border-color","#a83636");
