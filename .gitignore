@@ -5,5 +5,3 @@ node_modules/
 *.log
 public/apidoc
 public/bower_components
-uploads/*
-public/uploads/*
