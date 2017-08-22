@@ -34,11 +34,19 @@
                 teams.forEach(function(team){%><div class="videos-container">
                         <div class="inner-container">
                             <div class="video">
-                                <video
+                                <!-- <video
                                   controls
                                   autoplay
                                   class="cld-video-player"
                                   data-cld-public-id="http://res.cloudinary.com/diaa7wkfp/video/upload/l_video:<%=team.public_id%>,w_300,g_east/<%=team.public_id%>.mp4"
+                                  data-cld-autoplay-mode="false"
+                                >
+                                </video>  -->
+                                <video
+                                  controls
+                                  autoplay
+                                  class="cld-video-player"
+                                  data-cld-public-id="<%=team.public_id%>"
                                   data-cld-autoplay-mode="false"
                                 >
                                 </video> 
