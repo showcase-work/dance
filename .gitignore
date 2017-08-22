@@ -6,3 +6,4 @@ node_modules/
 public/apidoc
 public/bower_components
 uploads/*
+public/uploads/*
