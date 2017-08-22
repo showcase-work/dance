@@ -94,3 +94,16 @@ textarea, input, button { outline: none; }
     background-color: #868686 !important;
     color:#c8c8c8 !important;
 }
+
+.uk-input.error{
+    border-color: #a83636;
+}
+
+.uk-input.valid{
+    border-color: rgb(57, 153, 49);
+}
+
+label.error{
+    color:#a83636;
+    display: block;
+}

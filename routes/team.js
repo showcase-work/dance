@@ -81,7 +81,7 @@ module.exports = app => {
 
     router.route("/login").post(passport.authenticate(
             'local-login',
-            {   successRedirect: '/essay',
+            {   successRedirect: '/team/dashboard',
                 failureRedirect: '/',
                 failureFlash: false 
             }
@@ -98,6 +98,24 @@ module.exports = app => {
 
     router.route("/deleteAllTeams").post((req,res,next)=>{
         teamController.deleteAllTeams(req,res,next);
+    })
+
+    router.route("/upload/video").post(upload.single('video'),(req,res,next)=>{
+        console.log("working in uploading video");
+        console.log(req.file);
+        console.log(req.files);
+        console.log(req.body);
+        teamController.uploadVideo(req,res,next);
+    })
+
+    router.route("/dashboard").get((req,res,next)=>{
+        if(req.user){
+            res.render("userdashboard",{user:req.user});
+        }
+        else
+        {
+            res.redirect("/");
+        }
     })
 
     return router;

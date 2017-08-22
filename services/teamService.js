@@ -1,16 +1,20 @@
 "use strict";
+var generator = require('generate-password');
 
 module.exports = app => {
 
     let Team = app.models.team;
 
-    function checkAndRegisterTeam(body,filename){
-        console.log(body);
+    function checkAndRegisterTeam(body){
         console.log("is the body");
-        console.log(filename);
-        console.log("is the filename");
+        var password = generator.generate({
+            length: 10,
+            numbers: true
+        });
+        body.password = password;
+        console.log(body);
         return new Promise((resolve,reject)=>{
-            Team.createNewRegistration(body,filename).then(data=>{
+            Team.createNewRegistration(body).then(data=>{
                 console.log(data);
                 return resolve(data);
             }).catch(err=>{
@@ -51,6 +55,8 @@ module.exports = app => {
         })
         
     }
+
+   
 
     return{
         checkAndRegisterTeam,

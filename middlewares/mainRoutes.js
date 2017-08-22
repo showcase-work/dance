@@ -19,6 +19,10 @@ module.exports = app => {
         res.render("userdashboard");
     })
 
+    app.get("/logout", (req,res,next)=> {
+        req.logout();
+        res.redirect("/");
+    })
 
 
 };

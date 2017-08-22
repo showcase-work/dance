@@ -2,6 +2,7 @@
 let Sequelize = require("sequelize");
 let bcrypt = require('bcrypt-nodejs');
 let SALT_WORK_FACTOR = 12;
+
 module.exports = app => {
 
     let sequelize = app.db.connection;
@@ -56,7 +57,14 @@ module.exports = app => {
         },
             videoLink:{
                 type:Sequelize.STRING
+        },
+            duration:{
+                type:Sequelize.STRING
+        },
+            public_id:{
+                type:Sequelize.STRING
         }
+
     },
     {
         tableName: "team",
@@ -111,7 +119,8 @@ module.exports = app => {
         })
     }
 
-    function createNewRegistration(data, filename){
+    function createNewRegistration(data){
+        
         console.log("working in create new registration");
         return Team.create({
             email: data.email,
@@ -124,7 +133,10 @@ module.exports = app => {
             representativeNumber:data.teamRepresentativeNumber,
             city:data.city,
             state:data.state,
-            videoLink:filename
+            videoLink:data.video_url,
+            duration:data.duration,
+            public_id:data.public_id,
+            password:data.password
         });
     }
 

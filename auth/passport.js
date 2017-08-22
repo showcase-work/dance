@@ -14,7 +14,7 @@ module.exports = app => {
 
     passport.serializeUser(function(team, done) {
             console.log("working in serilize");
-            done(null, student);
+            done(null, team);
         });
 
     passport.deserializeUser(function(team, done) {
@@ -29,16 +29,14 @@ module.exports = app => {
 
 
     passport.use('local-login', new LocalStrategy({
-        usernameField : 'email',
+        usernameField : 'teamName',
         passwordField : 'password',
         passReqToCallback : true
     },
-    function(req, email, password, done) {
+    function(req, teamName, password, done) {
 
       process.nextTick(function() {
-
-                Team.find({ where: {email: email} }).then(function(team) {
-
+                Team.find({ where: {teamName: teamName} }).then(function(team) {
                     if (team) {
                         var test = team.validPassword(password);
                         if(test){

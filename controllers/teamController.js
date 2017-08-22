@@ -2,13 +2,20 @@
 
 module.exports = app =>{
     let teamService = app.services.teamService;
+    let cloudinary = app.services.cloudinary;
     let mailService = app.services.mailService;
 
     function checkAndRegisterTeam(req,res,next){
-        teamService.checkAndRegisterTeam(req.body, req.file.filename).then(data=>{
+        teamService.checkAndRegisterTeam(req.body).then(data=>{
             mailService.sendRegistrationMail(data);
-            res.render("userdashboard",{user:data});
-            //res.send(data);
+            req.login(data, function (err) {
+                            if ( ! err ){
+                                res.redirect('/team/dashboard');
+                            } else {
+                                console.log(err);
+                            }
+                        });
+            //res.render("userdashboard",{user:data});
         }).catch(err=>{
             console.log(err);
         })
@@ -50,10 +57,23 @@ module.exports = app =>{
         })
     }
 
+    function uploadVideo(req,res,next){
+        cloudinary.uploadVideo(req.file).then(data=>{
+            console.log("wokring in here");
+            console.log(data);
+            res.send(data);
+            console.log(data);
+        }).catch(err=>{
+            console.log(err);
+            next(err);
+        })
+    }
+
     return {
         checkAndRegisterTeam,
         getTeamsPage,
         checkTeamName,
-        deleteAllTeams
+        deleteAllTeams,
+        uploadVideo
     }
 }

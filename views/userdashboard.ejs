@@ -5,7 +5,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/css/uikit.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/css/components/slideshow.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/css/components/slidenav.min.css">
-     
+    <link href="https://unpkg.com/cloudinary-video-player/dist/cld-video-player.min.css" rel="stylesheet">
+    
 
 
     <!-- <link rel="stylesheet" type="text/css" href="/css/uikit.min.css">
@@ -26,15 +27,18 @@
                 <h1>!BIENVENIDO <%=user.teamName%>!</h1>
                 <div class="main-video-header">
                     <div class="likes"></div>
-                    <button class="uk-button uk-button-danger">Cerrar Sesion</button>
+                    <a href="/logout">
+                        <button class="uk-button uk-button-danger">Cerrar Sesion</button>  
+                    </a>
                     <div class="clearboth"></div>
                 </div>
                 <div class="main-video-container">
-                    <video height="415" controls>
-                      <source src="/uploads/<%=user.videoLink%>" type="video/mp4">
-                      <source src="/uploads/<%=user.videoLink%>" type="video/webm">
-                      <source src="/uploads/<%=user.videoLink%>" type="video/ogg">
-                      Your browser does not support the video tag.
+                    <video
+                      id="demo-player"
+                      controls
+                      autoplay
+                      class="cld-video-player"
+                      data-cld-public-id="<%=user.public_id%>">
                     </video>
                 </div>
                 <div class="team-details">
@@ -81,5 +85,11 @@
     <script type="text/javascript" src="/js/main.js"></script>
     <!-- <script type="text/javascript" src="/js/slideshow.js"></script> -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/js/components/slideshow.js"></script>
+    <script src="https://unpkg.com/cloudinary-core/cloudinary-core-shrinkwrap.min.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/cloudinary-video-player/dist/cld-video-player.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var cld = cloudinary.Cloudinary.new({ cloud_name: "diaa7wkfp", secure: true});
+        var demoplayer = cld.videoPlayer('demo-player');
+    </script>
 </body>
 </html>
