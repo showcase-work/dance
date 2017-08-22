@@ -10,6 +10,7 @@ module.exports = app =>{
             mailService.sendRegistrationMail(data);
             req.login(data, function (err) {
                             if ( ! err ){
+                                console.log(req.user);
                                 res.redirect('/team/dashboard');
                             } else {
                                 console.log(err);

@@ -410,7 +410,7 @@ li.main-registring-container{
 }
 
 .red{
-    color:red;
+    color:red !important;
 }
 .green{
     color:#399931;

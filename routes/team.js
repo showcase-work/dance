@@ -72,10 +72,6 @@ module.exports = app => {
     });*/
 
     router.route("/register").post(upload.single('video'),(req,res,next)=>{
-        console.log("Route:Team");
-        console.log("working in register")
-        console.log(req.file);
-        console.log(req.body);
         teamController.checkAndRegisterTeam(req,res,next);
     })
 
@@ -102,14 +98,24 @@ module.exports = app => {
 
     router.route("/upload/video").post(upload.single('video'),(req,res,next)=>{
         console.log("working in uploading video");
-        console.log(req.file);
-        console.log(req.files);
-        console.log(req.body);
-        teamController.uploadVideo(req,res,next);
+        if(!req.file){
+            next({error:"no file uploaded"});
+        }
+        else if(req.file.mimetype=="video/mp4" || req.file.mimetype=="video/3gpp" || req.file.mimetype=="video/quicktime" || req.file.mimetype=="video/x-msvideo")
+        {
+            teamController.uploadVideo(req,res,next);
+        }
+        else
+        {
+            next({error:"Incorrect format uploaded"});
+        }
+        
     })
 
     router.route("/dashboard").get((req,res,next)=>{
+        console.log(req.user);
         if(req.user){
+            console.log("rendering dashboard");
             res.render("userdashboard",{user:req.user});
         }
         else

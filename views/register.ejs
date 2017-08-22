@@ -153,10 +153,12 @@
                                                   data-cld-public-id="">
                                                 </video>
                                             </div>
+                                            <br />
                                             <div class="video-error">
                                                 
                                             </div>
                                         </div>
+                                        <br />
                                         <input type="file" class="uk-input required validthis" name="video" placeholder="Busar archivo" id="video" required>
                                         <p>Tu video debe durar máximo 1 min.</p>
                                         <p>Formatos aceptables <b>mov</b> y <b>mp4</b></p>
@@ -309,7 +311,10 @@
                     timeout = setTimeout(function () {
                         if(textInput.val().trim() != ""){
                             console.log('Input Value:', textInput.val());
-                            
+                            if(textInput.next().hasClass("validation-check")){
+                                            textInput.next().remove();
+                            };
+                            textInput.after('<i class="validation-check fa fa-spinner fa-spin" aria-hidden="true" style="width:17px"></i>');
 
                             $.ajax({
                                 url:"/team/checkTeamName",
@@ -320,6 +325,7 @@
                                         if(textInput.next().hasClass("validation-check")){
                                             textInput.next().remove();
                                         };
+
                                         textInput.after('<i class="validation-check fa fa-check green"></i>');
                                         $(".team-name-continue").prop('disabled', false);
                                         textInput.css("border-color","#399931");
