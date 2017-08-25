@@ -68,6 +68,7 @@
                             <div class="sliding-containers">
                                 <div class="child-container active">
                                         <p class="label">Nombre del equipo</p>
+                                        <p><small>El nombre de tu equipo debe ser sin espacios</small></p>
                                         <input type="text" class="uk-input required team-name validthis" name="teamName" id="teamName" required>
                                         <br />
                                         <button class="uk-button uk-button-primary continue team-name-continue" type="button">CONTINUAR</button>
@@ -142,7 +143,10 @@
                                 </div>
                                 <div class="child-container four">
                                         <p class="label">Carga tu video</p>
-                                        <div class="loader"><img src="/images/loader.gif"/></div>
+                                        <div class="loader">
+                                        <img src="/images/loader.gif"/>
+                                        <p><small>Tu video se está procesando</small></p>
+                                        </div>
                                         <div class="video-container">
                                             <div class="main-video">
                                                 <video
@@ -160,7 +164,7 @@
                                         </div>
                                         <br />
                                         <input type="file" class="uk-input required validthis" name="video" placeholder="Busar archivo" id="video" required>
-                                        <p>Tu video debe durar máximo 1 min.</p>
+                                        <p>Tu video debe durar máximo 30 sec.</p>
                                         <p>Formatos aceptables <b>mov</b> y <b>mp4</b></p>
                                         <br />
                                         <p class="label">Estas por completar tu formulario de registro.</p>
