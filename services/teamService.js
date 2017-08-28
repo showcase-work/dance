@@ -16,6 +16,7 @@ module.exports = app => {
         return new Promise((resolve,reject)=>{
             Team.createNewRegistration(body).then(data=>{
                 console.log(data);
+                data.password = password;
                 return resolve(data);
             }).catch(err=>{
                 return reject(err);
