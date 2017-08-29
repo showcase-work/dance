@@ -122,13 +122,23 @@ module.exports = app => {
     function createNewRegistration(data){
         
         console.log("working in create new registration");
+        var teamMembers = [];
+        var representativeName = {};
+        representativeName.firstName = data.representativeName;
+        representativeName.lastName = data.representativeLastName;
+        var i = 0;
+        data.teamMemberName.forEach(teamMemberName=>{
+            teamMembers.push({firstName:teamMemberName, lastName:data.teamMemberLastName[i]})
+            i++;
+        })
+        console.log(teamMembers);
         return Team.create({
             email: data.email,
             teamName: data.teamName,
             role: "team",
             status:"evaluation",
-            teamMembers:JSON.stringify(data.teamMemberName),
-            representativeName:data.representativeName,
+            teamMembers:JSON.stringify(teamMembers),
+            representativeName:JSON.stringify(representativeName),
             representativeEmail:data.teamRepresentativeEmail,
             representativeNumber:data.teamRepresentativeNumber,
             city:data.city,

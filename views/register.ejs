@@ -71,16 +71,31 @@
                                         <p><small>El nombre de tu equipo debe ser sin espacios</small></p>
                                         <input type="text" class="uk-input required team-name validthis" name="teamName" id="teamName" required>
                                         <br />
-                                        <button class="uk-button uk-button-primary continue team-name-continue" type="button">CONTINUAR</button>
+                                        <button class="uk-button uk-button-primary continue team-name-continue" type="button" disabled>CONTINUAR</button>
                                 </div>
                                 <div class="child-container one ">
                                         <p class="label">Representante del equipo</p>
-                                        <input type="" class="uk-input required validthis" name="representativeName" required>
+                                        <div>
+                                            <input type="text" class="uk-input required validthis" name="representativeName" required>
+                                            <input type="text" class="uk-input required validthis" name="representativeLastName" required>
+                                        </div>
                                         <p class="label">Integrantes del equipo</p>
-                                        <input type="text" class="uk-input validthis" name="teamMemberName" required>
-                                        <input type="text" class="uk-input " name="teamMemberName">
-                                        <input type="text" class="uk-input " name="teamMemberName">
-                                        <input type="text" class="uk-input " name="teamMemberName">
+                                        <div>
+                                            <input type="text" class="uk-input validthis" name="teamMemberName" required>
+                                            <input type="text" class="uk-input validthis" name="teamMemberLastName" required>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="uk-input " name="teamMemberName" >
+                                            <input type="text" class="uk-input " name="teamMemberLastName" >
+                                        </div>
+                                        <div>
+                                            <input type="text" class="uk-input " name="teamMemberName" >
+                                            <input type="text" class="uk-input " name="teamMemberLastName" >
+                                        </div>
+                                        <div>
+                                            <input type="text" class="uk-input " name="teamMemberName" >
+                                            <input type="text" class="uk-input " name="teamMemberLastName" >
+                                        </div>
                                         <br />
                                         <button class="uk-button uk-button-primary continue" type="button">CONTINUAR</button>
                                 </div>
@@ -366,117 +381,21 @@
             })
 
 
-            var states={
-                "Aguascalientes":["Aguascalientes"],
-                "Baja California":["Tijuana","Mexicali","Ensenada","La Paz"],
-                "Campeche":["Campeche", "Ciudad del Carmen"],
-                "Chiapas":["Tuxtla Gutierrez","Tapachula", "San Cristobal de las Casas"],
-                "Mexico":["Nezahualcoyotl","Naucalpan","Tlalnepantla","Chimalhuacan","Toluca","Ciudad Lopez Mateos","Cuautitlan Izcalli","Xico","Ixtapaluca","Ciudad Nicolas Romero","Coacalco de Berriozabal","Ojo de Agua","Buenavista","San Pablo de las Salinas","Chicoloapan de Juarez","Chalco de Diaz Covarrubias","Naucalpan", "Huixquilucan Municipality","Cuautitlan","Texcoco","Tepexpan"],
-                "Jalisco":["Guadalajara","Zapopan","Tlaquepaque","Tonala","Puerto","Vallarta"],
-                "Chihuahua":["Juarez","Chihuahua","Delicias","Hidalgo del Parral"],
-                "Coahuila":["Saltillo","Torreon","Monclova","Piedras Negras",'Ciudad Acuna'],
-                "Colima":["Colima","Manzanillo","Ciudad de Villa de Alvarez"],
-                "Distrito Federal":["Mexico City"],
-                "Durango":["Durango","Gomez Palacio"],
-                "Guerrero":["Acapulco","Chilpancingo","Iguala"],
-                "Hidalgo":["Pachuca","Tulancingo"],
-                "Guanajuato":["Leon","Irapuato","Celaya","Salamanca"],
-                "Michoacan":[
-                    "Morelia",
-                    "Uruapan",
-                    "Zamora"
-                ],
-                "Morelos":[
-                    "Cuernavaca",
-                    "Jiutepec",
-                    "Cuautla"
-                ],
-                "Nayarit":["Tepic"],
-                "Nuevo Leon":[
-                    "Monterrey",
-                    "Guadalupe",
-                    "Ciudad Apodaca",
-                    "San Nicolas de los Garza",
-                    "General Escobedo",
-                    "Santa Catarina",
-                    "Ciudad Benito Juarez",
-                    "San Pedro Garza Garcia"
-                ],
-                "Oaxaca":[
-                    "Oaxaca",
-                    "San Juan Bautista Tuxtepec"
-                ],
-                "Puebla":[
-                    "Puebla",
-                    "Tehuacan"
-                ],
-                "Queretaro":[
-                    "Queretaro",
-                    "San Juan del Rio"
-                ],
-                "Quintana Roo":[
-                    "Cancun",
-                    "Chetumal",
-                    "Playa del Carmen"
-                ],
-                "San Luis Potosi":[
-                    "San Luis Potosi",
-                    "Soledad de Graciano Sanchez",
-                    "Ciudad Valles"
-                ],
-                "Sinaloa":[
-                    "Culiacan",
-                    "Mazatlan",
-                    "Los Mochis"
-                ],
-                "Sonora":[
-                    "Hermosillo",
-                    "Ciudad Obregon",
-                    "Nogales",
-                    "San Luis Rio Colorado",
-                    "Navojoa",
-                    "Guaymas"
-                ],
-                "State of Mexico":["Ecatepec"],
-                "Tabasco":["Villahermosa"],
-                "Tamaulipas":[
-                    "Reynosa",
-                    "Matamoros",
-                    "Nuevo Laredo",
-                    "Ciudad Victoria",
-                    "Tampico",
-                    "Ciudad Madero",
-                    "Miramar"
-                ],
-                "Veracruz":[
-                    "Veracruz",
-                    "Xalapa",
-                    "Coatzacoalcos",
-                    "Poza Rica",
-                    "Cordoba",
-                    "Veracruz, Boca del Rio Municipality",
-                    "Orizaba",
-                    "Minatitlan"
-                ],
-                "Yucatan":[
-                    "Merida"
-                ],
-                "Zacatecas":[
-                    "Zacatecas",
-                    "Guadalupe",
-                    "Fresnillo"
-                ]
-            }
-
-            $("#stateNames").on("change", function(){
-                var state = this.value;
-                console.log(state);
-                $("#cityNames").html("");
-                states[state].forEach(function(city){
-                    console.log(city);
-                    $("#cityNames").append("<option value="+city+">"+city+"</option>");
+            
+            $.getJSON("states.json", function(json) {
+                var states=json;
+                $("#stateNames").on("change", function(){
+                    var state = this.value;
+                    console.log(state);
+                    $("#cityNames").html("");
+                    states[state].forEach(function(city){
+                        console.log(city);
+                        $("#cityNames").append("<option value="+city+">"+city+"</option>");
+                    })
                 })
-            })
+            });
+
+            
 
             var cld = cloudinary.Cloudinary.new({ cloud_name: "diaa7wkfp", secure: true});
             var demoplayer = cld.videoPlayer('demo-player');

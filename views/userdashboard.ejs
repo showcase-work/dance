@@ -48,9 +48,15 @@
                     </div>
                     <div class="team-members">
                         <ul>
+                            <li>
+                                <%
+                                    var repName = JSON.parse(user.representativeName)
+                                %>
+                                <%=repName.firstName%> <%=repName.lastName%>
+                            </li>
                             <% var members = JSON.parse(user.teamMembers);
                                 members.forEach(function(member){ %>
-                                <li><%=member%></li>
+                                <li><%=member.firstName%> <%=member.lastName%></li>
                             <%
                                 })
                             %>

@@ -12,7 +12,7 @@ module.exports = app => {
                     { resource_type: "video" 
                     },
                     function(error, result) {
-                        if(result.duration > 30){
+                        if(result.duration > 31){
 
                             cloudinary.uploader.destroy(result.public_id, function(result) {
                                         console.log(result) }, { resource_type: "video" });

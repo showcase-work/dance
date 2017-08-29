@@ -23,7 +23,6 @@ module.exports = app => {
                 'Text-part': '',
                 'Html-part': str,
                 'Recipients': [{'Email': data.representativeEmail}]
-                
             }
 
             sendEmail
