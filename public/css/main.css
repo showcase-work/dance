@@ -383,6 +383,9 @@ li.main-registring-container{
     border-color: #8C8C8C;
     padding: 10px;
     border-radius: 3px;
+    display: inline-block;
+    vertical-align: top;
+    border:1px solid black;
 }
 
 .container .filters-container .float.right{
@@ -391,11 +394,16 @@ li.main-registring-container{
 }
 
 .container .filters-container button{
-    padding:10px;
+    padding:8px;
     border-radius: 3px;
-    border:none;
+    border:1px solid black;
     color:white;
     font-size: 15px;
+    background-color: black;
+    height:35px;
+    display: inline-block;
+    vertical-align: top;
+
 }
 
 .container .filters-container {

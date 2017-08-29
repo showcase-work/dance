@@ -25,7 +25,7 @@ module.exports = app =>{
     function getTeamsPage(req,res,next){
         teamService.getAllTeams().then(data=>{
             console.log("working in here");
-            res.render("teams",{teams:data});
+            res.render("teams",{teams:data, searching:false});
         }).catch(err=>{
             console.log("error coming");
             console.log(err);
@@ -70,11 +70,20 @@ module.exports = app =>{
         })
     }
 
+    function findTeam(req,res,next){
+        teamService.findTeam(req.query.search).then(data=>{
+            res.render("teams",{teams:data, searching:true});
+        }).catch(err=>{
+            next(err);
+        })
+    }
+
     return {
         checkAndRegisterTeam,
         getTeamsPage,
         checkTeamName,
         deleteAllTeams,
-        uploadVideo
+        uploadVideo,
+        findTeam
     }
 }

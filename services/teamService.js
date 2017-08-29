@@ -57,12 +57,25 @@ module.exports = app => {
         
     }
 
+    function findTeam(query){
+        return new Promise((resolve,reject)=>{
+            console.log(query);
+            console.log("wokring in this");
+            Team.findTeam(query).then(data=>{
+                return resolve(data);
+            }).catch(err=>{
+                return reject(err);
+            })
+        })
+    }
+
    
 
     return{
         checkAndRegisterTeam,
         getAllTeams,
         checkTeamName,
-        deleteAllTeams
+        deleteAllTeams,
+        findTeam
     }
 }

@@ -26,8 +26,18 @@
         <div class="container">
             <h1>ES MOMENTO DE VOTAR</h1>
             <div class="filters-container">
-                <input type="text" name="search" placeholder="Buscar Video">
-                <button>Filtros</button>
+                <form action="/team/search" method="GET" style="display: inline-block;">
+                    <input type="text" name="search" placeholder="Buscar Video">
+                    <button type="submit">Search</button>
+                </form>
+                <%
+                    if(searching){
+                        %>
+                            <a href="/team"><button style="background-color:red; border-color:red">Clear Filters</button></a>
+                        <%
+                    }
+                %>
+                
                 <button class="float right" style="background-color: #399931; border-radius: 20px; padding-left: 20px; padding-right: 20px;">Participantes</button>
             </div>
             <%

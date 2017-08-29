@@ -172,6 +172,40 @@ module.exports = app => {
         })
     }
 
+    function findTeam(query){
+        return Team.findAll({
+            where: {
+                $or: [
+                    {
+                      teamName: {
+                        $like: '%'+query+'%'
+                      }
+                    },
+                    {
+                      representativeName: {
+                        $like: '%'+query+'%'
+                      }
+                    },
+                    {
+                      representativeEmail: {
+                        $like: '%'+query+'%'
+                      }
+                    },
+                    {
+                      city: {
+                        $like: '%'+query+'%'
+                      }
+                    },
+                    {
+                      state: {
+                        $like: '%'+query+'%'
+                      }
+                    }
+                ]
+            },
+        })
+    }
+
     return {
         Team,
         getTeam,
@@ -181,6 +215,7 @@ module.exports = app => {
         createNewRegistration,
         findByTeamId,
         checkTeamName,
-        deleteAllTeams
+        deleteAllTeams,
+        findTeam
     };
 };

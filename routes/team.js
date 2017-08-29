@@ -124,6 +124,10 @@ module.exports = app => {
         }
     })
 
+    router.route("/search").get((req,res,next)=>{
+        teamController.findTeam(req,res,next);
+    })
+
     return router;
 };
 
