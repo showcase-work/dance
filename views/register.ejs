@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/css/uikit.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/css/components/slideshow.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/css/components/slidenav.min.css">
-    
+
 
 
     <!-- <link rel="stylesheet" type="text/css" href="/css/uikit.min.css">
@@ -30,12 +30,12 @@
                     <li>
                         <div>
                             <h1>1</h1>
-                            <p>Junta a tus amigos (máximo 5 personas)</p>
+                            <p>Junta a tus amigos (máximo 5 personas).</p>
                         </div>
                     </li><li>
                         <div>
                             <h1>2</h1>
-                            <p>Grábense bailando a su estilo la canción  “Mais que nada”</p>
+                            <p>Grábense bailando a su estilo alguna de las siguientes 3 pistas.</p>
                         </div>
                     </li><li>
                         <div>
@@ -45,12 +45,12 @@
                     </li><li>
                         <div>
                             <h1>4</h1>
-                            <p>Recibe tu confirmación de  participación y preparate para  conseguir la mayor cantidad de votos</p>
+                            <p>Recibe tu confirmación de  participación y prepárate para  conseguir la mayor cantidad de votos.</p>
                         </div>
                     </li><li>
                         <div>
                             <h1>5</h1>
-                            <p>Los videos más votados ganaran pases para los mejores festivales de música</p> 
+                            <p>Los videos más votados ganarán pases para los mejores festivales de música.</p>
                         </div>
                     </li>
                 </ul>
@@ -60,7 +60,7 @@
                         <li class="uk-width-1-2"><a href="">INGRESA A TU PERFIL</a></li>
                     </ul>
                 </div>
-                
+
 
                 <ul id="my-id" class="uk-switcher uk-margin">
                     <li class="main-registring-container">
@@ -105,7 +105,7 @@
                                         <p class="label">Teléfono de contacto del representante</p>
                                         <input type="digits" class="uk-input required validthis" name="teamRepresentativeNumber" placeholder="10 digitos" required minlength="10" maxlength="10">
                                         <br />
-                                        <button class="uk-button uk-button-primary continue" type="button">CONTINUAR</button>                                
+                                        <button class="uk-button uk-button-primary continue" type="button">CONTINUAR</button>
                                 </div>
                                 <div class="child-container three">
                                         <p class="label">Estado</p>
@@ -174,7 +174,7 @@
                                             </div>
                                             <br />
                                             <div class="video-error">
-                                                
+
                                             </div>
                                         </div>
                                         <br />
@@ -193,7 +193,7 @@
                                         <br />
                                         <button class="uk-button uk-button-primary submitRegistrationForm" type="button" disabled>CONFIRMAR REGISTRO</button>
                                 </div>
-                                
+
                                 <div class="child-container five">
                                         <p class="label">En los próximos 20 min. <br />recibirás un correo electrónico <br />con la confirmación de tu registro.</p>
                                         <p class="label">En el correo electrónico<br /> de confirmación encontrarás<br /> las instrucciones de<br /> las siguientes etapas<br /> de tu participación.</p>
@@ -231,11 +231,11 @@
                 </ul>
             </div>
         </div>
-        
+
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/js/uikit.min.js"></script>
-    <script type="text/javascript" src="/bower_components/jquery-validation/dist/jquery.validate.min.js"></script> 
+    <script type="text/javascript" src="/bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
     <!-- <script type="text/javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" src="/js/uikit.min.js"></script>
     <script type="text/javascript" src="/js/jquery.validate.js"></script> -->
@@ -262,7 +262,7 @@
                     if(document.getElementById("video").files.length == 0){
                         error=true;
                         if(!video.next().hasClass("validation")){
-                            video.after("<div class='validation' style='color:red;margin-bottom: 20px;'>Please upload a video</div>");
+                            video.after("<div class='validation' style='color:red;margin-bottom: 20px;'>Por favor selecciona un video.</div>");
                         }
                     }
 
@@ -272,7 +272,7 @@
                     else
                     {
                         if(!self.next().next().hasClass("validation")){
-                            self.next().after("<div class='validation' style='color:red;margin-bottom: 20px;'>This field is required to be checked</div>");
+                            self.next().after("<div class='validation' style='color:red;margin-bottom: 20px;'>Este campo es obligatorio.</div>");
                         }
                         error=true;
                     }
@@ -281,7 +281,7 @@
                 if(!error){
                     $('#registerTeam').submit();
                 }
-               
+
             })
             var x = 1;
 
@@ -303,7 +303,7 @@
                     self.parent().removeClass("active");
                     self.parent().next().addClass("active");
                 }
-                    
+
             })
 
 
@@ -320,7 +320,7 @@
 
             textInput.keyup(function(e){
                 if(e.which == 13) {
-                    
+
                 }
                 else
                 {
@@ -348,7 +348,7 @@
                                         textInput.after('<i class="validation-check fa fa-check green"></i>');
                                         $(".team-name-continue").prop('disabled', false);
                                         textInput.css("border-color","#399931");
-                                        
+
 
                                     }
                                     else
@@ -357,7 +357,7 @@
                                             textInput.next().remove();
                                         };
                                         textInput.after('<i class="validation-check fa fa-times red"></i>');
-                                        $(".team-name-continue").prop('disabled', true); 
+                                        $(".team-name-continue").prop('disabled', true);
                                         textInput.css("border-color","#a83636");
 
                                     }
@@ -374,14 +374,14 @@
                                 textInput.css("border-color","#8C8C8C");
                             };
                         }
-                        
+
                     }, 500);
                 }
-                
+
             })
 
 
-            
+
             $.getJSON("states.json", function(json) {
                 var states=json;
                 $("#stateNames").on("change", function(){
@@ -395,25 +395,25 @@
                 })
             });
 
-            
+
 
             var cld = cloudinary.Cloudinary.new({ cloud_name: "diaa7wkfp", secure: true});
             var demoplayer = cld.videoPlayer('demo-player');
-            
+
 
 
             $("#video").change(function(){
                 $(".video-container").hide();
                 $(".loader").show();
                 $(".video-error").html("");
-                var form = this.files[0]; 
+                var form = this.files[0];
                 var data = new FormData();
                 jQuery.each(jQuery('#video')[0].files, function(i, file) {
                     data.append('video', file);
                 });
                 $.ajax({
                       url: '/team/upload/video',
-                      type: 'POST',   
+                      type: 'POST',
                       success: function (res) {
                         var path = res.public_id;
                         demoplayer.source(path);
@@ -423,19 +423,19 @@
                         $("#video-url-input").val(res.url);
                         $("#duration").val(res.duration);
                         $("#public_id").val(res.public_id);
-                      },   
+                      },
                       error:function(err){
                         $(".loader").hide();
                         $(".video-error").html('<p class="red">'+err.responseJSON.error+"</p>");
                         $(".video-container").show();
                         $(".submitRegistrationForm").prop("disabled",true);
                         console.log(err);
-                      },  
+                      },
                       cache: false,
-                      data: data,                
+                      data: data,
                       contentType: false,
                       processData: false
-                  });   
+                  });
             })
         })
 
