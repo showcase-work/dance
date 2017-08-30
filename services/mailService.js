@@ -15,11 +15,11 @@ module.exports = app => {
     function sendRegistrationMail(data){
 
         ejs.renderFile(path.join(__dirname,"../views/email.ejs"), {user:data}, {}, function(err, str){
-            
+
             var emailData = {
                 'FromEmail': 'experiencia@nuevoibiza.com',
-                'FromName': 'My Name',
-                'Subject': 'SEAT Dance Competition',
+                'FromName': 'Seat México',
+                'Subject': 'Hemos recibido tu registro. ¡Muéstranos tus mejores pasos!',
                 'Text-part': '',
                 'Html-part': str,
                 'Recipients': [{'Email': data.representativeEmail}]
@@ -34,9 +34,9 @@ module.exports = app => {
                     console.log("mail sent not wokring");
                     console.log(err);
                 });
-            
-            
-        });        
+
+
+        });
 
     }
 

@@ -22,6 +22,8 @@
 
 </head>
 <body>
+  <div id="aviso" style="display:none;"> asfsg srg sr gsr g rg r g sr g</div>
+  <div id="terminos" style="display:none;"> gds g sd g dsg  sg s g sg s g gs </div>
     <div class="main">
         <div class="container">
             <div class="registration-container ">
@@ -40,7 +42,7 @@
                     </li><li>
                         <div>
                             <h1>3</h1>
-                            <p>Completen el formulario, suban su video, acepten  los términos, condiciones y aviso de privacidad.</p>
+                            <p>Completen el formulario, suban el video, acepten los <a href="#terminos" rel="modal:open">Términos y condiciones</a> y el <a href="#aviso" rel="modal:open">Aviso de privacidad</a></p>
                         </div>
                     </li><li>
                         <div>
@@ -50,7 +52,7 @@
                     </li><li>
                         <div>
                             <h1>5</h1>
-                            <p>Los videos más votados ganarán pases para los mejores festivales de música.</p>
+                            <p>Los videos más votados podrán ganar pases para el festival Primavera Club en Barcelona y Mutek en Ciudad de México.</p>
                         </div>
                     </li>
                 </ul>
@@ -74,34 +76,34 @@
                                         <button class="uk-button uk-button-primary continue team-name-continue" type="button" disabled>CONTINUAR</button>
                                 </div>
                                 <div class="child-container one ">
-                                        <p class="label">Representante del equipo</p>
+                                        <p class="label">Nombre completo del represente del equipo</p>
                                         <div>
-                                            <input type="text" class="uk-input required validthis" name="representativeName" required>
-                                            <input type="text" class="uk-input required validthis" name="representativeLastName" required>
+                                            <input type="text" class="uk-input required validthis" name="representativeName" placeholder="Nombres(s)" required>
+                                            <input type="text" class="uk-input required validthis" name="representativeLastName" placeholder="Apellidos"  required>
                                         </div>
-                                        <p class="label">Integrantes del equipo</p>
+                                        <p class="label">Nombre completo de cada uno de los integrantes de tu equipo</p>
                                         <div>
-                                            <input type="text" class="uk-input validthis" name="teamMemberName" required>
-                                            <input type="text" class="uk-input validthis" name="teamMemberLastName" required>
-                                        </div>
-                                        <div>
-                                            <input type="text" class="uk-input " name="teamMemberName" >
-                                            <input type="text" class="uk-input " name="teamMemberLastName" >
+                                            <input type="text" class="uk-input validthis" name="teamMemberName" placeholder="Nombres(s)"  required>
+                                            <input type="text" class="uk-input validthis" name="teamMemberLastName" placeholder="Apellidos"  required>
                                         </div>
                                         <div>
-                                            <input type="text" class="uk-input " name="teamMemberName" >
-                                            <input type="text" class="uk-input " name="teamMemberLastName" >
+                                            <input type="text" class="uk-input " name="teamMemberName" placeholder="Nombres(s)"  >
+                                            <input type="text" class="uk-input " name="teamMemberLastName" placeholder="Apellidos"  >
                                         </div>
                                         <div>
-                                            <input type="text" class="uk-input " name="teamMemberName" >
-                                            <input type="text" class="uk-input " name="teamMemberLastName" >
+                                            <input type="text" class="uk-input " name="teamMemberName" placeholder="Nombres(s)"  >
+                                            <input type="text" class="uk-input " name="teamMemberLastName" placeholder="Apellidos"  >
+                                        </div>
+                                        <div>
+                                            <input type="text" class="uk-input " name="teamMemberName" placeholder="Nombres(s)"  >
+                                            <input type="text" class="uk-input " name="teamMemberLastName" placeholder="Apellidos"  >
                                         </div>
                                         <br />
                                         <button class="uk-button uk-button-primary continue" type="button">CONTINUAR</button>
                                 </div>
                                 <div class="child-container two">
                                         <p class="label">Correo electrónico del representante</p>
-                                        <input type="email" class="uk-input required validthis" name="teamRepresentativeEmail" required>
+                                        <input type="email" class="uk-input required validthis" name="teamRepresentativeEmail" placeholder="correo@tucorreo.com" required>
                                         <p class="label">Teléfono de contacto del representante</p>
                                         <input type="digits" class="uk-input required validthis" name="teamRepresentativeNumber" placeholder="10 digitos" required minlength="10" maxlength="10">
                                         <br />
@@ -181,8 +183,10 @@
                                         <input type="file" class="uk-input required validthis" name="video" placeholder="Busar archivo" id="video" required>
                                         <p>Tu video debe durar máximo 30 sec.</p>
                                         <p>Formatos aceptables <b>mov</b> y <b>mp4</b></p>
+                                        <p>El video debe ser grabado en formato horizontal.</p>
+                                        <p>Únicamente se pueden subir videos en horizontal.</p>
                                         <br />
-                                        <p class="label">Estas por completar tu formulario de registro.</p>
+                                        <p class="label">Estás por completar tu formulario de registro.</p>
                                         <div class="checkbox-container">
                                             <input type="checkbox" id="privacyPermission" name="privacyPermission" value="privacyPermission" style="width:initial;" class="uk-checkbox checkbox-required validthis" required>
                                             <label for="coding">Acepto el aviso de privacidad</label>
@@ -233,6 +237,9 @@
         </div>
 
     </div>
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/js/uikit.min.js"></script>
     <script type="text/javascript" src="/bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
