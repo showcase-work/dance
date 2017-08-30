@@ -9,7 +9,7 @@ module.exports = app => {
     let logger = app.helpers.logger;
     let errorFormatter = app.helpers.errorFormatter;
 
-    var Team = sequelize.define("team", {  
+    var Team = sequelize.define("team", {
             id: {
             allowNull: false,
             autoIncrement: true,
@@ -99,7 +99,7 @@ module.exports = app => {
             return Team.findById(id);
     }
 
- 
+
     function createNewTeam(params){
         console.log(User);
         console.log("working here");
@@ -120,7 +120,7 @@ module.exports = app => {
     }
 
     function createNewRegistration(data){
-        
+
         console.log("working in create new registration");
         var teamMembers = [];
         var representativeName = {};
@@ -136,7 +136,7 @@ module.exports = app => {
             email: data.email,
             teamName: data.teamName,
             role: "team",
-            status:"evaluation",
+            status:"En evaluación",
             teamMembers:JSON.stringify(teamMembers),
             representativeName:JSON.stringify(representativeName),
             representativeEmail:data.teamRepresentativeEmail,
