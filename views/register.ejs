@@ -22,9 +22,7 @@
 
 </head>
 <body>
-  <div id="aviso" style="display:none;"> asfsg srg sr gsr g rg r g sr g</div>
-  <div id="terminos" style="display:none;"> gds g sd g dsg  sg s g sg s g gs </div>
-    <div class="main">
+     <div class="main">
         <div class="container">
             <div class="registration-container ">
                 <h1 class="registration-heading">¡DANCE CHALLENGE!</h1>
@@ -37,12 +35,12 @@
                     </li><li>
                         <div>
                             <h1>2</h1>
-                            <p>Grábense bailando a su estilo alguna de las siguientes 3 pistas.</p>
+                            <p>Grábense bailando a su estilo alguna de las 3 pistas oficiales.</p>
                         </div>
                     </li><li>
                         <div>
                             <h1>3</h1>
-                            <p>Completen el formulario, suban el video, acepten los <a href="#terminos" rel="modal:open">Términos y condiciones</a> y el <a href="#aviso" rel="modal:open">Aviso de privacidad</a></p>
+                            <p>Completen el formulario, suban el video, acepten los <a href="#terminos" rel="modal:open">Términos y condiciones</a> y el <a href="#aviso" rel="modal:open">Aviso de privacidad.</a></p>
                         </div>
                     </li><li>
                         <div>
@@ -57,6 +55,9 @@
                     </li>
                 </ul>
                 <div class="tabs-container">
+                  <h1>ESCUCHA LAS PISTAS OFICIALES</h1>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/nA52vNSMRKs" frameborder="0" allowfullscreen></iframe>
+                  <hr>
                     <ul class="uk-tab uk-tab-grid"  data-uk-tab="{connect:'#my-id'}">
                         <li class="uk-active uk-width-1-2"><a href="">REGISTRA A TU EQUIPO</a></li>
                         <li class="uk-width-1-2"><a href="">INGRESA A TU PERFIL</a></li>
@@ -105,7 +106,7 @@
                                         <p class="label">Correo electrónico del representante</p>
                                         <input type="email" class="uk-input required validthis" name="teamRepresentativeEmail" placeholder="correo@tucorreo.com" required>
                                         <p class="label">Teléfono de contacto del representante</p>
-                                        <input type="digits" class="uk-input required validthis" name="teamRepresentativeNumber" placeholder="10 digitos" required minlength="10" maxlength="10">
+                                        <input type="number" class="uk-input required validthis" name="teamRepresentativeNumber" placeholder="10 digitos" required minlength="10" maxlength="10">
                                         <br />
                                         <button class="uk-button uk-button-primary continue" type="button">CONTINUAR</button>
                                 </div>
@@ -113,14 +114,14 @@
                                         <p class="label">Estado</p>
                                         <div class="select-container">
                                             <select type="" class="uk-input" id="stateNames" name="state">
-                                                <option value="Distrito Federal">Distrito Federal</option>
-                                                <option value="Puebla">Puebla</option>
+
                                                 <option value="Aguascalientes">Aguascalientes</option>
                                                 <option value="Baja California">Baja California</option>
                                                 <option value="Baja California Sur">Baja California Sur</option>
                                                 <option value="Campeche">Campeche</option>
                                                 <option value="Chiapas">Chiapas</option>
                                                 <option value="Chihuahua">Chihuahua</option>
+                                                <option value="Ciudad de México">Ciudad de México</option>
                                                 <option value="Coahuila">Coahuila</option>
                                                 <option value="Colima">Colima</option>
                                                 <option value="Durango">Durango</option>
@@ -140,8 +141,6 @@
                                                 <option value="San Luis Potosi">San Luis Potosi</option>
                                                 <option value="Sinaloa">Sinaloa</option>
                                                 <option value="Sonora">Sonora</option>
-                                                <option value="State (Estado)">State (Estado)</option>
-                                                <option value="State of Mexico">State of Mexico</option>
                                                 <option value="Tabasco">Tabasco</option>
                                                 <option value="Tamaulipas">Tamaulipas</option>
                                                 <option value="Veracruz">Veracruz</option>
@@ -189,10 +188,10 @@
                                         <p class="label">Estás por completar tu formulario de registro.</p>
                                         <div class="checkbox-container">
                                             <input type="checkbox" id="privacyPermission" name="privacyPermission" value="privacyPermission" style="width:initial;" class="uk-checkbox checkbox-required validthis" required>
-                                            <label for="coding">Acepto el aviso de privacidad</label>
+                                            <label for="coding">Acepto el <a href="#aviso" rel="modal:open">aviso de privacidad</a></label>
                                             </br>
                                             <input type="checkbox" id="termsAndConditions" name="termsAndConditions" value="termsAndConditions" style="width:initial;" class="uk-checkbox checkbox-required validthis" required>
-                                            <label for="coding">Acepto los términos y condiciones</label>
+                                            <label for="coding">Acepto los <a href="#terminos" rel="modal:open">términos y condiciones</a></label>
                                         </div>
                                         <br />
                                         <button class="uk-button uk-button-primary submitRegistrationForm" type="button" disabled>CONFIRMAR REGISTRO</button>
@@ -237,6 +236,23 @@
         </div>
 
     </div>
+    <div id="aviso" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pharetra ac urna sed lobortis. Curabitur et nulla ac odio egestas ultrices. Aenean pretium lacinia eros rhoncus vehicula. In non urna non tortor consectetur viverra sed vitae nisi. Morbi fermentum interdum orci ac placerat. Aenean in semper risus. Aliquam erat volutpat. Maecenas nec bibendum ex. Phasellus rhoncus at est eu imperdiet. Suspendisse elit odio, scelerisque eget sollicitudin sit amet, malesuada dictum libero. Nullam dolor metus, pretium bibendum lacinia efficitur, hendrerit eu arcu. Mauris vitae orci quam. Etiam in euismod purus. Vivamus venenatis semper metus a cursus.
+
+  Morbi non est dui. Vestibulum vestibulum vestibulum lorem, a malesuada velit porta at. Nullam turpis mauris, sollicitudin ut arcu eget, tincidunt consequat augue. Pellentesque efficitur, sem vel pharetra porta, ex lectus cursus nisi, sit amet rutrum velit ante mollis turpis. Nunc a felis facilisis eros imperdiet volutpat sit amet et turpis. Aenean tincidunt arcu libero, ut blandit lectus luctus venenatis. Aenean bibendum ante sed justo tristique, eget tincidunt urna cursus. Donec eget ligula ultrices odio porttitor lobortis et eu lectus. Sed volutpat libero arcu, quis pellentesque lorem aliquam at. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam vitae diam massa. Donec volutpat velit at dui cursus sodales. Duis sollicitudin vehicula arcu, eu efficitur tellus suscipit vitae.
+
+  Proin laoreet leo leo, sed suscipit purus tempus id. Donec et orci leo. Pellentesque varius eros non gravida congue. Sed ultricies molestie pretium. Praesent tincidunt in sapien ut cursus. Suspendisse consectetur volutpat arcu, et mattis magna molestie non. Vivamus rhoncus efficitur sagittis. Aliquam erat volutpat.
+
+  Fusce id neque a tortor posuere egestas maximus vitae odio. Nam ut pharetra turpis, vitae viverra dolor. Morbi efficitur et nibh ut facilisis. Vivamus viverra magna arcu, eget congue justo sodales non. Proin ex mauris, pretium mollis erat a, luctus laoreet velit. Nunc varius tortor ut quam egestas commodo. Vestibulum et maximus elit. Pellentesque feugiat blandit pulvinar. Cras a sollicitudin eros, nec finibus erat. Ut tempus, metus imperdiet mattis imperdiet, nunc nunc consectetur dolor, ultrices accumsan urna augue non tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc fringilla ultrices luctus. Pellentesque venenatis eu urna vitae aliquam. Pellentesque est risus, commodo nec semper eget, gravida a est. Vestibulum fermentum nunc vitae fermentum aliquam. Suspendisse fermentum, nisi in aliquam cursus, lectus quam euismod nisl, ut venenatis diam arcu facilisis mi.
+    </div>
+    <div id="terminos" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pharetra ac urna sed lobortis. Curabitur et nulla ac odio egestas ultrices. Aenean pretium lacinia eros rhoncus vehicula. In non urna non tortor consectetur viverra sed vitae nisi. Morbi fermentum interdum orci ac placerat. Aenean in semper risus. Aliquam erat volutpat. Maecenas nec bibendum ex. Phasellus rhoncus at est eu imperdiet. Suspendisse elit odio, scelerisque eget sollicitudin sit amet, malesuada dictum libero. Nullam dolor metus, pretium bibendum lacinia efficitur, hendrerit eu arcu. Mauris vitae orci quam. Etiam in euismod purus. Vivamus venenatis semper metus a cursus.
+
+  Morbi non est dui. Vestibulum vestibulum vestibulum lorem, a malesuada velit porta at. Nullam turpis mauris, sollicitudin ut arcu eget, tincidunt consequat augue. Pellentesque efficitur, sem vel pharetra porta, ex lectus cursus nisi, sit amet rutrum velit ante mollis turpis. Nunc a felis facilisis eros imperdiet volutpat sit amet et turpis. Aenean tincidunt arcu libero, ut blandit lectus luctus venenatis. Aenean bibendum ante sed justo tristique, eget tincidunt urna cursus. Donec eget ligula ultrices odio porttitor lobortis et eu lectus. Sed volutpat libero arcu, quis pellentesque lorem aliquam at. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam vitae diam massa. Donec volutpat velit at dui cursus sodales. Duis sollicitudin vehicula arcu, eu efficitur tellus suscipit vitae.
+
+  Proin laoreet leo leo, sed suscipit purus tempus id. Donec et orci leo. Pellentesque varius eros non gravida congue. Sed ultricies molestie pretium. Praesent tincidunt in sapien ut cursus. Suspendisse consectetur volutpat arcu, et mattis magna molestie non. Vivamus rhoncus efficitur sagittis. Aliquam erat volutpat.
+
+  Fusce id neque a tortor posuere egestas maximus vitae odio. Nam ut pharetra turpis, vitae viverra dolor. Morbi efficitur et nibh ut facilisis. Vivamus viverra magna arcu, eget congue justo sodales non. Proin ex mauris, pretium mollis erat a, luctus laoreet velit. Nunc varius tortor ut quam egestas commodo. Vestibulum et maximus elit. Pellentesque feugiat blandit pulvinar. Cras a sollicitudin eros, nec finibus erat. Ut tempus, metus imperdiet mattis imperdiet, nunc nunc consectetur dolor, ultrices accumsan urna augue non tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc fringilla ultrices luctus. Pellentesque venenatis eu urna vitae aliquam. Pellentesque est risus, commodo nec semper eget, gravida a est. Vestibulum fermentum nunc vitae fermentum aliquam. Suspendisse fermentum, nisi in aliquam cursus, lectus quam euismod nisl, ut venenatis diam arcu facilisis mi.
+    </div>
+
 
 
 
@@ -246,6 +262,8 @@
     <!-- <script type="text/javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" src="/js/uikit.min.js"></script>
     <script type="text/javascript" src="/js/jquery.validate.js"></script> -->
+    <script src="/js/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="/css/jquery.modal.min.css" type="text/css" media="screen" />
     <script type="text/javascript" src="/js/main.js"></script>
     <!-- <script type="text/javascript" src="/js/slideshow.js"></script> -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/js/components/slideshow.js"></script>
@@ -263,6 +281,7 @@
 
             $(".submitRegistrationForm").click(function(){
                 var error = false;
+                var submitButton = $(this);
                 $(".checkbox-required").each(function(){
                     var self = $(this);
                     var video = $("#video");
@@ -286,6 +305,8 @@
                 })
 
                 if(!error){
+                    submitButton.after("<div class='validation' style='color:gray;margin-bottom: 20px;'>Tu video se esta procesando.</div>");
+
                     $('#registerTeam').submit();
                 }
 
@@ -351,6 +372,9 @@
                                         if(textInput.next().hasClass("validation-check")){
                                             textInput.next().remove();
                                         };
+                                        if(textInput.next().hasClass("validation")){
+                                            textInput.next().remove();
+                                        };
 
                                         textInput.after('<i class="validation-check fa fa-check green"></i>');
                                         $(".team-name-continue").prop('disabled', false);
@@ -363,7 +387,8 @@
                                         if(textInput.next().hasClass("validation-check")){
                                             textInput.next().remove();
                                         };
-                                        textInput.after('<i class="validation-check fa fa-times red"></i>');
+                                        //textInput.after('<i class="validation-check fa fa-times red"></i>');
+                                        textInput.after("<div class='validation' style='color:red;margin-bottom: 20px;'>Este nombre de equipo ya existe, por favor, elige un nuevo nombre.</div>");
                                         $(".team-name-continue").prop('disabled', true);
                                         textInput.css("border-color","#a83636");
 
@@ -443,8 +468,8 @@
                       contentType: false,
                       processData: false
                   });
-            })
-        })
+            });
+        });
 
     </script>
 </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Caltia | Essay Writing Competition</title>
+    <title>Beat| Dancing Competition</title>
     <link rel="stylesheet" type="text/css" href="/uikit/css/uikit.min.css">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/css/muikit.css">
@@ -19,7 +19,7 @@
             </div>
             <div class="uk-navbar-right">
                 <ul class="uk-navbar-nav">
-                    <li class="uk-active"><a href="#login" uk-toggle>Welcome <%=user.name%>,</a></li>
+                    <li class="uk-active"><a href="#login" uk-toggle>Bienvenido <%=user.name%>,</a></li>
                 </ul>
             </div>
         </nav>
@@ -38,16 +38,16 @@
         <div class="uk-modal-dialog uk-modal-body">
             <h2 class="uk-modal-title">INCIAR SESION</h2>
             <form id="loginForm" action="/student/login" method="POST" class="">
-                <div class="uk-fieldset uk-grid-small">                            
-                    
+                <div class="uk-fieldset uk-grid-small">
+
                     <div class="uk-margin">
                         <input class="uk-input" type="email" placeholder="Email" name="email" required>
                     </div>
-                    
+
                     <div class="uk-margin">
                         <input class="uk-input" type="password" placeholder="Password" name="password" required>
                     </div>
-                
+
                 </div>
                 <p class="uk-text-center">
                     <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
