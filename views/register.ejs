@@ -114,7 +114,7 @@
                                         <p class="label">Estado</p>
                                         <div class="select-container">
                                             <select type="" class="uk-input" id="stateNames" name="state">
-
+                                                <option value="">Selecciona un estado</option>
                                                 <option value="Aguascalientes">Aguascalientes</option>
                                                 <option value="Baja California">Baja California</option>
                                                 <option value="Baja California Sur">Baja California Sur</option>
@@ -151,11 +151,11 @@
                                         <p class="label">Ciudad</p>
                                         <div class="select-container">
                                             <select type="" class="uk-input" name="city" id="cityNames">
-                                                <option balue="Mexico City">Mexico City</option>
+                                                <option value="">Primero selecciona un estado</option>
                                             </select>
                                         </div>
                                         <br />
-                                        <button class="uk-button uk-button-primary continue" type="button">CONTINUAR</button>
+                                        <button class="uk-button uk-button-primary city-continue continue" type="button" disabled>CONTINUAR</button>
                                 </div>
                                 <div class="child-container four">
                                         <p class="label">Carga tu video</p>
@@ -420,12 +420,18 @@
                     var state = this.value;
                     console.log(state);
                     $("#cityNames").html("");
+                    $("#cityNames").append('<option value="">Selecciona un municipio</option>');
+
                     states[state].forEach(function(city){
                         console.log(city);
                         $("#cityNames").append("<option value="+city+">"+city+"</option>");
                     })
-                })
+                });
             });
+            $("#cityNames").on("change", function(){
+              $(".city-continue").prop('disabled', false);
+            });
+
 
 
 
