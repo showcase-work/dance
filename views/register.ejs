@@ -655,7 +655,9 @@
                     regex = new RegExp("^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$");
                 }
                 console.log(regex);
+                console.log(event.charCode);
                 var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                console.log(key);
                 if (!regex.test(key)) {
                    event.preventDefault();
                    return false;
