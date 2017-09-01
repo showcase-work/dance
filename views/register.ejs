@@ -658,8 +658,10 @@
                     // Make a new timeout set to go off in 800ms
                     timeout = setTimeout(function () {
                         if(textInput.val().trim() != ""){
-                            console.log('Input Value:', textInput.val());
                             if(textInput.next().hasClass("validation-check")){
+                                            textInput.next().remove();
+                            };
+                            if(textInput.next().hasClass("validation")){
                                             textInput.next().remove();
                             };
                             textInput.after('<i class="validation-check fa fa-spinner fa-spin" aria-hidden="true" style="width:17px"></i>');
