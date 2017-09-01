@@ -92,7 +92,7 @@
                                             <input type="text" class="uk-input restrict-special-chars" name="teamMemberName" placeholder="Nombres(s)"  >
                                             <input type="text" class="uk-input restrict-special-chars" name="teamMemberLastName" placeholder="Apellidos"  >
                                         </div>
-                                        
+
                                         <br />
                                         <button class="uk-button uk-button-primary continue" type="button">CONTINUAR</button>
                                 </div>
@@ -647,10 +647,13 @@
             var textInput = $(".team-name");
             var timeout = null;
             textInput.on('keypress', function(e){
-                restrictSpecialChars(e);
+                restrictSpecialChars(e, false);
             });
-            function restrictSpecialChars(event){
+            function restrictSpecialChars(event, number){
                 var regex = new RegExp("^[a-zA-Z0-9]+$");
+                if(number){
+                    regex = new RegExp("^[A-z]+$");
+                }
                 var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
                 if (!regex.test(key)) {
                    event.preventDefault();
@@ -658,7 +661,7 @@
                 }
             }
             $(".restrict-special-chars").on("keypress", function(e){
-                restrictSpecialChars(e);
+                restrictSpecialChars(e, true);
             });
             textInput.keyup(function(e){
 
