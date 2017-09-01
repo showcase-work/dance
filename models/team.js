@@ -131,7 +131,6 @@ module.exports = app => {
             teamMembers.push({firstName:teamMemberName, lastName:data.teamMemberLastName[i]})
             i++;
         })
-        console.log(teamMembers);
         return Team.create({
             email: data.email,
             teamName: data.teamName,
