@@ -72,25 +72,25 @@
                                 <div class="child-container one ">
                                         <p class="label">Nombre completo del represente del equipo</p>
                                         <div>
-                                            <input type="text" class="uk-input required validthis" name="representativeName" placeholder="Nombres(s)" required>
-                                            <input type="text" class="uk-input required validthis" name="representativeLastName" placeholder="Apellidos"  required>
+                                            <input type="text" class="uk-input required validthis restrict-special-chars" name="representativeName" placeholder="Nombres(s)" required>
+                                            <input type="text" class="uk-input required validthis restrict-special-chars" name="representativeLastName" placeholder="Apellidos"  required>
                                         </div>
                                         <p class="label">Nombre completo de cada uno de los integrantes de tu equipo</p>
                                         <div>
-                                            <input type="text" class="uk-input " name="teamMemberName" placeholder="Nombres(s)"  >
-                                            <input type="text" class="uk-input " name="teamMemberLastName" placeholder="Apellidos"  >
+                                            <input type="text" class="uk-input " name="teamMemberName restrict-special-chars" placeholder="Nombres(s)"  >
+                                            <input type="text" class="uk-input " name="teamMemberLastName restrict-special-chars" placeholder="Apellidos"  >
                                         </div>
                                         <div>
-                                            <input type="text" class="uk-input " name="teamMemberName" placeholder="Nombres(s)"  >
-                                            <input type="text" class="uk-input " name="teamMemberLastName" placeholder="Apellidos"  >
+                                            <input type="text" class="uk-input " name="teamMemberName restrict-special-chars" placeholder="Nombres(s)"  >
+                                            <input type="text" class="uk-input " name="teamMemberLastName restrict-special-chars" placeholder="Apellidos"  >
                                         </div>
                                         <div>
-                                            <input type="text" class="uk-input " name="teamMemberName" placeholder="Nombres(s)"  >
-                                            <input type="text" class="uk-input " name="teamMemberLastName" placeholder="Apellidos"  >
+                                            <input type="text" class="uk-input " name="teamMemberName restrict-special-chars" placeholder="Nombres(s)"  >
+                                            <input type="text" class="uk-input " name="teamMemberLastName restrict-special-chars" placeholder="Apellidos"  >
                                         </div>
                                         <div>
-                                            <input type="text" class="uk-input " name="teamMemberName" placeholder="Nombres(s)"  >
-                                            <input type="text" class="uk-input " name="teamMemberLastName" placeholder="Apellidos"  >
+                                            <input type="text" class="uk-input " name="teamMemberName restrict-special-chars" placeholder="Nombres(s)"  >
+                                            <input type="text" class="uk-input " name="teamMemberLastName restrict-special-chars" placeholder="Apellidos"  >
                                         </div>
                                         <br />
                                         <button class="uk-button uk-button-primary continue" type="button">CONTINUAR</button>
@@ -565,6 +565,12 @@
               return this.optional(element) || /^[a-z," "]+$/i.test(value);
             }, "Letters only please"); 
 
+            jQuery.extend(jQuery.validator.messages, {
+                number: "Por favor ingresa un número de 10 dígitos.",
+                maxlength: "Por favor ingresa un número de 10 dígitos.",
+                minlength: "Por favor ingresa un número de 10 dígitos."
+            });
+
             $(window).keydown(function(event){
                 if(event.keyCode == 13) {
                   event.preventDefault();
@@ -636,17 +642,23 @@
             })
 
 
+
             var textInput = $(".team-name");
             var timeout = null;
-            textInput.on('keypress', function (event) {
+            textInput.on('keypress', function(e){
+                restrictSpecialChars(e);
+            });
+            function restrictSpecialChars(event){
                 var regex = new RegExp("^[a-zA-Z0-9]+$");
                 var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
                 if (!regex.test(key)) {
                    event.preventDefault();
                    return false;
                 }
+            }
+            $(".restrict-special-chars").on("keypress", function(e){
+                restrictSpecialChars(e);
             });
-
             textInput.keyup(function(e){
 
                 if(textInput.next().hasClass("validation-check")){
