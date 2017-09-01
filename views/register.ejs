@@ -648,6 +648,14 @@
             });
 
             textInput.keyup(function(e){
+                
+                if(textInput.next().hasClass("validation-check")){
+                                textInput.next().remove();
+                }
+                else if(textInput.next().hasClass("validation")){
+                                textInput.next().remove();
+                };
+
                 if(e.which == 13) {
 
                 }
