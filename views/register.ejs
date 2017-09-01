@@ -660,8 +660,8 @@
                         if(textInput.val().trim() != ""){
                             if(textInput.next().hasClass("validation-check")){
                                             textInput.next().remove();
-                            };
-                            if(textInput.next().hasClass("validation")){
+                            }
+                            else if(textInput.next().hasClass("validation")){
                                             textInput.next().remove();
                             };
                             textInput.after('<i class="validation-check fa fa-spinner fa-spin" aria-hidden="true" style="width:17px"></i>');
@@ -675,7 +675,7 @@
                                         if(textInput.next().hasClass("validation-check")){
                                             textInput.next().remove();
                                         };
-                                        if(textInput.next().hasClass("validation")){
+                                        else if(textInput.next().hasClass("validation")){
                                             textInput.next().remove();
                                         };
 
@@ -688,6 +688,9 @@
                                     else
                                     {
                                         if(textInput.next().hasClass("validation-check")){
+                                            textInput.next().remove();
+                                        };
+                                        else if(textInput.next().hasClass("validation")){
                                             textInput.next().remove();
                                         };
                                         //textInput.after('<i class="validation-check fa fa-times red"></i>');
