@@ -658,9 +658,11 @@
                 console.log(event.charCode);
                 var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
                 console.log(key);
-                if (!regex.test(key)) {
-                   event.preventDefault();
-                   return false;
+                if(key!=""){
+                    if (!regex.test(key)) {
+                       event.preventDefault();
+                       return false;
+                    }
                 }
             }
             $(".restrict-special-chars").on("keypress", function(e){
