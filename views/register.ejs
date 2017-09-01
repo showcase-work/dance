@@ -652,7 +652,7 @@
             function restrictSpecialChars(event, number){
                 var regex = new RegExp("^[a-zA-Z0-9]+$");
                 if(number){
-                    regex = new RegExp("^[a-zA-Z\s]*$");
+                    regex = new RegExp("^([a-zA-Z]+\s)*[a-zA-Z]+$");
                 }
                 var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
                 if (!regex.test(key)) {
