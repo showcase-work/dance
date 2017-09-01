@@ -657,13 +657,24 @@
                 console.log(regex);
                 console.log(event.charCode);
                 var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-                console.log(key);
-                if(key!=""){
+                if(event.charCode != 32){
                     if (!regex.test(key)) {
                        event.preventDefault();
                        return false;
                     }
                 }
+                else
+                {
+                    console.log("wokring in space");
+                    if(number){
+                        return true;
+                    }
+                    else
+                    {
+                        event.preventDefault();
+                        return false;
+                    }
+                }                
             }
             $(".restrict-special-chars").on("keypress", function(e){
                 restrictSpecialChars(e, true);
