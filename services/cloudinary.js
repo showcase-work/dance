@@ -12,21 +12,28 @@ module.exports = app => {
                     { resource_type: "video" 
                     },
                     function(error, result) {
-                        if(result.duration > 31){
-
-                            cloudinary.uploader.destroy(result.public_id, function(result) {
-                                        console.log(result) }, { resource_type: "video" });
-                            return reject({"error":"video size cannot be bigger than 30 seconds"});
+                        if(error){
+                            return reject({"error":error})
                         }
                         else
                         {
-                          return resolve(result);  
+                            if(result.duration > 31){
+
+                                cloudinary.uploader.destroy(result.public_id, function(result) {
+                                            console.log(result) }, { resource_type: "video" });
+                                return reject({"error":"video size cannot be bigger than 30 seconds"});
+                            }
+                            else if(result.height > result.width){
+                                return reject({"error":"Video should be in horizontal orientation"})
+                            }
+                            else
+                            {
+                              return resolve(result);  
+                            }
                         }
-                        
                     });
             });
     }
-
     return {
         uploadVideo
     };

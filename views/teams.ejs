@@ -59,7 +59,7 @@
                                     <li><%=team.teamName%></li>
                                     <li><%=team.city%>/<%=team.state%></li>
                                 </ul>
-                                <button class="voting-button"><i class="fa fa-facebook"></i> VOTAR</button>
+                                <!-- <button class="voting-button"><i class="fa fa-facebook"></i> VOTAR</button> -->
                                 <div class="clearboth"></div>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
     </div>
     <% include includes/scripts.ejs %>
     <script type="text/javascript">
-        var cld = cloudinary.Cloudinary.new({ cloud_name: "diaa7wkfp", secure: true});
+        var cld = cloudinary.Cloudinary.new({ cloud_name: "annaraujo", secure: true});
         //var demoplayer = cld.videoPlayer('demo-player');
         var players = cld.videoPlayers('.cld-video-player')
 

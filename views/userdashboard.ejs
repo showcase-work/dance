@@ -64,13 +64,19 @@
                         </table>
                     </div>
                 </div>
+                <div class="dicover-videos-button">
+                    <a href="/team">
+                        <button class="uk-button uk-button-primary">Descubre los videos</button>
+                    </a>
+                </div>
+                
             </div>
 
         </div>
     </div>
     <% include includes/scripts.ejs %>
     <script type="text/javascript">
-        var cld = cloudinary.Cloudinary.new({ cloud_name: "diaa7wkfp", secure: true});
+        var cld = cloudinary.Cloudinary.new({ cloud_name: "annaraujo", secure: true});
         var demoplayer = cld.videoPlayer('demo-player');
     </script>
 </body>

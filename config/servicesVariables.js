@@ -2,9 +2,9 @@ module.exports = {
 
     cloudinary:{
             config:{
-                cloud_name: 'diaa7wkfp', 
-                api_key: '314299224544583', 
-                api_secret: 'bu50NtjRXVBr51Q6a3U7HiMyckA' 
+                cloud_name: 'annaraujo', 
+                api_key: '999578125348384', 
+                api_secret: 'LgWkIqIiWol91Mx4EYgY6sm90aU' 
             }
     }
 

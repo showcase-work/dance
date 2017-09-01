@@ -13,12 +13,12 @@
                     <li>
                         <div>
                             <h1>1</h1>
-                            <p>Junta a tus amigos <br>(máximo 5 personas).</p>
+                            <p>Junta a tus amigos (máximo 5 personas).</p>
                         </div>
                     </li><li>
                         <div>
                             <h1>2</h1>
-                            <p>Grábense bailando a su estilo alguna de las 3 pistas oficiales. <a href="https://www.youtube.com/playlist?list=PLBlJWsvSG-QRM7_Fp8tuqXB0B2KVrmHN6">(escúchalas aquí)</a></p>
+                            <p>Grábense bailando a su estilo alguna de las 3 pistas oficiales.</p>
                         </div>
                     </li><li>
                         <div>
@@ -33,23 +33,13 @@
                     </li><li>
                         <div>
                             <h1>5</h1>
-                            <p>Los videos más votados podrán ganar pases para el festival <b>Primavera Club en Barcelona</b> (1 er lugar) y <b>MUTEK en Ciudad de México</b> (2º y 3er lugar)*.</p>
-                        </div>
-                    </li><li>
-                        <div>
-                            <h1>6</h1>
-                            <p>Add a point 6 with this text, the date should be in bold = "El periodo de votación se activará del <b>3 al 5 de octubre</b>, así que mantente pendiente e informa a tus amigos.</p>
+                            <p>Los videos más votados podrán ganar pases para el festival <b>Primavera Club en Barcelona y MUTEK en Ciudad de México.</b></p>
                         </div>
                     </li>
                 </ul>
-                <div>
-                <h1>PISTAS OFICIALES</h1>
-                  <iframe width="360" height="210" src="https://www.youtube.com/embed/nA52vNSMRKs" frameborder="0" allowfullscreen></iframe>
-                  <iframe width="360" height="210" src="https://www.youtube.com/embed/hi5Zu3978k4" frameborder="0" allowfullscreen></iframe>
-                  <iframe width="360" height="210" src="https://www.youtube.com/embed/L7AnI_RHnLc" frameborder="0" allowfullscreen></iframe> 
-                </div>
                 <div class="tabs-container">
-                                         ⁠⁠
+                  <h1>PISTAS OFICIALES</h1>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/nA52vNSMRKs" frameborder="0" allowfullscreen></iframe>
                   <hr>
                     <ul class="uk-tab uk-tab-grid"  data-uk-tab="{connect:'#my-id'}">
                         <li class="uk-active uk-width-1-2"><a href="">REGISTRA A TU EQUIPO</a></li>
@@ -77,8 +67,8 @@
                                         </div>
                                         <p class="label">Nombre completo de cada uno de los integrantes de tu equipo</p>
                                         <div>
-                                            <input type="text" class="uk-input " name="teamMemberName" placeholder="Nombres(s)"  >
-                                            <input type="text" class="uk-input " name="teamMemberLastName" placeholder="Apellidos"  >
+                                            <input type="text" class="uk-input validthis" name="teamMemberName" placeholder="Nombres(s)"  required>
+                                            <input type="text" class="uk-input validthis" name="teamMemberLastName" placeholder="Apellidos"  required>
                                         </div>
                                         <div>
                                             <input type="text" class="uk-input " name="teamMemberName" placeholder="Nombres(s)"  >
@@ -99,7 +89,7 @@
                                         <p class="label">Correo electrónico del representante</p>
                                         <input type="email" class="uk-input required validthis" name="teamRepresentativeEmail" placeholder="correo@tucorreo.com" required>
                                         <p class="label">Teléfono de contacto del representante</p>
-                                        <input type="text" class="uk-input required validthis" name="teamRepresentativeNumber" placeholder="10 digitos" required minlength="10" maxlength="10">
+                                        <input type="number" class="uk-input required validthis" name="teamRepresentativeNumber" placeholder="10 digitos" required minlength="10" maxlength="10">
                                         <br />
                                         <button class="uk-button uk-button-primary continue" type="button">CONTINUAR</button>
                                 </div>
@@ -176,7 +166,7 @@
                                         <p>Tu video debe durar máximo 30 sec.</p>
                                         <p>Formatos aceptables <b>mov</b> y <b>mp4</b></p>
                                         <p>Únicamente se pueden subir videos en horizontal.</p>
-                                        <p>Te recomendamos subir un archivo con un peso no mayor a 30 MB, en caso de ser mayor, no deberán superar los 100 MB. (La velocidad de carga puede variar por el peso de tu video y/o conexión de internet).</p>
+                                        <p>Te recomendamos subir un archivo con un peso no mayor a 30 MB</p>
                                         <br />
                                         <p class="label">Estás por completar tu formulario de registro.</p>
                                         <div class="checkbox-container">
@@ -214,7 +204,7 @@
                         <div class="sliding-containers">
                             <div class="child-container active">
                                 <form action="/team/login" method="POST">
-                                     <p class="label">Nombre de equipo</p>
+                                     <p class="label">Nombre De Equipo</p>
                                     <input type="text" class="uk-input" name="teamName">
                                     <p class="label">Contraseña</p>
                                     <input type="password" class="uk-input" name="password">
@@ -561,10 +551,6 @@
     <script type="text/javascript">
         $(document).ready(function(){
 
-            jQuery.validator.addMethod("lettersonly", function(value, element) {
-              return this.optional(element) || /^[a-z," "]+$/i.test(value);
-            }, "Letters only please"); 
-
             $(window).keydown(function(event){
                 if(event.keyCode == 13) {
                   event.preventDefault();
@@ -606,15 +592,7 @@
             })
             var x = 1;
 
-            var validator = $("#registerTeam").validate(
-                {
-                    rules: {
-                        representativeName: { lettersonly: true },
-                        representativeLastName: { lettersonly: true },
-                        teamMemberName: { lettersonly: true },
-                        teamMemberLastName: { lettersonly: true }
-                      }
-                });
+            var validator = $("#registerTeam").validate();
             $(".child-container .continue").click(function(e){
                 var error = false;
                 var self = $(this);

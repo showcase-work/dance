@@ -18,7 +18,7 @@ module.exports = app => {
 
             var emailData = {
                 'FromEmail': 'experiencia@nuevoibiza.com',
-                'FromName': 'Seat México',
+                'FromName': 'SEAT México',
                 'Subject': 'Hemos recibido tu registro. ¡Muéstranos tus mejores pasos!',
                 'Text-part': '',
                 'Html-part': str,
