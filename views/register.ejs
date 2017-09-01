@@ -670,7 +670,7 @@
                             if(textInput.next().hasClass("validation-check")){
                                             textInput.next().remove();
                             }
-                            
+
                             else if(textInput.next().hasClass("validation")){
                                             textInput.next().remove();
                             }
@@ -684,10 +684,10 @@
                                     if(data){
                                         if(textInput.next().hasClass("validation-check")){
                                             textInput.next().remove();
-                                        };
+                                        }
                                         else if(textInput.next().hasClass("validation")){
                                             textInput.next().remove();
-                                        };
+                                        }
 
                                         textInput.after('<i class="validation-check fa fa-check green"></i>');
                                         $(".team-name-continue").prop('disabled', false);
@@ -699,10 +699,10 @@
                                     {
                                         if(textInput.next().hasClass("validation-check")){
                                             textInput.next().remove();
-                                        };
+                                        }
                                         else if(textInput.next().hasClass("validation")){
                                             textInput.next().remove();
-                                        };
+                                        }
                                         //textInput.after('<i class="validation-check fa fa-times red"></i>');
                                         textInput.after("<div class='validation' style='color:red;margin-bottom: 20px;'>Este nombre de equipo ya existe, por favor, elige un nuevo nombre.</div>");
                                         $(".team-name-continue").prop('disabled', true);
