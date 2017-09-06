@@ -19,6 +19,8 @@ module.exports = app => {
         res.render("userdashboard");
     })
 
+    app.use("/admin", app.routes.admin);
+
     app.get("/logout", (req,res,next)=> {
         req.logout();
         res.redirect("/");

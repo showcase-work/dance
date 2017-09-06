@@ -205,6 +205,63 @@ module.exports = app => {
         })
     }
 
+    function getTeamsOrderedByStatus(){
+        return Team.findAll({
+            raw:true,
+            attributes:[
+                [Sequelize.fn("COUNT", Sequelize.col("id")),"count"],
+                "status"
+            ],
+            group:"status"
+        })
+    }
+
+    function getTeamsOrderedByTime(){
+        return Team.findAll({
+            raw:true,
+            attributes:[
+                [Sequelize.fn("COUNT", Sequelize.col("id")),"count"],
+                [Sequelize.fn("DATE_FORMAT", Sequelize.literal("`createdAt`,'" + "%d %M %Y" + "'")), "date"]
+            ],
+            group:[Sequelize.fn("DATE_FORMAT", Sequelize.literal("`createdAt`,'" + "%d %M %Y" + "'"))],
+            order:"createdAt"
+        })
+    }
+
+    function getUnEvaluatedTeams(){
+        return Team.findAll({
+            where:{
+                status:"En evaluación"
+            }
+        })
+    }
+
+    function getAcceptedTeams(){
+        return Team.findAll({
+            where:{
+                status:"Accepted"
+            }
+        })
+    }
+
+    function getDeclinedTeams(){
+        return Team.findAll({
+            where:{
+                status:"Declined"
+            }
+        })
+    }
+
+    function updateTeamStatus(status, id){
+        return Team.update({
+            status:status
+        },{
+            where:{
+                id:id
+            }
+        })
+    }
+
     return {
         Team,
         getTeam,
@@ -215,6 +272,12 @@ module.exports = app => {
         findByTeamId,
         checkTeamName,
         deleteAllTeams,
-        findTeam
+        findTeam,
+        getTeamsOrderedByStatus,
+        getTeamsOrderedByTime,
+        getUnEvaluatedTeams,
+        getDeclinedTeams,
+        getAcceptedTeams,
+        updateTeamStatus
     };
 };

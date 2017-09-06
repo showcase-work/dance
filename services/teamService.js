@@ -69,6 +69,46 @@ module.exports = app => {
         })
     }
 
+    function getUnEvaluatedTeams(){
+        return new Promise((resolve,reject)=>{
+            Team.getUnEvaluatedTeams().then(data=>{
+                return resolve(data);
+            }).catch(err=>{
+                return reject(err);
+            })
+        })
+    }
+
+    function getDeclinedTeams(){
+        return new Promise((resolve,reject)=>{
+            Team.getDeclinedTeams().then(data=>{
+                return resolve(data);
+            }).catch(err=>{
+                return reject(err);
+            })
+        })
+    }
+
+    function getAcceptedTeams(){
+        return new Promise((resolve,reject)=>{
+            Team.getAcceptedTeams().then(data=>{
+                return resolve(data);
+            }).catch(err=>{
+                return reject(err);
+            })
+        })
+    }
+
+    function updateTeamStatus(status,id){
+        return new Promise((resolve,reject)=>{
+            Team.updateTeamStatus(status,id).then(data=>{
+                return resolve(data);
+            }).catch(err=>{
+                return reject(err);
+            })
+        })
+    }
+
    
 
     return{
@@ -76,6 +116,10 @@ module.exports = app => {
         getAllTeams,
         checkTeamName,
         deleteAllTeams,
-        findTeam
+        findTeam,
+        getUnEvaluatedTeams,
+        getDeclinedTeams,
+        getAcceptedTeams,
+        updateTeamStatus
     }
 }
