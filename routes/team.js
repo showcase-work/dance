@@ -128,6 +128,14 @@ module.exports = app => {
         teamController.findTeam(req,res,next);
     })
 
+    router.route("/view").get((req,res,next)=>{
+        teamController.getTeamsViewPage(req,res,next);
+    })
+
+    router.route("/view/search").get((req,res,next)=>{
+        teamController.findTeamForView(req,res,next);
+    })
+
     return router;
 };
 

@@ -78,12 +78,32 @@ module.exports = app =>{
         })
     }
 
+    function getTeamsViewPage(req,res,next){
+        teamService.getAllTeams().then(data=>{
+            res.render("teamsview",{teams:data, searching:false});
+        }).catch(err=>{
+            console.log("error coming");
+            console.log(err);
+            next(err);
+        })
+    }
+
+    function findTeamForView(req,res,next){
+        teamService.findTeam(req.query.search).then(data=>{
+            res.render("teamsview",{teams:data, searching:true});
+        }).catch(err=>{
+            next(err);
+        })
+    }
+
     return {
         checkAndRegisterTeam,
         getTeamsPage,
         checkTeamName,
         deleteAllTeams,
         uploadVideo,
-        findTeam
+        findTeam,
+        getTeamsViewPage,
+        findTeamForView
     }
 }

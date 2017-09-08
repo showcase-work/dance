@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Beat | Dancing Competition</title>
+   <% include includes/header.ejs %>
+
+</head>
+<body>
+    <div class="main user-dashboard-main">
+        <div class="container">
+            <h1>ES MOMENTO DE VOTAR</h1>
+            <div class="filters-container">
+                <form action="/team/view/search" method="GET" style="display: inline-block;">
+                    <input type="text" name="search" placeholder="Buscar Video">
+                    <button type="submit">Search</button>
+                </form>
+                <%
+                    if(searching){
+                        %>
+                            <a href="/team/view"><button style="background-color:red; border-color:red">Clear Filters</button></a>
+                        <%
+                    }
+                %>
+                
+                <a href="/">
+                <button class="float right" style="background-color: #399931; border-radius: 20px; padding-left: 20px; padding-right: 20px;">TÚ TAMBIÉN PARTICIPA</button></a>
+            </div>
+            <%
+                teams.forEach(function(team){%><div class="videos-container">
+                        <div class="inner-container">
+                            <div class="video">
+                                <!-- <video
+                                  controls
+                                  autoplay
+                                  class="cld-video-player"
+                                  data-cld-public-id="http://res.cloudinary.com/diaa7wkfp/video/upload/l_video:<%=team.public_id%>,w_300,g_east/<%=team.public_id%>.mp4"
+                                  data-cld-autoplay-mode="false"
+                                >
+                                </video>  -->
+                                <video
+                                  controls
+                                  autoplay
+                                  class="cld-video-player"
+                                  data-cld-public-id="<%=team.public_id%>"
+                                  data-cld-autoplay-mode="false"
+                                >
+                                </video> 
+                                <!-- <video width="320" height="240" controls>
+                                  <source src="http://res.cloudinary.com/diaa7wkfp/video/upload/l_video:<%=team.public_id%>,w_300,g_east/<%=team.public_id%>.mp4" type="video/mp4">
+                                  <source src="http://res.cloudinary.com/diaa7wkfp/video/upload/l_video:<%=team.public_id%>,w_300,g_east/<%=team.public_id%>.mp4" type="video/ogg">
+                                  <source src="http://res.cloudinary.com/diaa7wkfp/video/upload/l_video:<%=team.public_id%>,w_300,g_east/<%=team.public_id%>.mp4" type="video/webm">
+                                Your browser does not support the video tag.
+                                </video> -->
+                                <div class="like">
+                                    <span><i class="fa fa-thumbs-up"></i> 20</span>
+                                </div>
+                            </div>
+                            <div class="below-video">
+                                <ul class="team-details">
+                                    <li><%=team.teamName%></li>
+                                    <li><%=team.city%>/<%=team.state%></li>
+                                </ul>
+                                <!-- <button class="voting-button"><i class="fa fa-facebook"></i> VOTAR</button> -->
+                                <div class="clearboth"></div>
+                            </div>
+                        </div>
+                    </div><%})%>
+            
+                
+        </div>        
+    </div>
+    <% include includes/scripts.ejs %>
+    <script type="text/javascript">
+        var cld = cloudinary.Cloudinary.new({ cloud_name: "annaraujo", secure: true});
+        //var demoplayer = cld.videoPlayer('demo-player');
+        var players = cld.videoPlayers('.cld-video-player')
+
+    </script>
+</body>
+</html>
