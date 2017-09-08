@@ -99,9 +99,9 @@ module.exports = app => {
         })
     }
 
-    function updateTeamStatus(status,id){
+    function updateTeamStatus(status, statusText, id){
         return new Promise((resolve,reject)=>{
-            Team.updateTeamStatus(status,id).then(data=>{
+            Team.updateTeamStatus(status,statusText,id).then(data=>{
                 return resolve(data);
             }).catch(err=>{
                 return reject(err);

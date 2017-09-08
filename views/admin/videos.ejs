@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>SEAT | DASHBOARD</title>
+    <title>BASE 10 | DASHBOARD</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -44,6 +44,17 @@
     .navbar-left .active a{
         color:inherit!important;
     }
+
+
+    .status-text{
+        width: 100%;
+        border-radius: 8px;
+        border: 1px solid #ebebeb;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
     </style>
 
 </head>
@@ -54,7 +65,7 @@
     
         <div class="sidebar-wrapper">
             <div class="logo">
-                SEAT
+                BASE 10
             </div>
 
             <ul class="nav">
@@ -67,11 +78,11 @@
                 <li class="active">
                     <a href="/admin/videos">
                         <i class="pe-7s-note2"></i>
-                        <p>Manage Videos</p>
+                        <p>Control de videos</p>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/admin/statistics">
                         <i class="pe-7s-graph"></i>
                         <p>Estadísticas</p>
                     </a>
@@ -90,7 +101,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Manage Videos</a>
+                    <a class="navbar-brand" href="#">Control de videos</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     
@@ -102,7 +113,7 @@
                             <%}%>
                         ">
                               <a href="/admin/videos">
-                                    Un Evaluated
+                                    Sin evaluar
                               </a>
                         </li>
                         <li class="
@@ -110,14 +121,14 @@
                             active
                         <%}%>">
                               <a href="/admin/videos/accepted">
-                                    Accepted
+                                    Aceptados
                               </a>
                         </li>
                         <li class="<%if(tab == "declined"){%>
                                 active
                             <%}%>">
                               <a href="/admin/videos/declined">
-                                    Declined
+                                    No aceptados
                               </a>
                         </li>
                         </li>
@@ -163,6 +174,7 @@
                                         <ul class="team-details">
                                             <li><%=team.teamName%></li>
                                             <li><%=team.city%>/<%=team.state%></li>
+                                            <li><input type="" name="statusText" class="status-text" value="<%=team.statusText%>"></li>
                                             <% if(tab == "unevaluated"){ %>
                                                 <li style="margin-top:5px; "><button class="btn btn-primary approve" value="<%=team.id%>">Approve</button><button class="btn btn-danger decline" value="<%=team.id%>" style="float: right">Decline</button></li>
                                             <% } %>
@@ -211,12 +223,15 @@
     $(".approve").click(function(){
         var self = $(this);
         var id = self.val();
+        var statusText = self.parent().parent().find(".status-text").val();
+        console.log(statusText);
         console.log(self.val());
         $.ajax({
             url:"/admin/videos/update-status",
             method:"post",
             data:{
                 status:"Accepted",
+                statusText:statusText,
                 id:id
             },
             success:function(data){
@@ -232,12 +247,14 @@
     $(".decline").click(function(){
         var self = $(this);
         var id = self.val();
+        var statusText = self.parent().parent().find(".status-text").val();
         console.log(self.val());
         $.ajax({
             url:"/admin/videos/update-status",
             method:"post",
             data:{
                 status:"Declined",
+                statusText:statusText,
                 id:id
             },
             success:function(data){
@@ -253,12 +270,14 @@
     $(".unevaluate").click(function(){
         var self = $(this);
         var id = self.val();
+        var statusText = self.parent().parent().find(".status-text").val();
         console.log(self.val());
         $.ajax({
             url:"/admin/videos/update-status",
             method:"post",
             data:{
                 status:"En evaluación",
+                statusText:statusText,
                 id:id
             },
             success:function(data){

@@ -37,6 +37,10 @@ module.exports = app => {
         adminController.updateTeamStatus(req,res,next);
     })
 
+    router.route("/statistics").get((req,res,next)=>{
+        res.render("admin/dashboard");
+    })
+
     
     return router;
 };

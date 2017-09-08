@@ -62,8 +62,6 @@
         .content{
             display: none;
         }
-
-
     </style>
 
 </head>
@@ -227,24 +225,24 @@
                 method:"GET",
                 success:function(data){
                     console.log(data);
-                    var totalCount = 0;
-                    data.teamsOrderedByStatus.forEach(function(data){
-                        totalCount+=data.count;
-                        if(data.status == "Accepted"){
-                            $(".approved-videos").html(data.count);
-                        }
+                        var totalCount = 0;
+                        data.teamsOrderedByStatus.forEach(function(data){
+                            totalCount+=data.count;
+                            if(data.status == "Accepted"){
+                                $(".approved-videos").html(data.count);
+                            }
 
-                        if(data.status =="Declined"){
-                            $(".declined-videos").html(data.count);
-                        }
+                            if(data.status =="Declined"){
+                                $(".declined-videos").html(data.count);
+                            }
 
-                        if(data.status == "En evaluación"){
-                            $(".evaluation-videos").html(data.count);
-                        }
-                    })
-                    $(".total-registrations").html(totalCount);
-                    dashboard.initChartist(data);
-                    $(".content").fadeIn();
+                            if(data.status == "En evaluación"){
+                                $(".evaluation-videos").html(data.count);
+                            }
+                        })
+                        $(".total-registrations").html(totalCount);
+                        dashboard.initChartist(data);
+                        $(".content").fadeIn();
                 }
             })
 

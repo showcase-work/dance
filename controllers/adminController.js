@@ -41,7 +41,7 @@ module.exports = app => {
 
     function updateTeamStatus(req,res,next){
 
-        teamService.updateTeamStatus(req.body.status, req.body.id).then(data=>{
+        teamService.updateTeamStatus(req.body.status,req.body.statusText,req.body.id).then(data=>{
             res.send(data);
         }).catch(err=>{
             next(err);

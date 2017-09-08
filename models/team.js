@@ -63,6 +63,9 @@ module.exports = app => {
         },
             public_id:{
                 type:Sequelize.STRING
+        },
+            statusText:{
+                type:Sequelize.STRING
         }
 
     },
@@ -252,9 +255,10 @@ module.exports = app => {
         })
     }
 
-    function updateTeamStatus(status, id){
+    function updateTeamStatus(status,statusText,id){
         return Team.update({
-            status:status
+            status:status,
+            statusText:statusText
         },{
             where:{
                 id:id
