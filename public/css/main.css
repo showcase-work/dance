@@ -287,8 +287,16 @@ li.main-registring-container{
     font-weight: bolder;
 }
 
-.main-user-dashboard .team-details .status-of-participation .uk-button.evaluation{
+.main-user-dashboard .team-details .status-of-participation .uk-button.evaluación{
     background-color: #d6bd41;
+}
+
+.main-user-dashboard .team-details .status-of-participation .uk-button.Accepted{
+    background-color: green;
+}
+
+.main-user-dashboard .team-details .status-of-participation .uk-button.Declined{
+    background-color: red;
 }
 
 .main-user-dashboard .team-details .status-of-participation .uk-button.reject{
