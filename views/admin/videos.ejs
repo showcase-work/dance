@@ -179,10 +179,10 @@
                                                 <li style="margin-top:5px; "><button class="btn btn-primary approve" value="<%=team.id%>">Aprobado</button><button class="btn btn-danger decline" value="<%=team.id%>" style="float: right">No aprobado</button></li>
                                             <% } %>
                                             <% if(tab == "accepted"){ %>
-                                                <li style="margin-top:5px; "><button class="btn btn-warning unevaluate" value="<%=team.id%>">Unevaluate</button><button class="btn btn-danger decline" value="<%=team.id%>" style="float: right">No aprobado</button></li>
+                                                <li style="margin-top:5px; "><button class="btn btn-warning unevaluate" value="<%=team.id%>">Sin evaluar</button><button class="btn btn-danger decline" value="<%=team.id%>" style="float: right">No aprobado</button></li>
                                             <% } %>
                                             <% if(tab == "declined"){ %>
-                                                <li style="margin-top:5px; "><button class="btn btn-primary approve" value="<%=team.id%>">Aprobado</button><button class="btn btn-warning unevaluate" value="<%=team.id%>" style="float: right">Unevaluate</button></li>
+                                                <li style="margin-top:5px; "><button class="btn btn-primary approve" value="<%=team.id%>">Aprobado</button><button class="btn btn-warning unevaluate" value="<%=team.id%>" style="float: right">Sin evaluar</button></li>
                                             <% } %>
                                         </ul>
                                         <!-- <button class="voting-button"><i class="fa fa-facebook"></i> VOTAR</button> -->
