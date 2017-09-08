@@ -266,6 +266,14 @@ module.exports = app => {
         })
     }
 
+    function getAllTeamsByStatus(status){
+        return Team.findAll({
+            where:{
+                status:status
+            }
+        })
+    }
+
     return {
         Team,
         getTeam,
@@ -282,6 +290,7 @@ module.exports = app => {
         getUnEvaluatedTeams,
         getDeclinedTeams,
         getAcceptedTeams,
-        updateTeamStatus
+        updateTeamStatus,
+        getAllTeamsByStatus
     };
 };

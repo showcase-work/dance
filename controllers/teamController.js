@@ -79,7 +79,7 @@ module.exports = app =>{
     }
 
     function getTeamsViewPage(req,res,next){
-        teamService.getAllTeams().then(data=>{
+        teamService.getAllTeamsByStatus("Accepted").then(data=>{
             res.render("teamsview",{teams:data, searching:false});
         }).catch(err=>{
             console.log("error coming");

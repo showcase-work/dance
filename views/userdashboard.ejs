@@ -54,12 +54,12 @@
                                     <p>STATUS DE PARTICIPACIÓN:</p>
                                 </td>
                                 <td>
-                                    <button class="uk-button evaluation" style="cursor:initial"><%=user.status%></button>
+                                    <button class="uk-button <%=user.status%>" style="cursor:initial"><%=user.status%></button>
                                 </td>
                             </tr>
                             <tr>
                                 <td>COMENTARIOS DEL COMITÉ:</td>
-                                <td>En breve te notificaremos si tu video ha sido aprobado por el comité.</td>
+                                <td><%=user.statusText%></td>
                             </tr>
                         </table>
                     </div>

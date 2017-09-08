@@ -109,6 +109,16 @@ module.exports = app => {
         })
     }
 
+    function getAllTeamsByStatus(status){
+        return new Promise((resolve,reject)=>{
+            Team.getAllTeamsByStatus(status).then(data=>{
+                return resolve(data);
+            }).catch(err=>{
+                return reject(err);
+            })
+        })
+    }
+
    
 
     return{
@@ -120,6 +130,7 @@ module.exports = app => {
         getUnEvaluatedTeams,
         getDeclinedTeams,
         getAcceptedTeams,
-        updateTeamStatus
+        updateTeamStatus,
+        getAllTeamsByStatus
     }
 }
