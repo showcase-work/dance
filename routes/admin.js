@@ -38,7 +38,7 @@ module.exports = app => {
     })
 
     router.route("/statistics").get((req,res,next)=>{
-        res.render("admin/dashboard");
+        res.render("admin/statistics");
     })
 
     
