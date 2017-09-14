@@ -12,8 +12,13 @@ module.exports = app => {
                     { resource_type: "video" 
                     },
                     function(error, result) {
+                        console.log("result");
+                        console.log(result);
+                        console.log("error");
+                        console.log(error);
                         if(error){
-                            return reject({"error":error})
+                            return reject({"error":error.message})
+                            return reject({"error":"video size cannot be bigger than 30 seconds"});
                         }
                         else
                         {
