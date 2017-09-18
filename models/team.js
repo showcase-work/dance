@@ -66,6 +66,9 @@ module.exports = app => {
         },
             statusText:{
                 type:Sequelize.STRING
+        },
+            votes:{
+                type:Sequelize.STRING
         }
 
     },
@@ -274,6 +277,35 @@ module.exports = app => {
         })
     }
 
+    function addVote(teamId, voterId){
+        return new Promise((resolve,reject)=>{
+            Team.findById(teamId).then(data=>{
+                var votes = [];
+                if(data.votes){
+                    votes = JSON.parse(data.votes);
+                }
+                votes.push(voterId);
+                console.log(votes);
+                var votesTosave=JSON.stringify(votes);
+                console.log(votesTosave);
+                Team.update({
+                    votes:votesTosave
+                },{
+                    where:{
+                        id:teamId
+                    }
+                }).then(data=>{
+                    return resolve(data);
+                }).catch(err=>{
+                    return reject(err);
+                })
+            }).catch(err=>{
+                return reject(err);
+            })
+        })
+        
+    }
+
     return {
         Team,
         getTeam,
@@ -291,6 +323,7 @@ module.exports = app => {
         getDeclinedTeams,
         getAcceptedTeams,
         updateTeamStatus,
-        getAllTeamsByStatus
+        getAllTeamsByStatus,
+        addVote
     };
 };

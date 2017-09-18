@@ -40,8 +40,29 @@ module.exports = app => {
 
     }
 
+    function sendMailToVoter(email,name,password){
+        var emailData = {
+            'FromEmail': 'experiencia@nuevoibiza.com',
+            'FromName': 'SEAT México',
+            'Subject': 'Your Password to Vote',
+            'Text-part': 'welcome '+name+', Your password to login into SEAT is '+password,
+            'Recipients': [{'Email': email}]
+        }
+
+        sendEmail
+          .request(emailData)
+            .then(function(data){
+                console.log("mail sent working");
+            })
+            .catch(function(err){
+                console.log("mail sent not wokring");
+                console.log(err);
+            });
+    }
+
     return{
         sendEmail,
-        sendRegistrationMail
+        sendRegistrationMail,
+        sendMailToVoter
     }
 }

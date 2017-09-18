@@ -25,7 +25,19 @@ module.exports = app =>{
     function getTeamsPage(req,res,next){
         teamService.getAllTeams().then(data=>{
             console.log("working in here");
-            res.render("teams",{teams:data, searching:false});
+            var voter = null;
+            console.log("sab mast");
+            console.log(req.user);
+            if(req.user){
+                console.log("user is there");
+                console.log(req.user);
+                console.log(req.user.facebook);
+                if(req.user.facebook){
+                    voter = req.user
+                }
+            }
+            
+            res.render("teams",{teams:data, searching:false, voter:voter});
         }).catch(err=>{
             console.log("error coming");
             console.log(err);

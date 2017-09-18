@@ -3,7 +3,22 @@
 <head>
     <title>Beat | Dancing Competition</title>
    <% include includes/header.ejs %>
+   <style type="text/css">
+     .modal-input{
 
+      border: 1px solid #ebebeb;
+      padding: 10px;
+      border-radius: 5px;
+      width: 280px;
+      display: inline-block;
+      text-align: center;
+
+     }
+
+     .margin-bottom-10{
+      margin-bottom: 10px;
+     }
+   </style>
 </head>
 <body>
     <div class="main user-dashboard-main">
@@ -59,7 +74,25 @@
                                     <li><%=team.teamName%></li>
                                     <li><%=team.city%>/<%=team.state%></li>
                                 </ul>
-                                <!-- <button class="voting-button"><i class="fa fa-facebook"></i> VOTAR</button> -->
+                                <%
+                                  if(voter){ 
+                                    if(!voter.voted){
+                                    %>
+                                    <form action="/voter/vote" method="POST">
+                                      <input type="hidden" name="team_id" value="<%=team.id%>">
+                                      <button class="voting-button vote" type="submit"><i class="fa fa-facebook"></i>VOTAR</button>
+                                    </form>
+                                <%  } else if(voter.voted == team.id) { %>
+                                      <button class="voting-button" type="submit"><i class="fa fa-thumbs-up"></i>VOTED</button>
+                                  <%}
+                                }
+                                else
+                                {
+                                  %>
+                                    <button class="uk-button voting-button" data-uk-modal="{target:'#my-id'}"><i class="fa fa-facebook"></i>VOTAR</button>
+                                  <%
+                                }
+                                %>
                                 <div class="clearboth"></div>
                             </div>
                         </div>
@@ -68,12 +101,107 @@
                 
         </div>        
     </div>
+
+    <!-- This is the modal -->
+    <div id="my-id" class="uk-modal" style="text-align: center;">
+        <div class="uk-modal-dialog">
+            <a class="uk-modal-close uk-close"></a>
+            <button type="hidden" style="display: none;">asd</button>
+            <a href="/voter/facebook">
+              <button class="uk-button uk-button-primary" style="background-color: #3b5999; color:white;">Signin with facebook</button>
+            </a>
+            
+            <div style="margin-top: 20px;">
+              or
+            </div>
+            <h4>Sign up with Email</h4>
+            <form id="signupVoter" action="/voter/register" method="POST">
+              <div class="margin-bottom-10">
+                <input type="text" name="name" placeholder="name" class="uk-input modal-input">
+              </div>
+              <div class="margin-bottom-10">
+                <input type="text" name="email" placeholder="email" class="uk-input modal-input">
+              </div>
+              <div class="password-container margin-bottom-10" style="display:none">
+              </div>
+              <div class="already-a-member">
+                <p style="cursor: pointer;">Already Registered?</p>
+              </div>
+              <button class="uk-button uk-button-primary signup-button" type="submit">Sign Up</button>
+            </form> 
+            <div class="error-container" style="margin-top: 10px;color:red"></div>
+        </div>
+    </div>
+
     <% include includes/scripts.ejs %>
     <script type="text/javascript">
         var cld = cloudinary.Cloudinary.new({ cloud_name: "annaraujo", secure: true});
         //var demoplayer = cld.videoPlayer('demo-player');
-        var players = cld.videoPlayers('.cld-video-player')
+        var players = cld.videoPlayers('.cld-video-player');
 
+
+        $("#signupVoter").submit(function(e){
+          e.preventDefault();
+          var self = $(this);
+          $(".error-container").html("");
+          $.ajax({
+            url:self.attr("action"),
+            method:"POST",
+            data:self.serialize(),
+            success:function(data){
+              if(self.attr("action")=="/voter/register"){
+                $("#signupVoter").attr("action", "/voter/signin");
+                $(".already-a-member").hide();
+                $(".password-container").html('<p>Password has been mailed to you. Please enter here.</p><input type="password" name="password" placeholder="password" class="uk-input modal-input">');
+                $(".password-container").show();
+                $(".signup-button").html("Sign In");
+              }
+              else
+              {
+                if(data == "success"){
+                  location.reload();
+                }
+                else
+                {
+                  $(".error-container").html("username or password is invalid");
+                }
+                
+              }
+              console.log(data);
+            },
+            error:function(data){
+              console.log(data.responseJSON);
+              if(self.attr("action")=="/voter/register"){
+                if(data.responseJSON == "already logged in with facebook"){
+                  $(".error-container").html(data.responseJSON);
+                }
+                else
+                {
+                  $(".already-a-member").hide();
+                  $(".error-container").html(data.responseJSON);
+                  $(".password-container").html('<p> Please enter your password here.</p><input type="password" name="password" placeholder="password" class="uk-input modal-input">');
+                  $(".password-container").show();
+                  $("#signupVoter").attr("action", "/voter/signin");
+                  $(".signup-button").html("Sign In");
+                }
+              }
+              else
+              {
+                $(".error-container").html("username or password is invalid");
+              }
+
+            }
+          })
+        })
+
+        $(".already-a-member").click(function(){
+          var self = $(this);
+          self.toggle();
+          $(".password-container").html('<p> Please enter your password here.</p><input type="password" name="password" placeholder="password" class="uk-input modal-input">');
+          $(".password-container").show();
+          $("#signupVoter").attr("action", "/voter/signin");
+          $(".signup-button").html("Sign In");
+        })
     </script>
 </body>
 </html>
