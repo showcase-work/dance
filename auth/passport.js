@@ -113,7 +113,10 @@ module.exports = app => {
 
                     Voter.find({
                       where: {
-                        facebook:profile.id
+                        $or:[
+                            {facebook:profile.id},
+                            {email:emailid}
+                        ]
                       }
                     }).then(user=>{
                         if (user) {
