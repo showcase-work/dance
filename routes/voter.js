@@ -23,12 +23,13 @@ module.exports = app => {
 
     router.route("/vote").post((req,res,next)=>{
         console.log("Route:Voter:vote");
-        if(!req.user.voted){
-            res.redirect("/team");
+        console.log(req.user.voted);
+        if(req.user.voted == "null" || req.user.voted == null){
+            voterController.vote(req,res,next);
         }
         else
         {
-            voterController.vote(req,res,next);
+            res.redirect("/team");
         }
         
     })
