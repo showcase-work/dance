@@ -96,7 +96,7 @@
                                     %>
                                     <form action="/voter/vote" method="POST" style="display: inline-block;float:right;">
                                       <input type="hidden" name="team_id" value="<%=team.id%>">
-                                      <button class="voting-button vote" type="submit"><i class="fa fa-facebook"></i>VOTAR</button>
+                                      <button class="voting-button vote" type="submit"><i class="fa fa-facebook"></i>VOTAR(<%=JSON.parse(voter.voted)%> , <%=team.id%>, <%=JSON.parse(voter.voted).indexOf(team.id.toString())%>)</button>
                                     </form>
                                     <%
                                   }
