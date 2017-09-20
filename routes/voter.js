@@ -23,7 +23,27 @@ module.exports = app => {
 
     router.route("/vote").post((req,res,next)=>{
         console.log("Route:Voter:vote");
-        res.redirect("/team");
+        console.log(req.user.voted);
+        console.log(typeof req.body.team_id);
+        if(req.user.voted){
+            if(JSON.parse(req.user.voted) instanceof Array){
+                if(JSON.parse(req.user.voted).indexOf(req.body.team_id)> -1){
+                    res.redirect("/team");
+                }
+                else
+                {
+                    voterController.vote(req,res,next);
+                }
+            }
+            else
+            {
+               voterController.vote(req,res,next); 
+            }
+        }
+        else
+        {
+            voterController.vote(req,res,next);
+        }
         
     })
 
