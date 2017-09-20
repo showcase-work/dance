@@ -67,10 +67,23 @@ module.exports = app => {
     });
 
     function addVote(teamId, voterId){
-        return Voter.update({
-            voted:teamId
-        },{
-            where:{id:voterId}
+        return new Promise((resolve,reject)=>{
+            Voter.findById(voterId).then(data=>{
+                var votes = [];
+                if(data.voted){
+                    if(JSON.parse(data.voted) instanceof Array){
+                        votes = JSON.parse(data.voted);
+                    }
+                }
+                votes.push(teamId);
+                Voter.update({
+                            voted:JSON.stringify(votes)
+                        },{
+                            where:{id:voterId}
+                }).then(data=>{
+                    return resolve(data);
+                })
+            })
         })
     }
 
@@ -109,9 +122,39 @@ module.exports = app => {
         })
     }
 
+    function getVotesByType(){
+        return new Promise((resolve,reject)=>{
+            var totalVoters=0;
+            var facebookVoters=0; 
+            var emailVoters=0;
+            var totalVotes=0;
+            Voter.findAll({raw:true}).then(data=>{
+                console.log(data);
+                totalVoters = data.length;
+                data.forEach(vote=>{
+                    if(vote.voted){
+                        if(JSON.parse(vote.voted) instanceof Array){
+                            totalVotes=totalVotes+JSON.parse(vote.voted).length;
+                        }
+                    }
+                    if(vote.facebook=="signup"){
+                        emailVoters++;
+                    }
+                    else
+                    {
+                        facebookVoters++;
+                    }
+                })
+                var dataToSend=JSON.parse(JSON.stringify({totalVoters:totalVoters,facebookVoters:facebookVoters,emailVoters:emailVoters,totalVotes:totalVotes}));
+                return resolve(dataToSend);
+            })
+        })
+    }
+
     return {
         Voter,
         addVote,
-        registerVoter
+        registerVoter,
+        getVotesByType
     };
 };

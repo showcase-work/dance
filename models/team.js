@@ -306,6 +306,35 @@ module.exports = app => {
         
     }
 
+    function getTotalNumberOfMembers(){
+        return new Promise((resolve,reject)=>{
+            var numberOfMembers = 0;
+            Team.findAll({raw:true}).then(data=>{
+                numberOfMembers=data.length;
+                data.forEach((team)=>{
+                    if(team.teamMembers){
+                        var count = 0;
+                        var members = JSON.parse(team.teamMembers);
+                        members.forEach(member=>{
+                            if(member.firstName || member.lastName){
+                                if(member.firstName.trim()=="" && member.lastName.trim()==""){
+
+                                }
+                                else
+                                {
+                                    count++;
+                                }
+                            }
+                        })
+                        numberOfMembers=numberOfMembers+count;
+                    }
+                })
+                console.log(numberOfMembers);
+                return resolve(numberOfMembers);
+            })
+        })
+    }
+
     return {
         Team,
         getTeam,
@@ -324,6 +353,7 @@ module.exports = app => {
         getAcceptedTeams,
         updateTeamStatus,
         getAllTeamsByStatus,
-        addVote
+        addVote,
+        getTotalNumberOfMembers
     };
 };
