@@ -89,7 +89,7 @@
                                       <input type="hidden" name="team_id" value="<%=team.id%>">
                                       <button class="voting-button vote" type="submit"><i class="fa fa-facebook"></i>VOTAR</button>
                                     </form>
-                                <%  } else if(voter.voted == team.id) { %>
+                                <%  } else if(JSON.parse(voter.voted).indexOf(team.id) > -1) { %>
                                       <button class="voting-button" type="submit"><i class="fa fa-thumbs-up"></i>VOTED</button>
                                   <%}else{
                                     %>
