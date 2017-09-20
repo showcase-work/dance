@@ -69,19 +69,28 @@ module.exports = app => {
     function addVote(teamId, voterId){
         return new Promise((resolve,reject)=>{
             Voter.findById(voterId).then(data=>{
+
                 var votes = [];
                 if(data.voted){
                     if(JSON.parse(data.voted) instanceof Array){
                         votes = JSON.parse(data.voted);
                     }
                 }
+                
                 votes.push(teamId);
+                console.log("pushing to votes");
+                console.log(votes);
+                console.log("-----");
                 Voter.update({
                             voted:JSON.stringify(votes)
                         },{
                             where:{id:voterId}
                 }).then(data=>{
+                    console.log("this is the data");
+                    console.log(data);
                     return resolve(data);
+                }).catch(err=>{
+                    return reject(err);
                 })
             })
         })
