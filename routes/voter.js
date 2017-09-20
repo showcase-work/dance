@@ -46,5 +46,10 @@ module.exports = app => {
             }
         ))
 
+    router.route("/logout").get((req,res,next)=>{
+        req.logout();
+        res.redirect("/team");
+    })
+
     return router;
 }
