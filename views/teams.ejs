@@ -85,7 +85,7 @@
                                   if(voter){ 
                                     if(!voter.voted){
                                     %>
-                                    <form action="/voter/vote" method="POST">
+                                    <form action="/voter/vote" method="POST" style="display: inline-block;float:right;">
                                       <input type="hidden" name="team_id" value="<%=team.id%>">
                                       <button class="voting-button vote" type="submit"><i class="fa fa-facebook"></i>VOTAR</button>
                                     </form>
@@ -93,7 +93,7 @@
                                       <button class="voting-button" type="submit"><i class="fa fa-thumbs-up"></i>VOTED</button>
                                   <%}else{
                                     %>
-                                    <form action="/voter/vote" method="POST">
+                                    <form action="/voter/vote" method="POST" style="display: inline-block;float:right;">
                                       <input type="hidden" name="team_id" value="<%=team.id%>">
                                       <button class="voting-button vote" type="submit"><i class="fa fa-facebook"></i>VOTAR</button>
                                     </form>
