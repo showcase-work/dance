@@ -73,7 +73,17 @@
                                 Your browser does not support the video tag.
                                 </video> -->
                                 <div class="like">
-                                    <span><i class="fa fa-thumbs-up"></i> 20</span>
+                                    <span><i class="fa fa-thumbs-up"></i> <%
+                                      if(team.votes){
+                                        %>
+                                        <%=JSON.parse(team.votes).length%>
+                                        <%
+                                      }else{
+                                        %>
+                                        0
+                                        <%
+                                      }
+                                    %></span>
                                 </div>
                             </div>
                             <div class="below-video">
