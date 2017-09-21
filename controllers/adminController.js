@@ -8,7 +8,7 @@ module.exports = app => {
         adminService.getDashboardStats().then(data=>{
             res.send(data);
         }).catch(err=>{
-            res.next(err);
+            next(err);
         })
     };
 

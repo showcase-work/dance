@@ -70,10 +70,8 @@ module.exports = app => {
 
     function verifyAdmin(req,res,next){
         var cookies = parseCookies(req);
-        console.log(cookies);
         jwt.verify(cookies.admin, 'danceisthesecret', function(err, decoded) {
-            console.log(decoded);
-            console.log(err);
+            
             if(!err){
                 if(decoded.username=="AlexisG" || decoded.username=="AdminB10" || decoded.username=="GioM"){
                     next();

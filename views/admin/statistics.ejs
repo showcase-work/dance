@@ -209,6 +209,11 @@
                     
                 </ul>
             </div>
+            <div class="upper-stats">
+                <ul class="by-places" style="flex-wrap: wrap;">
+                                     
+                </ul>
+            </div>
         </div>
 
     </div>
@@ -267,6 +272,13 @@
                         $(".total-voters").html(data.voterDetails.totalVoters);
                         $(".facebook-votes").html(data.voterDetails.facebookVoters);
                         $(".email-votes").html(data.voterDetails.emailVoters);
+                        var i = 0;
+                        data.teamsByPlace.forEach(function(place){
+                            if(i<11){
+                                $(".by-places").append('<li style="width:20%; min-width:50px"><p>'+place.city+'</p><h5 class="total-votes">'+place.count+'</h5></li>');
+                            }
+                            i++
+                        })
                         dashboard.initChartist(data);
                         $(".content").fadeIn();
                 }

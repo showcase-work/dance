@@ -335,6 +335,29 @@ module.exports = app => {
         })
     }
 
+    function getTeamsByPlace(){
+        return new Promise((resolve,reject)=>{
+            return Team.findAll({
+                raw:true,
+                attributes:[
+                    [Sequelize.fn("COUNT", Sequelize.col("id")),"count"],
+                    "city"
+                ],
+                group:"city",
+                order:"count DESC"
+            }).then(data=>{
+                console.log("hehehehe");
+                return resolve(data);
+                console.log(data);
+            }).catch(err=>{
+                console.log("errr");
+                console.log(err);
+                
+            })
+        })
+        
+    }
+
     return {
         Team,
         getTeam,
@@ -354,6 +377,7 @@ module.exports = app => {
         updateTeamStatus,
         getAllTeamsByStatus,
         addVote,
-        getTotalNumberOfMembers
+        getTotalNumberOfMembers,
+        getTeamsByPlace
     };
 };
