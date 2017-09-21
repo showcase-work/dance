@@ -376,6 +376,7 @@ li.main-registring-container{
     color:white;
     float:right;
     border:none;
+    cursor: pointer;
 }
 
 .container .videos-container .inner-container .below-video .voting-button i{
