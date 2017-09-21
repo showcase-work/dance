@@ -54,7 +54,24 @@
                                     <p>STATUS DE PARTICIPACIÓN:</p>
                                 </td>
                                 <td>
-                                    
+                                    <button class="uk-button <%=user.status%>" style="cursor:initial">
+                                    <%
+                                    if(user.status=="Accepted"){
+                                    %>
+                                        Aprobado
+                                    <%
+                                    }else if(user.status=="Declined"){
+                                    %>
+                                        No aprobado
+                                    <%
+                                    }
+                                    else if(user.status=="En evaluación"){
+                                    %>
+                                        En evaluación
+                                    <%
+                                    }
+                                    %> 
+                                    </button>
                                 </td>
                             </tr>
                             <tr>
