@@ -76,18 +76,12 @@ module.exports = app => {
                         votes = JSON.parse(data.voted);
                     }
                 }
-                
                 votes.push(teamId);
-                console.log("pushing to votes");
-                console.log(votes);
-                console.log("-----");
                 Voter.update({
                             voted:JSON.stringify(votes)
                         },{
                             where:{id:voterId}
                 }).then(data=>{
-                    console.log("this is the data");
-                    console.log(data);
                     return resolve(data);
                 }).catch(err=>{
                     return reject(err);

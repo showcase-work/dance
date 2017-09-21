@@ -190,6 +190,27 @@
                     </div>
                 </div>
             </div>
+            <div class="upper-stats">
+                <ul>
+                    <li>
+                        <p>Total Votes</p>
+                        <h5 class="total-votes">0</h5>
+                    </li>
+                    <li>
+                        <p>Total Voters</p>
+                        <h5 class="total-voters">0</h5>
+                    </li>
+                    <li>
+                        <p>Facebook Voters</p>
+                        <h5 class="facebook-voter">0</h5>
+                    </li>
+                    <li>
+                        <p>Email Voters</p>
+                        <h5 class="email-voters">0</h5>
+                    </li>
+                    
+                </ul>
+            </div>
         </div>
 
     </div>
@@ -243,6 +264,11 @@
                         }
                     })
                     $(".total-registrations").html(totalCount);
+                    $(".participation-number").html(data.totalMembers);
+                    $(".total-votes").html(data.voterDetails.totalVotes);
+                    $(".total-voters").html(data.voterDetails.totalVoters);
+                    $(".facebook-votes").html(data.voterDetails.facebookVoters);
+                    $(".email-votes").html(data.voterDetails.emailVoters);
                     dashboard.initChartist(data);
                     $(".content").fadeIn();
                 }
