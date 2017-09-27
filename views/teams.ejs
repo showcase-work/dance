@@ -152,13 +152,13 @@
                 <p>Nombre completo</p>
               </div>
               <div class="margin-bottom-10">
-                <input type="text" name="name" placeholder="nombre completo" class="uk-input modal-input">
+                <input type="text" name="name" placeholder="nombre completo" class="uk-input modal-input" required>
               </div>
               <div>
                 <p>Correo electrónico</p>
               </div>
               <div class="margin-bottom-10">
-                <input type="text" name="email" placeholder="correo electrónico" class="uk-input modal-input">
+                <input type="email" name="email" placeholder="correo electrónico" class="uk-input modal-input" required>
               </div>
               <div class="password-container margin-bottom-10" style="display:none">
               </div>
@@ -179,8 +179,10 @@
 
 
         $("#signupVoter").submit(function(e){
+
           e.preventDefault();
           var self = $(this);
+          self.validate();
           $(".error-container").html("");
           $.ajax({
             url:self.attr("action"),
