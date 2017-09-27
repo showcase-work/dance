@@ -43,6 +43,10 @@
                         <button class="float right" style="background-color: #a83636; border-color:#a83636; border-radius: 20px; padding-left: 20px; padding-right: 20px;">Cerrar sesión</button>
                       </a>
                     <%
+                  }else{
+                    %>
+                    <button class="float right" style="background-color: #299841; border-color:#299841; border-radius: 20px; padding-left: 20px; padding-right: 20px;" data-uk-modal="{target:'#participants'}">Participantes</button>
+                    <%
                   }
                 %>
             </div>
@@ -171,12 +175,28 @@
         </div>
     </div>
 
+
+    <div id="participants" class="uk-modal" style="text-align: center;">
+        <div class="uk-modal-dialog">
+            <a class="uk-modal-close uk-close"></a>
+            <button type="hidden" style="display: none;">asd</button>
+            <form action="/team/login" method="POST" id="participantsLogin">
+                 <p class="label">Nombre de equipo</p>
+                <input type="text" class="uk-input" name="teamName" required>
+                <p class="label">Contraseña</p>
+                <input type="password" class="uk-input" name="password" required>
+                <br />
+                <button class="uk-button uk-button-primary" type="submit">CONTINUAR</button>
+            </form>
+            <div class="error-container2" style="margin-top: 10px;color:red"></div>
+        </div>
+    </div>
+
     <% include includes/scripts.ejs %>
     <script type="text/javascript">
         var cld = cloudinary.Cloudinary.new({ cloud_name: "annaraujo", secure: true});
         //var demoplayer = cld.videoPlayer('demo-player');
         var players = cld.videoPlayers('.cld-video-player');
-
 
         $("#signupVoter").submit(function(e){
 
@@ -241,6 +261,12 @@
           $(".password-container").show();
           $("#signupVoter").attr("action", "/voter/signin");
           $(".signup-button").html("Sign In");
+        })
+
+        $("#participantsLogin").submit(function(e){
+          e.preventDefault();
+          var self = $(this);
+          self.validate();
         })
     </script>
 </body>
