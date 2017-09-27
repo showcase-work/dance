@@ -89,7 +89,7 @@ module.exports = app =>{
         }
 
         teamService.findTeam(req.query.search).then(data=>{
-            res.render("teams",{teams:data, searching:false, voter:voter});
+            res.render("teams",{teams:data, searching:true, voter:voter});
         }).catch(err=>{
             next(err);
         })
