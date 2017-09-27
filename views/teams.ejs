@@ -27,7 +27,7 @@
             <div class="filters-container">
                 <form action="/team/search" method="GET" style="display: inline-block;">
                     <input type="text" name="search" placeholder="Buscar Video">
-                    <button type="submit">Search</button>
+                    <button type="submit">Buscar</button>
                 </form>
                 <%
                     if(searching){
@@ -40,7 +40,7 @@
                   if(voter){
                     %>
                       <a href="/voter/logout">
-                        <button class="float right" style="background-color: #399931; border-radius: 20px; padding-left: 20px; padding-right: 20px;">Logout</button>
+                        <button class="float right" style="background-color: #a83636; border-color:#a83636; border-radius: 20px; padding-left: 20px; padding-right: 20px;">Cerrar sesión</button>
                       </a>
                     <%
                   }
@@ -101,7 +101,7 @@
                                     </form>
                                 <%  } else if(JSON.parse(voter.voted) instanceof Array) { 
                                     if(JSON.parse(voter.voted).indexOf(team.id.toString()) != -1){%>
-                                      <button class="voting-button" type="submit"><i class="fa fa-thumbs-up"></i>VOTED</button>
+                                      <button class="voting-button" type="submit"><i class="fa fa-thumbs-up"></i>¡Gracias por tu voto!</button>
                                   <%}
                                   else{
                                     %>
@@ -140,26 +140,32 @@
             <a class="uk-modal-close uk-close"></a>
             <button type="hidden" style="display: none;">asd</button>
             <a href="/voter/facebook">
-              <button class="uk-button uk-button-primary" style="background-color: #3b5999; color:white;">Signin with facebook</button>
+              <button class="uk-button uk-button-primary" style="background-color: #3b5999; color:white;">Inicia sesión con facebook</button>
             </a>
             
             <div style="margin-top: 20px;">
-              or
+              O
             </div>
-            <h4>Sign up with Email</h4>
+            <h4>Inicia sesión con tu correo electrónico</h4>
             <form id="signupVoter" action="/voter/register" method="POST">
-              <div class="margin-bottom-10">
-                <input type="text" name="name" placeholder="name" class="uk-input modal-input">
+              <div>
+                <p>Nombre completo</p>
               </div>
               <div class="margin-bottom-10">
-                <input type="text" name="email" placeholder="email" class="uk-input modal-input">
+                <input type="text" name="name" placeholder="nombre completo" class="uk-input modal-input">
+              </div>
+              <div>
+                <p>Correo electrónico</p>
+              </div>
+              <div class="margin-bottom-10">
+                <input type="text" name="email" placeholder="correo electrónico" class="uk-input modal-input">
               </div>
               <div class="password-container margin-bottom-10" style="display:none">
               </div>
               <div class="already-a-member">
-                <p style="cursor: pointer;">Already Registered?</p>
+                <p style="cursor: pointer;">¿Ya estas registrado?</p>
               </div>
-              <button class="uk-button uk-button-primary signup-button" type="submit">Sign Up</button>
+              <button class="uk-button uk-button-primary signup-button" type="submit">Iniciar sesión</button>
             </form> 
             <div class="error-container" style="margin-top: 10px;color:red"></div>
         </div>
@@ -186,7 +192,7 @@
                 $(".already-a-member").hide();
                 $(".password-container").html('<p>Password has been mailed to you. Please enter here.</p><input type="password" name="password" placeholder="password" class="uk-input modal-input">');
                 $(".password-container").show();
-                $(".signup-button").html("Sign In");
+                $(".signup-button").html("Iniciar sesión");
               }
               else
               {
