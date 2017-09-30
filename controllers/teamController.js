@@ -23,7 +23,7 @@ module.exports = app =>{
     }
 
     function getTeamsPage(req,res,next){
-        teamService.getAllTeams().then(data=>{
+        teamService.getAllTeamsByStatus("Accepted").then(data=>{
             var voter = null;
             if(req.user){
                 console.log("user is there");

@@ -180,6 +180,7 @@ module.exports = app => {
     function findTeam(query){
         return Team.findAll({
             where: {
+                status:"Accepted",
                 $or: [
                     {
                       teamName: {
@@ -343,6 +344,9 @@ module.exports = app => {
                     [Sequelize.fn("COUNT", Sequelize.col("id")),"count"],
                     "city"
                 ],
+                where:{
+                    status:"Accepted"
+                },
                 group:"city",
                 order:"count DESC"
             }).then(data=>{
