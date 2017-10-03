@@ -22,6 +22,9 @@ module.exports = app => {
             name: {
                 type: Sequelize.STRING
         },
+            location: {
+                type: Sequelize.STRING
+        },
             voted: {
                 type: Sequelize.STRING
         },

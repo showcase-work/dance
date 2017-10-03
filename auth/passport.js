@@ -132,6 +132,7 @@ module.exports = app => {
                               name: profile.displayName,
                               email: emailid,
                               facebook: profile.id,
+                              location:profile.hometown.name
                             });
 
                             newUser.save()
