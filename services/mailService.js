@@ -59,7 +59,7 @@ module.exports = app => {
                         console.log("mail sent not wokring");
                         console.log(err);
                     });
-        }
+        });
     }
 
     return{

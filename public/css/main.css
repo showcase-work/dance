@@ -446,3 +446,7 @@ li.main-registring-container{
 .video-container .cld-video-player{
     width:480px;
 }
+
+.jquery-modal.current{
+    z-index: 9999999 !important;
+}
