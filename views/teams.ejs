@@ -171,7 +171,7 @@
               <div class="already-a-member">
                 <p style="cursor: pointer;">¿Ya estas registrado?</p>
               </div>
-              <div class="checkbox-container">
+              <div class="checkbox-container tandc">
                     <input type="checkbox" id="privacyPermission" name="privacyPermission" value="privacyPermission" style="width:initial;" class="uk-checkbox checkbox-required validthis" required>
                     <label for="coding">Acepto el <a href="#aviso" rel="modal:open">aviso de privacidad</a></label>
                     </br>
@@ -619,6 +619,7 @@
           var self = $(this);
           self.toggle();
           $(".name-container").hide();
+          $(".tandc").hide();
           $(".password-container").html('<p> Por favor ingresa tu contraseña.</p><input type="password" name="password" placeholder="contraseña" class="uk-input modal-input">');
           $(".password-container").show();
           $("#signupVoter").attr("action", "/voter/signin");
