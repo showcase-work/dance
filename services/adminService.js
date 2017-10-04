@@ -47,7 +47,7 @@ module.exports = app => {
 
     function getDownloadReportAllVotes(req,res,next){
         var fieldNames = ['Team', 'City','State','VideoLink','Status','RepName','RepEmail','Votes'];
-        var fields = ['teamName', 'city','state','videoLink','status','representativeName','representativeEmail','votes'];
+        var fields = ['teamName', 'city','state','videoLink','status','representativeName','representativeEmail','votesCount'];
 
         Team.getDownloadReportAllVotes().then(data=>{
             console.log(data);
