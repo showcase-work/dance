@@ -85,9 +85,9 @@
                                 </video> -->
                                 <div class="like">
                                     <span><i class="fa fa-thumbs-up"></i> <%
-                                      if(team.votes){
+                                      if(team.votesCount){
                                         %>
-                                        <%=JSON.parse(team.votes).length%>
+                                        <%=team.votesCount%>
                                         <%
                                       }else{
                                         %>
