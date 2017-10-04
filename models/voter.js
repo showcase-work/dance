@@ -103,11 +103,11 @@ module.exports = app => {
                 console.log(data);
                 if(data.length>0){
                     if(data[0].facebook != "signup"){
-                        return reject("already logged in with facebook");
+                        return reject("Este correo ya se encuentra registrado con facebook");
                     }
                     else
                     {
-                        return reject("email already exists");
+                        return reject("Este correo ya se encuentra registrado");
                     }
                 }
                 else
