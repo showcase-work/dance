@@ -45,7 +45,7 @@ module.exports = app => {
                 var emailData = {
                     'FromEmail': 'experiencia@nuevoibiza.com',
                     'FromName': 'SEAT México',
-                    'Subject': 'Your Password to Vote',
+                    'Subject': 'Tu contraseña para votar',
                     'Text-part': 'welcome '+name+', Your password to login into SEAT is '+password,
                     'Html-part': str,
                     'Recipients': [{'Email': email}]
