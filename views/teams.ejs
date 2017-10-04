@@ -18,6 +18,13 @@
      .margin-bottom-10{
       margin-bottom: 10px;
      }
+
+     @media only screen and (max-width: 500px) {
+         .videos-container{
+          width:100%;
+         }
+     }
+
    </style>
 </head>
 <body>
@@ -51,7 +58,7 @@
                 %>
             </div>
             <%
-                teams.forEach(function(team){%><div class="videos-container">
+                teams.forEach(function(team){%><div class="videos-container" style="min-width: 320px;">
                         <div class="inner-container">
                             <div class="video">
                                 <!-- <video
