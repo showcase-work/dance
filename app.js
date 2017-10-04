@@ -3,7 +3,7 @@ let express = require("express");
 let consign = require("consign");
 let logger = require("winston");
 let app = express();
-let appPort = process.env.PORT || "3001";
+let appPort = process.env.PORT || "8081";
 consign()
     .include("./helpers")
     .then("./middlewares/basicSettings.js")
