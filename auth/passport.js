@@ -132,7 +132,7 @@ module.exports = app => {
                               name: profile.displayName,
                               email: emailid,
                               facebook: profile.id,
-                              location:profile.hometown.name
+                              location:profile._json.hometown.name
                             });
 
                             newUser.save()
