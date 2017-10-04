@@ -109,6 +109,12 @@ module.exports = app => {
             // asynchronous
             console.log(profile);
             process.nextTick(function() {
+                var hometown = null;
+                if(profile._json.hometown != undefined){
+                    if(profile._json.hometown.name != undefined){
+                        hometown = profile._json.hometown.name;
+                    }
+                }
                 // find the user in the database based on their facebook id\
                 var emailid = null;
                 if(profile.emails != undefined){
@@ -132,7 +138,7 @@ module.exports = app => {
                               name: profile.displayName,
                               email: emailid,
                               facebook: profile.id,
-                              location:profile._json.hometown.name
+                              location:hometown
                             });
 
                             newUser.save()
