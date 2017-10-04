@@ -99,7 +99,7 @@ module.exports = app => {
             // pull in our app id and secret from our auth.js file
             clientID        : '1927644547501515',
             clientSecret    : '0e46ee3057e144d7c0fea47c8e012241',
-            callbackURL     : 'http://seatmx.com:3001/voter/facebook/callback',
+            callbackURL     : 'http://seatmx.com:8081/voter/facebook/callback',
             passReqToCallback : true,
             profileFields: ['id', 'email', 'displayName','hometown','location'],
             scope: ['email','user_location','user_hometown']
