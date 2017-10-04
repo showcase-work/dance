@@ -625,7 +625,7 @@
         $(".already-a-member").click(function(){
           var self = $(this);
           self.toggle();
-          $(".name-container").hide();
+          $(".name-container").remove();
           $(".tandc").hide();
           $(".password-container").html('<p> Por favor ingresa tu contraseña.</p><input type="password" name="password" placeholder="contraseña" class="uk-input modal-input">');
           $(".password-container").show();
