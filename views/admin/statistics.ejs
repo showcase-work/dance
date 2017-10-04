@@ -59,9 +59,26 @@
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
         }
 
+
+        .download-buttons button{
+            float:right;
+            margin-left: 10px;
+            border:1px solid #ebebeb;
+            padding:10px;
+            background-color: #337ab7;
+            color:white;
+            border-radius: 8px;
+        }
+
         .content{
             display: none;
         }
+
+        .clearfix{
+            clear:both;
+        }
+
+
     </style>
 
 </head>
@@ -138,6 +155,13 @@
 
 
         <div class="content">
+            <div class="download-buttons" style="padding:0px 15px;">
+                <a href="/admin/download-report/voters"><button>Download Voters Report</button></a>
+                <a href="/admin/download-report/votes"><button>Download Votes Report</button></a>
+                <a href="/admin/download-report"><button>Download Teams Report</button></a>
+
+                <div class="clearfix"></div>
+            </div>
             <div class="upper-stats">
                 <ul>
                     <li>

@@ -48,11 +48,26 @@ module.exports = app => {
         })
     }
 
+    function getDownloadReport(req,res,next){
+        adminService.getDownloadReport(req,res,next);
+    }
+
+    function getDownloadReportAllVotes(req,res,next){
+        adminService.getDownloadReportAllVotes(req,res,next);
+    }
+
+    function getDownloadReportAllVoters(req,res,next){
+        adminService.getDownloadReportAllVoters(req,res,next);
+    }
+
     return {
         getDashboardStats,
         renderAdminVideosPage,
         updateTeamStatus,
         getAcceptedTeams,
-        getDeclinedTeams
+        getDeclinedTeams,
+        getDownloadReport,
+        getDownloadReportAllVotes,
+        getDownloadReportAllVoters
     };
 };

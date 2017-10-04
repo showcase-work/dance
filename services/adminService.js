@@ -1,9 +1,14 @@
 "use strict"
 
+let json2csv = require('json2csv');
+
 module.exports = app => {
 
     let Team = app.models.team;
     let Voter = app.models.voter;
+
+    
+
 
     function getDashboardStats(){
 
@@ -26,7 +31,54 @@ module.exports = app => {
         })
     }
 
+    function getDownloadReport(req,res,next){
+        var fieldNames = ['Team', 'City','State','VideoLink','Status','RepName','RepEmail'];
+        var fields = ['teamName', 'city','state','videoLink','status','representativeName','representativeEmail'];
+
+        Team.getAllTeamsForReport().then(data=>{
+            console.log(data);
+            var csv = json2csv({ data: data, fields: fields, fieldNames: fieldNames });
+            res.setHeader('Content-disposition', 'attachment; filename=teams.csv');
+            res.set('Content-Type', 'text/csv');
+            res.status(200).send(csv);
+            
+        })
+    }
+
+    function getDownloadReportAllVotes(req,res,next){
+        var fieldNames = ['Team', 'City','State','VideoLink','Status','RepName','RepEmail','Votes'];
+        var fields = ['teamName', 'city','state','videoLink','status','representativeName','representativeEmail','votes'];
+
+        Team.getDownloadReportAllVotes().then(data=>{
+            console.log(data);
+            var csv = json2csv({ data: data, fields: fields, fieldNames: fieldNames });
+            res.setHeader('Content-disposition', 'attachment; filename=votes.csv');
+            res.set('Content-Type', 'text/csv');
+            res.status(200).send(csv);
+        }).catch(err=>{
+            console.log(err);
+        })
+    }
+
+    function getDownloadReportAllVoters(req,res,next){
+        var fieldNames = ['Name', 'Email','Location','FacebookId'];
+        var fields = ["name","email","location","facebook"];
+
+        Voter.getDownloadReportAllVoters().then(data=>{
+            var csv = json2csv({ data: data, fields: fields, fieldNames: fieldNames });
+            res.setHeader('Content-disposition', 'attachment; filename=voters.csv');
+            res.set('Content-Type', 'text/csv');
+            res.status(200).send(csv);
+        }).catch(err=>{
+            console.log(err);
+        })
+
+    }
+
     return {
-        getDashboardStats
+        getDashboardStats,
+        getDownloadReport,
+        getDownloadReportAllVotes,
+        getDownloadReportAllVoters
     };
 }

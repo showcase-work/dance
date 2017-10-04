@@ -69,6 +69,9 @@ module.exports = app => {
         },
             votes:{
                 type:Sequelize.STRING
+        },
+            votesCount:{
+                type:Sequelize.INTEGER
         }
 
     },
@@ -115,6 +118,13 @@ module.exports = app => {
 
     function getAllTeams(){
         return Team.findAll()
+    }
+
+    function getAllTeamsForReport(){
+        return Team.findAll({
+            raw:true,
+            attributes:["teamName","city","state","videoLink","status","representativeName","representativeEmail"]
+        });
     }
 
     function deleteTeam(id){
@@ -282,15 +292,19 @@ module.exports = app => {
         return new Promise((resolve,reject)=>{
             Team.findById(teamId).then(data=>{
                 var votes = [];
+                var votesCount = 0;
                 if(data.votes){
                     votes = JSON.parse(data.votes);
                 }
+                if(data.votesCount){
+                    votesCount=data.votesCount;
+                }
+                votesCount++;
                 votes.push(voterId);
-                console.log(votes);
                 var votesTosave=JSON.stringify(votes);
-                console.log(votesTosave);
                 Team.update({
-                    votes:votesTosave
+                    votes:votesTosave,
+                    votesCount:votesCount
                 },{
                     where:{
                         id:teamId
@@ -362,6 +376,20 @@ module.exports = app => {
         
     }
 
+    function getDownloadReportAllVotes(){
+
+        return Team.findAll({
+            raw:true,
+            where:{
+                votesCount:{
+                    $ne: null
+                }
+            },
+            attributes:["teamName","city","state","videoLink","status","representativeName","representativeEmail","votesCount"],
+            order:"votesCount DESC"
+        })
+    }
+
     return {
         Team,
         getTeam,
@@ -382,6 +410,8 @@ module.exports = app => {
         getAllTeamsByStatus,
         addVote,
         getTotalNumberOfMembers,
-        getTeamsByPlace
+        getTeamsByPlace,
+        getAllTeamsForReport,
+        getDownloadReportAllVotes
     };
 };

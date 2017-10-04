@@ -43,6 +43,18 @@ module.exports = app => {
         res.render("admin/login");
     })
 
+    router.route("/download-report").get((req,res,next)=>{
+        adminController.getDownloadReport(req,res,next);
+    })
+
+    router.route("/download-report/votes").get((req,res,next)=>{
+        adminController.getDownloadReportAllVotes(req,res,next);
+    })
+
+    router.route("/download-report/voters").get((req,res,next)=>{
+        adminController.getDownloadReportAllVoters(req,res,next);
+    })
+
     function parseCookies(request) {
         var list = {},
             rc = request.headers.cookie;

@@ -157,10 +157,18 @@ module.exports = app => {
         })
     }
 
+    function getDownloadReportAllVoters(){
+        return Voter.findAll({
+            raw:true,
+            attributes:["name","email","location","facebook"]
+        })
+    }
+
     return {
         Voter,
         addVote,
         registerVoter,
-        getVotesByType
+        getVotesByType,
+        getDownloadReportAllVoters
     };
 };
