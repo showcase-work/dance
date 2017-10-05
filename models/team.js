@@ -296,10 +296,14 @@ module.exports = app => {
                 if(data.votes){
                     votes = JSON.parse(data.votes);
                 }
+                else
+                {
+                    votesCount=0;
+                }
                 if(data.votesCount){
                     votesCount=data.votesCount;
                 }
-                votesCount++;
+                votesCount=votesCount+1;
                 votes.push(voterId);
                 var votesTosave=JSON.stringify(votes);
                 Team.update({
