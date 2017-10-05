@@ -102,43 +102,35 @@
                                 <ul class="team-details">
                                     <li><%=team.teamName%></li>
                                     <li><%=team.city%>/<%=team.state%></li>
-                                    
+
                                 </ul>
                                 <%
-                                  if(voter){ 
-                                    if(!voter.voted){
+                                  if(voter){
+                                    var votes = [];
+                                    if(team.votes && JSON.parse(team.votes) instanceof Array){
+                                      votes=JSON.parse(team.votes);
+                                    }
+                                    if(votes.indexOf(voter.id) != -1){
+                                      %>
+                                        <button class="voting-button" type="submit"><i class="fa fa-thumbs-up"></i>¡Gracias por tu voto!</button>
+                                      <%
+                                    }
+                                    else
+                                    {
+                                      %>
+                                        <form action="/voter/vote" method="POST" style="display: inline-block;float:right;">
+                                          <input type="hidden" name="team_id" value="<%=team.id%>">
+                                          <button class="voting-button vote" type="submit"><i class="fa fa-facebook"></i>VOTAR</button>
+                                        </form>
+                                      <% 
+                                    }
+                                  }
+                                  else
+                                  {
                                     %>
-                                    <form action="/voter/vote" method="POST" style="display: inline-block;float:right;">
-                                      <input type="hidden" name="team_id" value="<%=team.id%>">
-                                      <button class="voting-button vote" type="submit"><i class="fa fa-facebook"></i>VOTAR</button>
-                                    </form>
-                                <%  } else if(JSON.parse(voter.voted) instanceof Array) { 
-                                    if(JSON.parse(voter.voted).indexOf(team.id.toString()) != -1){%>
-                                      <button class="voting-button" type="submit"><i class="fa fa-thumbs-up"></i>¡Gracias por tu voto!</button>
-                                  <%}
-                                  else{
-                                    %>
-                                      <form action="/voter/vote" method="POST" style="display: inline-block;float:right;">
-                                        <input type="hidden" name="team_id" value="<%=team.id%>">
-                                        <button class="voting-button vote" type="submit"><i class="fa fa-facebook"></i>VOTAR</button>
-                                      </form>
+                                      <button class="uk-button voting-button" data-uk-modal="{target:'#my-id'}"><i class="fa fa-facebook"></i>VOTAR</button>
                                     <%
                                   }
-                                }else{
-                                    %>
-                                    <form action="/voter/vote" method="POST" style="display: inline-block;float:right;">
-                                      <input type="hidden" name="team_id" value="<%=team.id%>">
-                                      <button class="voting-button vote" type="submit"><i class="fa fa-facebook"></i>VOTAR</button>
-                                    </form>
-                                    <%
-                                  }
-                                }
-                                else
-                                {
-                                  %>
-                                    <button class="uk-button voting-button" data-uk-modal="{target:'#my-id'}"><i class="fa fa-facebook"></i>VOTAR</button>
-                                  <%
-                                }
                                 %>
                                 <div class="clearboth"></div>
                             </div>
