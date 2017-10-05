@@ -102,6 +102,7 @@
                                 <ul class="team-details">
                                     <li><%=team.teamName%></li>
                                     <li><%=team.city%>/<%=team.state%></li>
+                                    
                                 </ul>
                                 <%
                                   if(voter){ 
@@ -111,8 +112,8 @@
                                       <input type="hidden" name="team_id" value="<%=team.id%>">
                                       <button class="voting-button vote" type="submit"><i class="fa fa-facebook"></i>VOTAR</button>
                                     </form>
-                                <%  } else if(JSON.parse(team.votes) instanceof Array) { 
-                                    if(JSON.parse(team.votes).indexOf(voter.id.toString()) != -1){%>
+                                <%  } else if(JSON.parse(voter.voted) instanceof Array) { 
+                                    if(JSON.parse(voter.voted).indexOf(team.id.toString()) != -1){%>
                                       <button class="voting-button" type="submit"><i class="fa fa-thumbs-up"></i>¡Gracias por tu voto!</button>
                                   <%}
                                   else{
