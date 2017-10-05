@@ -14,13 +14,14 @@ module.exports = app => {
         console.log("Service:VoterService");
 
         return new Promise((resolve,reject)=>{
-            var a = Team.addVote(teamId, voterId)
-
-            var b = Voter.addVote(teamId, voterId)
-
-            Promise.all([a,b]).then(data=>{
+            Team.addVote(teamId, voterId).then(data=>{
                 console.log(data);
-                return resolve(data);
+                Voter.addVote(teamId, voterId).then(data2=>{
+                    console.log(data);
+                    return resolve(data);
+                }).catch(err=>{
+                    return reject(err);
+                })
             }).catch(err=>{
                 return reject(err);
             })

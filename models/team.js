@@ -291,31 +291,42 @@ module.exports = app => {
     function addVote(teamId, voterId){
         return new Promise((resolve,reject)=>{
             Team.findById(teamId).then(data=>{
+                console.log("found team");
                 var votes = [];
                 var votesCount = 0;
+
                 if(data.votes){
                     votes = JSON.parse(data.votes);
+                    console.log("votes are");
+                    console.log(votes);
+                }
+                if(data.votesCount){
+                    console.log("vote count is");
+                    console.log(data.votesCount);
+                    votesCount=data.votesCount;
+
                 }
                 else
                 {
                     votesCount=0;
                 }
-                if(data.votesCount){
-                    votesCount=data.votesCount;
-                }
                 votesCount=votesCount+1;
+                console.log("vote count post is");
+                console.log(votesCount);
                 votes.push(voterId);
-                var votesTosave=JSON.stringify(votes);
+                console.log(votes);
                 Team.update({
-                    votes:votesTosave,
+                    votes:JSON.stringify(votes),
                     votesCount:votesCount
                 },{
                     where:{
                         id:teamId
                     }
                 }).then(data=>{
+                    console.log(data);
                     return resolve(data);
                 }).catch(err=>{
+                    console.log(err);
                     return reject(err);
                 })
             }).catch(err=>{

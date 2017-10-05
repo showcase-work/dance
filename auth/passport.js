@@ -118,7 +118,14 @@ module.exports = app => {
                 // find the user in the database based on their facebook id\
                 var emailid = null;
                 if(profile.emails != undefined){
-                    emailid = profile.emails[0].value;
+                    if(profile.emails[0] != undefined){
+                        emailid = profile.emails[0].value;
+                    }
+                }
+
+                var displayName = "";
+                if(profile.displayName != undefined){
+                    displayName = profile.displayName;
                 }
 
                     Voter.find({
@@ -135,7 +142,7 @@ module.exports = app => {
                             // if there is no user found with that facebook id, create them
                             
                             var newUser = Voter.build({
-                              name: profile.displayName,
+                              name: displayName,
                               email: emailid,
                               facebook: profile.id,
                               location:hometown
