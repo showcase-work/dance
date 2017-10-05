@@ -107,8 +107,10 @@
                                 <%
                                   if(voter){
                                     var votes = [];
-                                    if(team.votes && JSON.parse(team.votes) instanceof Array){
-                                      votes=JSON.parse(team.votes);
+                                    if(team.votes != null){
+                                      if(JSON.parse(team.votes) instanceof Array){
+                                        votes=JSON.parse(team.votes);
+                                      }
                                     }
                                     if(votes.indexOf(voter.id) != -1){
                                       %>
