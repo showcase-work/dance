@@ -303,14 +303,9 @@ module.exports = app => {
                 if(data.votesCount){
                     console.log("vote count is");
                     console.log(data.votesCount);
-                    votesCount=data.votesCount;
-
+                    votesCount=parseInt(data.votesCount);
                 }
-                else
-                {
-                    votesCount=0;
-                }
-                votesCount=votesCount+1;
+                votesCount++;
                 console.log("vote count post is");
                 console.log(votesCount);
                 votes.push(voterId);
