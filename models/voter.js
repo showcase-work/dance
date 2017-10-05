@@ -26,7 +26,7 @@ module.exports = app => {
                 type: Sequelize.STRING
         },
             voted: {
-                type: Sequelize.STRING
+                type: Sequelize.TEXT
         },
             facebook: {
                 type: Sequelize.STRING

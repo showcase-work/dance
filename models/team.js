@@ -68,7 +68,7 @@ module.exports = app => {
                 type:Sequelize.STRING
         },
             votes:{
-                type:Sequelize.STRING
+                type:Sequelize.TEXT
         },
             votesCount:{
                 type:Sequelize.INTEGER
