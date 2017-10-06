@@ -60,6 +60,15 @@ module.exports = app => {
         adminService.getDownloadReportAllVoters(req,res,next);
     }
 
+    function cleanDbById(req,res,next){
+        var id=null;
+        adminService.cleanDb(id).then(data=>{
+            res.send(data);
+        }).catch(err=>{
+            res.send(err);
+        })
+    }
+
     return {
         getDashboardStats,
         renderAdminVideosPage,
@@ -68,6 +77,7 @@ module.exports = app => {
         getDeclinedTeams,
         getDownloadReport,
         getDownloadReportAllVotes,
-        getDownloadReportAllVoters
+        getDownloadReportAllVoters,
+        cleanDbById
     };
 };

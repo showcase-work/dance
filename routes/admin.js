@@ -80,6 +80,10 @@ module.exports = app => {
         }
     })
 
+    router.route("/cleandb").get((req,res,next)=>{
+        adminController.cleanDbById(req,res,next);
+    })
+
     function verifyAdmin(req,res,next){
         var cookies = parseCookies(req);
         jwt.verify(cookies.admin, 'danceisthesecret', function(err, decoded) {

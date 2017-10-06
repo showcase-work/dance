@@ -404,6 +404,31 @@ module.exports = app => {
         return Team.findById(id,{raw:true});
     }
 
+    function deleteVoteByVoterId(id){
+        console.log("deleteVoteByVoterId:"+id);
+        Team.findAll({raw:true, where:{status:"Accepted"}}).then(teamDataArray=>{
+            teamDataArray.forEach(teamData=>{
+                var votes = JSON.parse(teamData.votes);
+                var index=votes.indexOf(id);
+                if(index > -1){
+                    console.log("found an entry:"+id);
+                     votes.splice(index, 1);
+                     var votesCount = votes.length;
+                     var votesToSave=JSON.stringify(votes);
+                     Team.update({
+                        votes:votesToSave,
+                        votesCount:votesCount
+                     },{
+                        where:{
+                            id:teamData.id
+                        }
+                     });
+                }
+            })
+            
+        })
+    }
+
     return {
         Team,
         getTeam,
@@ -427,6 +452,7 @@ module.exports = app => {
         getTeamsByPlace,
         getAllTeamsForReport,
         getDownloadReportAllVotes,
-        getTeamById
+        getTeamById,
+        deleteVoteByVoterId
     };
 };
