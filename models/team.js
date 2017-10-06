@@ -406,34 +406,46 @@ module.exports = app => {
 
     function deleteVoteByVoterId(id){
         console.log("deleteVoteByVoterId:"+id);
-        Team.findAll({raw:true, where:{status:"Accepted"}}).then(teamDataArray=>{
-            teamDataArray.forEach(teamData=>{
-                var votes = JSON.parse(teamData.votes);
-                var index=votes.indexOf(id);
-                if(index > -1){
-                     console.log("found an entry:"+id);
-                     console.log("votes before are");
-                     console.log(votes);
-                     votes.splice(index, 1);
-                     console.log("votes after are");
-                     console.log(votes);
-                     var votesCount = votes.length;
-                     var votesToSave=JSON.stringify(votes);
-                     console.log("votes strigified are");
-                     console.log(votesToSave);
-                     
-                     Team.update({
-                        votes:votesToSave,
-                        votesCount:votesCount
-                     },{
-                        where:{
-                            id:teamData.id
-                        }
-                     });
-                }
+        return new Promise((resolve,reject)=>{
+            Team.findAll({raw:true, where:{status:"Accepted"}}).then(teamDataArray=>{
+                var promises = [];
+                teamDataArray.forEach(teamData=>{
+                    var votes = JSON.parse(teamData.votes);
+                    var index=votes.indexOf(id);
+                    if(index > -1){
+                         console.log("found an entry:"+id);
+                         console.log("votes before are");
+                         console.log(votes);
+                         votes.splice(index, 1);
+                         console.log("votes after are");
+                         console.log(votes);
+                         var votesCount = votes.length;
+                         var votesToSave=JSON.stringify(votes);
+                         console.log("votes strigified are");
+                         console.log(votesToSave);
+
+                         var promise = Team.update({
+                            votes:votesToSave,
+                            votesCount:votesCount
+                         },{
+                            where:{
+                                id:teamData.id
+                            }
+                         })
+
+                         promises.push(promise);
+                    }
+                })
+
+                Promise.all(promises).then(data=>{
+                    return resolve("all complete with this id");
+                }).catch(err=>{
+                    console.log("error coming on thisone");
+                    return reject(err);
+                })
             })
-            
         })
+        
     }
 
     return {
