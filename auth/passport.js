@@ -116,7 +116,7 @@ module.exports = app => {
                     }
                 }
                 // find the user in the database based on their facebook id\
-                var emailid = null;
+                var emailid = "";
                 if(profile.emails != undefined){
                     if(profile.emails[0] != undefined){
                         emailid = profile.emails[0].value;
