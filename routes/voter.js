@@ -5,7 +5,7 @@ let router = require("express").Router();
 module.exports = app => {
     let passport = app.auth.passport;
     let voterController = app.controllers.voterController;
-
+    let teamService = app.services.teamService;
     router.route('/facebook').get(passport.authenticate('facebook', 
         { 
             profileFields: ['id', 'email', 'link', 'name','location'],
@@ -23,28 +23,22 @@ module.exports = app => {
 
     router.route("/vote").post((req,res,next)=>{
         console.log("Route:Voter:vote");
-        console.log(req.user.voted);
-        console.log(typeof req.body.team_id);
-        if(req.user.voted){
-            if(JSON.parse(req.user.voted) instanceof Array){
-                if(JSON.parse(req.user.voted).indexOf(req.body.team_id)> -1){
+       
+        teamService.getTeamById(req.body.team_id).then(data=>{
+            console.log(data);
+            if(team.votes){
+                if(JSON.parse(team.votes).indexOf(req.user.id) != -1){
                     res.redirect("/team");
                 }
-                else
-                {
+                else{
                     voterController.vote(req,res,next);
                 }
             }
             else
             {
-               voterController.vote(req,res,next); 
+                voterController.vote(req,res,next);
             }
-        }
-        else
-        {
-            voterController.vote(req,res,next);
-        }
-        
+        })
     })
 
     router.route("/register").post((req,res,next)=>{

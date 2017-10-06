@@ -46,6 +46,14 @@ module.exports = app => {
         })
     }
 
+    function getTeamById(id){
+        return new Promise((resolve,reject)=>{
+            Team.getTeamById(id).then(data=>{
+                return resolve(data);
+            })
+        })
+    }
+
     function deleteAllTeams(){
         return new Promise((resolve,reject)=>{
             Team.deleteAllTeams().then(data=>{
@@ -131,6 +139,7 @@ module.exports = app => {
         getDeclinedTeams,
         getAcceptedTeams,
         updateTeamStatus,
-        getAllTeamsByStatus
+        getAllTeamsByStatus,
+        getTeamById
     }
 }

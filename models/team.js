@@ -400,6 +400,10 @@ module.exports = app => {
         })
     }
 
+    function getTeamById(id){
+        return Team.findById(id,{raw:true});
+    }
+
     return {
         Team,
         getTeam,
@@ -422,6 +426,7 @@ module.exports = app => {
         getTotalNumberOfMembers,
         getTeamsByPlace,
         getAllTeamsForReport,
-        getDownloadReportAllVotes
+        getDownloadReportAllVotes,
+        getTeamById
     };
 };
