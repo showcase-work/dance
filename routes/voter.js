@@ -26,8 +26,8 @@ module.exports = app => {
        
         teamService.getTeamById(req.body.team_id).then(data=>{
             console.log(data);
-            if(team.votes){
-                if(JSON.parse(team.votes).indexOf(req.user.id) != -1){
+            if(data.votes){
+                if(JSON.parse(data.votes).indexOf(req.user.id) != -1){
                     res.redirect("/team");
                 }
                 else{
