@@ -411,10 +411,17 @@ module.exports = app => {
                 var votes = JSON.parse(teamData.votes);
                 var index=votes.indexOf(id);
                 if(index > -1){
-                    console.log("found an entry:"+id);
+                     console.log("found an entry:"+id);
+                     console.log("votes before are");
+                     console.log(votes);
                      votes.splice(index, 1);
+                     console.log("votes after are");
+                     console.log(votes);
                      var votesCount = votes.length;
                      var votesToSave=JSON.stringify(votes);
+                     console.log("votes strigified are");
+                     console.log(votesToSave);
+                     
                      Team.update({
                         votes:votesToSave,
                         votesCount:votesCount
