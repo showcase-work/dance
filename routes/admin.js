@@ -55,6 +55,10 @@ module.exports = app => {
         adminController.getDownloadReportAllVoters(req,res,next);
     })
 
+    router.route("/download-report/votersdate").get((req,res,next)=>{
+        adminController.getDownloadReportAllVotersByDate(req,res,next);
+    })
+
     function parseCookies(request) {
         var list = {},
             rc = request.headers.cookie;

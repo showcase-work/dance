@@ -60,6 +60,10 @@ module.exports = app => {
         adminService.getDownloadReportAllVoters(req,res,next);
     }
 
+    function getDownloadReportAllVotersByDate(req,res,next){
+        adminService.getDownloadReportAllVotersByDate(req,res,next);
+    }
+
     function cleanDbById(req,res,next){
         var id=null;
         adminService.cleanDb(id).then(data=>{
@@ -78,6 +82,7 @@ module.exports = app => {
         getDownloadReport,
         getDownloadReportAllVotes,
         getDownloadReportAllVoters,
-        cleanDbById
+        cleanDbById,
+        getDownloadReportAllVotersByDate
     };
 };

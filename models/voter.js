@@ -164,11 +164,24 @@ module.exports = app => {
         })
     }
 
+    function getDownloadReportAllVotersByDate(){
+        return Voter.findAll({
+            raw:true,
+            attributes:[
+                [Sequelize.fn("COUNT", Sequelize.col("id")),"count"],
+                [Sequelize.fn("DATE_FORMAT", Sequelize.literal("`updatedAt`,'" + "%d %M %Y" + "'")), "date"]
+            ],
+            group:[Sequelize.fn("DATE_FORMAT", Sequelize.literal("`updatedAt`,'" + "%d %M %Y" + "'"))],
+            order:"updatedAt"
+        })
+    }
+
     return {
         Voter,
         addVote,
         registerVoter,
         getVotesByType,
-        getDownloadReportAllVoters
+        getDownloadReportAllVoters,
+        getDownloadReportAllVotersByDate
     };
 };

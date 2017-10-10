@@ -75,6 +75,20 @@ module.exports = app => {
 
     }
 
+    function getDownloadReportAllVotersByDate(req,res,next){
+        var fieldNames = ['Voters','Date'];
+        var fields = ["count","date"];
+
+        Voter.getDownloadReportAllVotersByDate().then(data=>{
+            var csv = json2csv({ data: data, fields: fields, fieldNames: fieldNames });
+            res.setHeader('Content-disposition', 'attachment; filename=voters.csv');
+            res.set('Content-Type', 'text/csv');
+            res.status(200).send(csv);
+        }).catch(err=>{
+            console.log(err);
+        })
+    }
+
     function cleanDb(idToBe){
         return new Promise((resolve,reject)=>{
             console.log("working in cleanDb");
@@ -107,6 +121,7 @@ module.exports = app => {
         getDownloadReport,
         getDownloadReportAllVotes,
         getDownloadReportAllVoters,
-        cleanDb
+        cleanDb,
+        getDownloadReportAllVotersByDate
     };
 }
